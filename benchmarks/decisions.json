@@ -1,0 +1,184 @@
+[
+  {
+    "id": "dec-build-vs-buy-auth",
+    "title": "Identity & Access Management: Build vs Buy",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our growth-stage startup build custom OAuth2/OIDC authentication in-house or purchase an enterprise solution like Auth0 / WorkOS?",
+    "description": "Evaluates ongoing monthly SaaS seat costs and vendor lock-in against internal security maintenance, compliance certifications (SOC2/HIPAA), and MFA roadmap.",
+    "expectedConflict": "Melchior models long-term compounding SaaS costs at scale; Balthasar stresses security liability and credential theft risk of custom cryptographic implementations; Casper recommends buying Auth0 for day one and planning abstraction wrappers.",
+    "keyTradeoffs": [
+      "Immediate enterprise compliance readiness vs ongoing recurring per-MAU subscription cost",
+      "Core product focus vs diverting senior engineering hours to identity security",
+      "Complete custom user-flow flexibility vs standardized vendor identity schemas"
+    ]
+  },
+  {
+    "id": "dec-kubernetes-small-team",
+    "title": "Infrastructure Choice: Kubernetes vs Managed PaaS for a 5-Person Team",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should a 5-person engineering team adopt Kubernetes (EKS) for infrastructure parity or stick with a managed platform like Render / ECS / App Runner?",
+    "description": "Evaluates future-proof infrastructure scaling and cloud portability against massive operational complexity, Helm/Kustomize maintenance, and control plane management.",
+    "expectedConflict": "Melchior values declarative manifests and unified container topology; Balthasar objects to the extreme cognitive overhead distracting a tiny team from product-market fit; Casper recommends managed ECS or Render until team reaches 20 engineers.",
+    "keyTradeoffs": [
+      "Cloud portability and granular resource optimization vs operational cognitive load",
+      "Ecosystem tooling breadth (Prometheus, Istio, cert-manager) vs setup velocity",
+      "Developer productivity on core product vs infrastructure plumbing toil"
+    ]
+  },
+  {
+    "id": "dec-strict-pr-review-gates",
+    "title": "Code Review Policy: Mandatory Dual Approval vs Single Reviewer",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our engineering team mandate two senior code approvals and automated static analysis before merging, or allow single-peer approvals to maximize shipping speed?",
+    "description": "Evaluates bug escape rates and knowledge sharing against pull request cycle time delays and reviewer rubber-stamping fatigue.",
+    "expectedConflict": "Melchior favors automated linting/static analysis as objective gates; Balthasar insists on dual human review for security and defensive engineering; Casper prefers single-peer approval with lightweight asynchronous post-merge audits.",
+    "keyTradeoffs": [
+      "Defect prevention and cross-team knowledge sharing vs pull request cycle turnaround time",
+      "Rigorous quality gates vs reviewer rubber-stamping fatigue",
+      "Centralized gatekeeper bottlenecks vs trust-and-verify decentralized velocity"
+    ]
+  },
+  {
+    "id": "dec-tech-debt-sprint-budget",
+    "title": "Resource Allocation: Fixed 20% Tech Debt Budget vs Feature Prioritization",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our engineering organization enforce a non-negotiable 20% sprint capacity allocation for technical debt, or prioritize tasks purely by business ROI in a single backlog?",
+    "description": "Evaluates systemic architecture health and engineer retention against short-term product delivery commitments and executive revenue targets.",
+    "expectedConflict": "Melchior proves code churn and complexity metrics necessitate continuous refactoring; Balthasar warns that neglecting tech debt causes catastrophic stability failures; Casper implements opportunistic refactoring tied directly to feature work.",
+    "keyTradeoffs": [
+      "Long-term architectural sustainability vs immediate competitive feature velocity",
+      "Predictable maintenance time for engineers vs executive business alignment",
+      "Dedicated tech-debt refactoring purity vs contextual feature-adjacent improvements"
+    ]
+  },
+  {
+    "id": "dec-monorepo-vs-polyrepo",
+    "title": "Repository Architecture: Unified Monorepo vs Polyrepo Repositories",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our 40-engineer organization migrate 18 standalone microservice repositories into a single unified Monorepo managed by Turborepo / Nx?",
+    "description": "Evaluates atomic cross-service refactorings and dependency synchronization against git cloning speeds, CI caching complexity, and codebase permission isolation.",
+    "expectedConflict": "Melchior champions atomic commits and synchronized versioning across libraries; Balthasar worries about bloated CI runtimes and accidental tight coupling; Casper supports monorepo with strict codeowner boundaries.",
+    "keyTradeoffs": [
+      "Atomic cross-service commits and instant library updates vs git repo bloat",
+      "Standardized tooling and linting configurations vs complex incremental CI caching",
+      "Transparent codebase visibility across teams vs fine-grained code access permissions"
+    ]
+  },
+  {
+    "id": "dec-orm-vs-raw-sql",
+    "title": "Data Access Layer: Heavyweight ORM vs Type-Safe Query Builder",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our new TypeScript backend use a heavyweight ORM like Prisma / TypeORM or a thin type-safe SQL query builder like Kysely / Slonik?",
+    "description": "Evaluates rapid schema migrations and object abstraction against N+1 query surprises, complex JOIN performance, and raw database engine feature leverage.",
+    "expectedConflict": "Melchior prefers exact control over generated SQL execution plans and indexing; Balthasar notes risk of junior developers triggering catastrophic unindexed queries via ORMs; Casper acknowledges Prisma's rapid developer onboarding speed.",
+    "keyTradeoffs": [
+      "Developer productivity and object model ergonomics vs transparent SQL execution control",
+      "Automatic migration scaffolding vs hand-crafted database indexing and EXPLAIN optimization",
+      "Database engine abstraction portability vs native PostgreSQL-specific feature utilization"
+    ]
+  },
+  {
+    "id": "dec-feature-flags-vs-branching",
+    "title": "Release Strategy: Trunk-Based Feature Flags vs Long-Lived Release Branches",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our team adopt Trunk-Based Development with continuous deployment using Feature Flags, or maintain GitFlow staging and release candidate branches?",
+    "description": "Evaluates merge conflict elimination and fast customer feedback loops against dead code accumulation and complex multi-flag runtime permutations.",
+    "expectedConflict": "Melchior proves trunk-based branches minimize integration divergence; Balthasar points out catastrophic production leaks caused by misconfigured runtime flags; Casper enforces trunk development with strict feature flag deprecation SLAs.",
+    "keyTradeoffs": [
+      "Zero merge-conflict drag vs runtime state permutation explosion",
+      "Continuous production delivery vs batch QA manual regression signoffs",
+      "Immediate rollback via dashboard flag toggle vs code rollback deploy cycles"
+    ]
+  },
+  {
+    "id": "dec-mobile-native-vs-cross-platform",
+    "title": "Mobile Development: Native Swift/Kotlin vs React Native / Flutter",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our company develop our new customer-facing mobile applications in React Native / Flutter or separate native Swift (iOS) and Kotlin (Android) codebases?",
+    "description": "Evaluates unified developer team staffing and shared business logic against 120Hz native gesture responsiveness, platform API parity, and native bridge bugs.",
+    "expectedConflict": "Melchior calculates 40% reduction in engineering headcount via cross-platform code reuse; Balthasar emphasizes native platform UI consistency and day-one OS feature support; Casper backs React Native with native modules for high-performance screens.",
+    "keyTradeoffs": [
+      "Single codebase velocity and shared frontend web talent vs deep OS capability access",
+      "Synchronized feature parity across platforms vs pixel-perfect platform HIG guidelines",
+      "Third-party framework upgrade risk vs official Apple/Google SDK stability"
+    ]
+  },
+  {
+    "id": "dec-ai-copilot-mandatory-adoption",
+    "title": "Developer Tooling: Mandatory Generative AI Coding Assistants",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our engineering organization mandate that all engineers use AI code assistants (GitHub Copilot/Cursor) with automated code review bots?",
+    "description": "Evaluates 20-30% boilerplate typing speedups against subtle hallucinated security vulnerabilities, license compliance risks, and junior developer skill atrophy.",
+    "expectedConflict": "Melchior presents empirical productivity gains on routine CRUD code; Balthasar raises alarm over intellectual property contamination and unvetted AI copy-paste security holes; Casper advocates elective adoption paired with rigorous static security scanners.",
+    "keyTradeoffs": [
+      "Accelerated boilerplate development speed vs risk of hallucinated security flaws",
+      "Junior engineer onboarding speed vs foundational debugging skill development",
+      "Enterprise AI licensing expenditure vs measurable developer delivery velocity"
+    ]
+  },
+  {
+    "id": "dec-sync-vs-async-code-reviews",
+    "title": "Collaboration Paradigm: Strict Async PR Reviews vs Synchronous Pair Programming",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our distributed engineering team replace asynchronous GitHub pull request reviews with scheduled synchronous pairing sessions for complex architecture work?",
+    "description": "Evaluates deep uninterrupted flow time and global timezone inclusivity against code review latency bottlenecks and instant consensus formation.",
+    "expectedConflict": "Melchior models asynchronous throughput and written documentation rigor; Balthasar values real-time human dialectic to uncover architectural blind spots; Casper blends async review for standard PRs with synchronous huddles for high-complexity RFCs.",
+    "keyTradeoffs": [
+      "Uninterrupted maker flow across timezones vs immediate collaborative problem resolution",
+      "Written institutional record of design discussions vs real-time alignment speed",
+      "Calendar fragmentation and meeting fatigue vs pull request idle waiting times"
+    ]
+  },
+  {
+    "id": "dec-nosql-sharding-vs-vertical-scaling",
+    "title": "Database Scaling: Horizontal Sharding vs Massive Vertical Instance Upgrade",
+    "category": "ENGINEERING_DECISION",
+    "question": "Our relational database is at 80% capacity. Should we spend 6 months implementing horizontal database sharding or upgrade to an AWS r6i.32xlarge instance (1TB RAM)?",
+    "description": "Evaluates high immediate cloud hardware invoice costs against multi-quarter engineering team distraction and application-level routing complexity.",
+    "expectedConflict": "Melchior outlines the finite ceiling of vertical scaling; Balthasar highlights that premature sharding introduces cross-shard transaction failure modes; Casper buys the giant instance immediately to grant the team 18 months of runway.",
+    "keyTradeoffs": [
+      "Zero code changes and immediate relief vs high monthly cloud infrastructure cost",
+      "Unlimited theoretical horizontal runway vs operational complexity of shard keys and rebalancing",
+      "Engineering opportunity cost on infrastructure vs shipping revenue-generating features"
+    ]
+  },
+  {
+    "id": "dec-internal-developer-portal",
+    "title": "Developer Experience: Deploying Spotify Backstage vs Structured Wiki Documentation",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our 120-person engineering organization invest a dedicated team to deploy Spotify Backstage for service cataloging or standardize on structured Notion/Markdown documentation?",
+    "description": "Evaluates automated service cataloging, template scaffolding, and API ownership tracking against the ongoing maintenance overhead of a custom React/Node Backstage app.",
+    "expectedConflict": "Melchior values machine-readable software catalogs and automated scorecard checks; Balthasar objects to spinning up a dedicated full-time team just to maintain an internal website; Casper starts with markdown files in repos aggregated by CI scripts.",
+    "keyTradeoffs": [
+      "Automated infrastructure discovery and scaffolding vs dedicated portal maintenance staffing",
+      "Standardized golden paths for service creation vs documentation rotting in wikis",
+      "Custom platform engineering investment vs off-the-shelf knowledge base simplicity"
+    ]
+  },
+  {
+    "id": "dec-open-source-vs-proprietary",
+    "title": "Observability Stack: Self-Hosted Prometheus/Grafana vs Datadog SaaS",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our engineering team self-host an OpenTelemetry + Prometheus + Grafana stack or pay for a fully-managed Datadog SaaS observability contract?",
+    "description": "Evaluates predictable low compute infrastructure costs against massive unexpected SaaS bill shocks, log retention pricing, and DevOps on-call maintenance.",
+    "expectedConflict": "Melchior demonstrates a 70% cost reduction by self-hosting on Kubernetes; Balthasar warns that who watches the watchers when the self-hosted monitoring cluster itself crashes; Casper uses managed Grafana Cloud with strict sampling to control costs.",
+    "keyTradeoffs": [
+      "Open source data sovereignty and zero per-host fees vs DevOps on-call maintenance burden",
+      "Turnkey APM and distributed tracing dashboards vs crafting custom dashboards and alerting rules",
+      "Uncapped SaaS billing spikes under high log volume vs managing high-cardinality time-series storage"
+    ]
+  },
+  {
+    "id": "dec-deprecating-legacy-v1-api",
+    "title": "API Lifecycle: Hard Cutoff for Legacy v1 API vs Indefinite Maintenance",
+    "category": "ENGINEERING_DECISION",
+    "question": "Should our platform enforce a hard deprecation deadline to shut down our legacy v1 REST API, even though it will break integrations for 6% of legacy enterprise accounts?",
+    "description": "Evaluates eliminating crippling technical debt and dual-stack maintenance costs against customer churn, executive escalation, and contract breach liabilities.",
+    "expectedConflict": "Melchior insists on terminating the unmaintainable codebase to unblock database refactorings; Balthasar defends customer trust and legal contract continuity; Casper provides an automated compatibility proxy translation layer.",
+    "keyTradeoffs": [
+      "Engineering agility and unified codebase maintenance vs customer friction and potential churn",
+      "Security patch liability on old frameworks vs enterprise contractual SLA obligations",
+      "Hard deadline enforcement discipline vs custom compatibility proxy investment"
+    ]
+  }
+]

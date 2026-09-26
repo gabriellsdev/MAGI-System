@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGI SYSTEM</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Teko:wght@500;700&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+  <!-- VERCEL ANALYTICS & SPEED INSIGHTS (Active only on deployed environments) -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' && !window.location.hostname.startsWith('192.168.')) {
+      const s1 = document.createElement('script');
+      s1.defer = true;
+      s1.src = '/_vercel/insights/script.js';
+      document.head.appendChild(s1);
+      const s2 = document.createElement('script');
+      s2.defer = true;
+      s2.src = '/_vercel/speed-insights/script.js';
+      document.head.appendChild(s2);
+    }
+  </script>
+</head>
+<body class="magi-body">
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- MAIN HUD WRAPPER -->
+  <div class="hud-container">
+    
+    <!-- TOP HEADER -->
+    <header class="hud-header">
+      <div class="logo-group">
+        <div class="magi-mark">MAGI</div>
+        <div class="logo-subtext">
+          <span class="system-code">NERV-01 // DELIBERATION ENGINE</span>
+          <span class="system-sub">SUPERCOMPUTER TRI-SYSTEM V4.6</span>
+        </div>
+      </div>
+
+      <div class="hud-controls">
+        <!-- PRIMARY MODE SWITCHER: COMMAND CENTER (Default) vs ANIME MAGI (LEGACY) -->
+        <div class="control-item">
+          <label>MODE:</label>
+          <div class="view-switch-group">
+            <button type="button" id="btn-mode-command" class="view-toggle-btn active" title="V4.6 Modern Command Center">COMMAND CENTER</button>
+            <button type="button" id="btn-mode-legacy" class="view-toggle-btn" title="Original 1:1 Evangelion NERV Anime Interface">ANIME MAGI (LEGACY)</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <label for="lang-select" id="lbl-ctrl-lang">LANG:</label>
+          <select id="lang-select" class="hud-select">
+            <option value="en" selected>ENGLISH</option>
+            <option value="pt">PORTUGUÊS</option>
+            <option value="es">ESPAÑOL</option>
+            <option value="fr">FRANÇAIS</option>
+            <option value="de">DEUTSCH</option>
+            <option value="ru">РУССКИЙ</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+
+        <div class="control-item" id="engine-control-item">
+          <label for="mode-toggle" id="lbl-ctrl-engine">ENGINE:</label>
+          <select id="mode-toggle" class="hud-select">
+            <option value="mock">MOCK FIXTURES</option>
+            <option value="groq-free">PRODUCTION CORE</option>
+          </select>
+          <span id="engine-locked-badge" class="hud-locked-badge hidden" title="Model and engine are locked by the repository owner. Only the site operator can configure models.">[OPERATOR FIXED]</span>
+        </div>
+
+        <!-- ENGINE STATUS CHIPS (Visible strictly to operator) -->
+        <div class="control-item status-chips-group hidden" id="status-chips-group">
+          <span id="groq-status-chip" class="status-chip checking" title="Groq Cloud API Status">GROQ: CHECKING...</span>
+          <span id="gemini-status-chip" class="status-chip checking" title="Gemini Cloud API Status">GEMINI: CHECKING...</span>
+        </div>
+
+        <!-- TOOLS MENU DROPDOWN (Contains Tactical, Diagnostic, Audio, Fullscreen, Storage, Fast Mode, Operator) -->
+        <div class="control-item tools-dropdown-container">
+          <button type="button" id="tools-menu-btn" class="hud-btn-tools" title="Advanced Views and Tools">TOOLS ▾</button>
+          <div id="tools-dropdown-menu" class="tools-dropdown-menu hidden">
+            <div class="tools-dropdown-header">ADVANCED ANALYSIS</div>
+            <button type="button" id="compare-btn" class="tools-item-btn">COMPARE VS SINGLE MODEL</button>
+            <button type="button" id="benchmark-btn" class="tools-item-btn">RUN BENCHMARK SUITE</button>
+            <button type="button" id="copy-ascii-btn" class="tools-item-btn">COPY ASCII DIAGRAM</button>
+            <button type="button" id="tools-json-modal-btn" class="tools-item-btn">VIEW STRUCTURED JSON</button>
+
+            <div class="tools-dropdown-divider"></div>
+            <div class="tools-dropdown-header">PERSISTENCE &amp; STORAGE</div>
+            <button type="button" id="storage-modal-btn" class="tools-item-btn">JSON STORAGE &amp; DRIVE BACKUP</button>
+
+            <div class="tools-dropdown-divider"></div>
+            <div class="tools-dropdown-header">OPERATING VIEWS</div>
+            <button type="button" id="btn-view-diagnostic" class="tools-item-btn">COMMAND CENTER DECK</button>
+            <button type="button" id="btn-view-tactical" class="tools-item-btn">TACTICAL CONSENSUS GRAPH</button>
+            <button type="button" id="btn-view-anime" class="tools-item-btn">ANIME MAGI MONITOR</button>
+
+            <div class="tools-dropdown-divider"></div>
+            <div class="tools-dropdown-header">UTILITIES &amp; DISPLAY</div>
+            <button type="button" id="audio-toggle-btn" class="tools-item-btn active">AUDIO: ON</button>
+            <button type="button" id="fullscreen-btn" class="tools-item-btn">FULLSCREEN ⛶</button>
+            <div class="tools-dropdown-divider"></div>
+            <div class="tools-dropdown-header">CLEARANCE &amp; CONTROL</div>
+            <button type="button" id="operator-unlock-btn" class="tools-item-btn" title="Open Operator Cockpit Console">OPERATOR CONSOLE [LOCKED]</button>
+          </div>
+        </div>
+
+        <!-- FAST MODE TOGGLE BUTTON (Right after Tools Dropdown) -->
+        <div class="control-item">
+          <button type="button" id="fast-mode-toggle-btn" class="hud-btn-fast-mode" title="Toggle Deliberation Strategy (Full 7-Request vs Fast 1-Request)">
+            <span id="fast-mode-label" class="fast-mode-label">FULL DELIBERATION</span>
+            <span id="fast-mode-sub" class="fast-mode-sub">7 REQ · CROSS-CRITIQUE</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <!-- ========================================================= -->
+    <!-- VIEW 0: ANIME MAGI (1:1 NERV SUPERCOMPUTER INTERFACE)     -->
+    <!-- ========================================================= -->
+    <section id="anime-view" class="anime-view-container hidden">
+      <div class="anime-crt-monitor">
+        
+        <!-- Top Hazard Stripe -->
+        <div class="hazard-stripe top-hazard"></div>
+        
+        <!-- Main CRT Frame -->
+        <div class="anime-frame-inner">
+          
+          <!-- Top Bar: Left (質問 & Telemetry) | Right (解決 & Consensus Stamp) -->
+          <div class="anime-top-grid">
+            
+            <!-- Left Block: 質 問 & Telemetry -->
+            <div class="anime-telemetry-left">
+              <div class="anime-kanji-title">質 問</div>
+              <div class="anime-green-lines">
+                <div class="green-line"></div>
+                <div class="green-line"></div>
+              </div>
+              <div class="anime-code-block">
+                <div class="anime-code-row code-main">CODE : <span id="anime-code-val">473</span></div>
+                <div class="anime-code-sub">
+                  <div>FILE:MAGI_SYS</div>
+                  <div>EXTENSION:7312</div>
+                  <div>EX_MODE:<span id="anime-ex-mode">OFF</span></div>
+                  <div>PRIORITY:AAA</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Block: 解 決 & Consensus Stamp -->
+            <div class="anime-telemetry-right">
+              <div class="anime-kanji-title">解 決</div>
+              <div class="anime-green-lines">
+                <div class="green-line"></div>
+                <div class="green-line"></div>
+              </div>
+              <div class="anime-stamp-container">
+                <div class="anime-stamp-box stamp-standby" id="anime-consensus-stamp">
+                  <span id="anime-stamp-text">待 機</span>
+                </div>
+                <div class="anime-resolution-label" id="anime-resolution-label">RESOLUTION: STANDBY</div>
+                <div class="anime-origin-tag mock" id="anime-origin-tag">MOCK DEMO</div>
+                <button type="button" id="anime-monitor-fullscreen-btn" class="anime-monitor-fs-btn" title="Expand MAGI Monitor to Fullscreen">⛶ EXPAND TERMINAL</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Center: The 3 Polygonal Triad Screens around Central MAGI Nexus -->
+          <div class="anime-triad-stage">
+            
+            <!-- Connecting Circuit Bus Lines -->
+            <div class="nexus-bus-line bus-top"></div>
+            <div class="nexus-bus-line bus-bottom-left"></div>
+            <div class="nexus-bus-line bus-bottom-right"></div>
+            <div class="nexus-bus-horizontal"></div>
+
+            <!-- TOP SCREEN: BALTHASAR • 2 -->
+            <div class="anime-screen-wrapper wrapper-balthasar">
+              <div class="anime-screen poly-balthasar state-standby" id="anime-screen-balthasar" data-agent="BALTHASAR">
+                <div class="anime-screen-inner">
+                  <div class="anime-agent-label">BALTHASAR • 2</div>
+                  <div class="anime-vote-text" id="anime-vote-balthasar">STANDBY</div>
+                  <div class="anime-conf-text" id="anime-conf-balthasar"></div>
+                </div>
+                <div class="anime-inspect-hint">[CLICK TO AUDIT]</div>
+              </div>
+            </div>
+
+            <!-- CENTRAL NEXUS: MAGI -->
+            <div class="anime-nexus-hub">
+              <div class="nexus-plaque" id="anime-nexus-magi">
+                <span>MAGI</span>
+              </div>
+            </div>
+
+            <!-- BOTTOM LEFT SCREEN: CASPER • 3 -->
+            <div class="anime-screen-wrapper wrapper-casper">
+              <div class="anime-screen poly-casper state-standby" id="anime-screen-casper" data-agent="CASPER">
+                <div class="anime-screen-inner">
+                  <div class="anime-agent-label">CASPER • 3</div>
+                  <div class="anime-vote-text" id="anime-vote-casper">STANDBY</div>
+                  <div class="anime-conf-text" id="anime-conf-casper"></div>
+                </div>
+                <div class="anime-inspect-hint">[CLICK TO AUDIT]</div>
+              </div>
+            </div>
+
+            <!-- BOTTOM RIGHT SCREEN: MELCHIOR • 1 -->
+            <div class="anime-screen-wrapper wrapper-melchior">
+              <div class="anime-screen poly-melchior state-standby" id="anime-screen-melchior" data-agent="MELCHIOR">
+                <div class="anime-screen-inner">
+                  <div class="anime-agent-label">MELCHIOR • 1</div>
+                  <div class="anime-vote-text" id="anime-vote-melchior">STANDBY</div>
+                  <div class="anime-conf-text" id="anime-conf-melchior"></div>
+                </div>
+                <div class="anime-inspect-hint">[CLICK TO AUDIT]</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Console Bar: Access Code, Question & Telemetry -->
+          <div class="anime-bottom-console">
+            <div class="anime-console-row">
+              <span class="console-label" id="lbl-access-code">access code:</span>
+              <span class="console-code-dots">********************************</span>
+            </div>
+            <div class="anime-console-row anime-console-question-row">
+              <span class="console-label" id="lbl-question">question:</span>
+              <form id="anime-question-form" class="anime-question-form">
+                <textarea
+                  id="anime-console-input"
+                  class="console-question-input"
+                  placeholder="TYPE YOUR QUESTION (ENTER OR CLICK EXECUTE, SHIFT+ENTER FOR NEW LINE)..."
+                  rows="1"
+                  autocomplete="off"
+                  required
+                >Should we migrate to Rust?</textarea>
+                <select id="anime-mock-query-select" class="anime-console-dropdown-select hidden" aria-label="Anime Curated Mock Dilemmas">
+                </select>
+                <button type="submit" id="anime-console-submit-btn" class="anime-console-submit-btn" title="Initiate Core Deliberation">
+                  EXECUTE [↵]
+                </button>
+              </form>
+            </div>
+            <div class="anime-console-row">
+              <span class="console-label" id="lbl-telemetry">telemetry:</span>
+              <span class="console-telemetry-val" id="anime-telemetry-tokens" style="letter-spacing: 1px; color: #aae0ff; font-size: 0.85rem;">TOKENS: -- | EST. COST: --</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Hazard Stripe -->
+        <div class="hazard-stripe bottom-hazard"></div>
+
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- ANIME INTER-CORE DEBATE CHAT & DELIBERATION HISTORY LOG   -->
+      <!-- ========================================================= -->
+      <div class="anime-chat-wrapper" id="anime-chat-wrapper">
+        <div class="anime-chat-header">
+          <div class="anime-chat-title-group">
+            <span class="anime-chat-status-led" id="anime-chat-led"></span>
+            <span class="anime-chat-title" id="lbl-chat-title">MAGI INTER-CORE LOG // CHAT &amp; DEBATE HISTORY</span>
+            <span class="anime-chat-counter" id="anime-chat-counter">0 MSGS</span>
+          </div>
+          <div class="anime-chat-actions">
+            <button type="button" id="anime-chat-clear-btn" class="anime-chat-btn" title="Clear session history">CLEAR</button>
+            <button type="button" id="anime-chat-toggle-btn" class="anime-chat-btn anime-chat-toggle" title="Hide or Show Chat">HIDE CHAT ▲</button>
+          </div>
+        </div>
+
+        <div class="anime-chat-body" id="anime-chat-body">
+          <div class="anime-chat-messages" id="anime-chat-messages">
+            <div class="anime-chat-system-msg" id="anime-chat-system-msg">
+              <span class="system-bracket">[SYSTEM]</span> MAGI INTER-CORE COMMUNICATION BUS ONLINE. AWAITING OPERATOR DIRECTIVES...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- VIEW 1: TACTICAL TERMINAL VIEW (MINIMALIST NERV BOX)      -->
+    <!-- ========================================================= -->
+    <section id="tactical-view" class="tactical-view-container hidden">
+      <div class="tactical-box-frame">
+        
+        <!-- FRAME HEADER -->
+        <div class="tactical-frame-header">
+          <span class="box-corner">┌</span>
+          <span class="box-line-h"></span>
+          <span class="tactical-frame-title">MAGI SYSTEM</span>
+          <span class="box-line-h"></span>
+          <span class="box-corner">┐</span>
+        </div>
+
+        <div class="tactical-frame-content">
+          <!-- QUERY TERMINAL DISPLAY -->
+          <div class="tactical-query-group">
+            <div class="tactical-query-label">QUERY</div>
+            <div class="tactical-query-box" id="tactical-query-display">
+              Should we migrate to Rust?
+            </div>
+          </div>
+
+          <!-- TRIAD AGENT CARDS ROW -->
+          <div class="tactical-triad-grid">
+            
+            <!-- MELCHIOR -->
+            <div class="tactical-card melchior" id="tactical-card-melchior" data-agent="MELCHIOR">
+              <div class="tactical-card-header">
+                <div class="tactical-card-name">MELCHIOR</div>
+                <div class="tactical-card-role">ANALYSIS</div>
+              </div>
+              <div class="tactical-card-body">
+                <div class="tactical-stance-badge STANDBY" id="tactical-stance-melchior">STANDBY</div>
+                <div class="tactical-conf-metric" id="tactical-conf-melchior">--%</div>
+              </div>
+              <div class="tactical-inspect-tag">[CLICK TO INSPECT]</div>
+            </div>
+
+            <!-- BALTHASAR -->
+            <div class="tactical-card balthasar" id="tactical-card-balthasar" data-agent="BALTHASAR">
+              <div class="tactical-card-header">
+                <div class="tactical-card-name">BALTHASAR</div>
+                <div class="tactical-card-role">CRITIQUE</div>
+              </div>
+              <div class="tactical-card-body">
+                <div class="tactical-stance-badge STANDBY" id="tactical-stance-balthasar">STANDBY</div>
+                <div class="tactical-conf-metric" id="tactical-conf-balthasar">--%</div>
+              </div>
+              <div class="tactical-inspect-tag">[CLICK TO INSPECT]</div>
+            </div>
+
+            <!-- CASPER -->
+            <div class="tactical-card casper" id="tactical-card-casper" data-agent="CASPER">
+              <div class="tactical-card-header">
+                <div class="tactical-card-name">CASPER</div>
+                <div class="tactical-card-role">ALTERNATIVE</div>
+              </div>
+              <div class="tactical-card-body">
+                <div class="tactical-stance-badge STANDBY" id="tactical-stance-casper">STANDBY</div>
+                <div class="tactical-conf-metric" id="tactical-conf-casper">--%</div>
+              </div>
+              <div class="tactical-inspect-tag">[CLICK TO INSPECT]</div>
+            </div>
+
+          </div>
+
+          <!-- DELIBERATION FLOW ARROWS -->
+          <div class="tactical-flow-container">
+            <div class="tactical-arrow" id="tactical-arrow-1">↓</div>
+            <div class="tactical-flow-status" id="tactical-flow-status">DELIBERATION</div>
+            <div class="tactical-arrow" id="tactical-arrow-2">↓</div>
+          </div>
+
+          <!-- MAGI CORE ARBITRATION BLOCK -->
+          <div class="tactical-core-box" id="tactical-core-box">
+            <div class="tactical-core-header">
+              <span>MAGI CORE</span>
+              <span class="origin-badge mock tactical-origin-tag" id="tactical-origin-badge">MOCK DEMONSTRATION</span>
+            </div>
+            <div class="tactical-core-decision-line" id="tactical-core-decision-line">
+              <span class="tactical-decision-text" id="tactical-core-decision">STANDBY</span>
+              <span class="tactical-decision-sep">—</span>
+              <span class="tactical-decision-conf" id="tactical-core-conf">--%</span>
+            </div>
+            <div class="tactical-core-verdict-text" id="tactical-core-verdict">
+              Submit a query to initiate tri-system consensus arbitration.
+            </div>
+            <div id="tactical-core-minority-alert" class="tactical-minority-badge hidden" style="margin-top: 0.5rem; font-size: 0.75rem; color: #ffaa00; border-top: 1px dashed rgba(255, 170, 0, 0.4); padding-top: 0.4rem;">
+              <span id="tactical-minority-text">[MINORITY REPORT PRESERVED]</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FRAME FOOTER -->
+        <div class="tactical-frame-footer">
+          <span class="box-corner">└</span>
+          <span class="box-line-h"></span>
+          <span class="box-corner">┘</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- VIEW 2: COMMAND CENTER / CYBER-DECK                       -->
+    <!-- ========================================================= -->
+    <div id="diagnostic-view" class="diagnostic-view-container">
+      <!-- QUERY INPUT SECTION -->
+    <section class="query-section" id="query-section">
+      <div class="terminal-bar">
+        <div class="terminal-bar-left">
+          <span class="prompt-symbol">&gt;&gt;&gt;</span>
+          <span class="terminal-title" id="lbl-terminal-title">QUERY CHAT</span>
+        </div>
+        <button type="button" id="query-toggle-btn" class="query-toggle-btn" title="Minimize / Expand Query Console">COLLAPSE CONSOLE ▼</button>
+      </div>
+
+      <form id="magi-form" class="query-form">
+        <div class="input-container">
+          <textarea 
+            id="query-input" 
+            class="magi-textarea" 
+            rows="2" 
+            placeholder="Type your question here (e.g. Should we migrate our backend from Node.js to Rust?)" 
+            required></textarea>
+          <div id="mock-dropdown-container" class="mock-dropdown-container hidden">
+            <div class="dropdown-badge-bar">
+              <span class="dropdown-mode-tag">[MODE: MOCK FIXTURES] // ZERO TOKEN COST</span>
+              <span class="dropdown-hint-tag" id="lbl-dropdown-hint">SELECT A CURATED DILEMMA BELOW:</span>
+            </div>
+            <select id="mock-query-select" class="magi-dropdown-select" aria-label="Curated Mock Dilemmas">
+            </select>
+          </div>
+        </div>
+
+        <div class="query-actions">
+          <div class="quick-pills">
+            <span class="pill-label" id="lbl-presets">PRESETS:</span>
+            <button type="button" id="preset-btn-1" class="preset-pill highlight-pill" data-query="How effective would a Magi supercomputer run society actually be?">Evangelion Society?</button>
+            <button type="button" id="preset-btn-2" class="preset-pill" data-query="Should we migrate to Rust?">Rust Rewrite?</button>
+            <button type="button" id="preset-btn-3" class="preset-pill" data-query="Should our engineering organization migrate to microservices?">Microservices?</button>
+            <button type="button" id="preset-btn-4" class="preset-pill" data-query="Should we adopt automated continuous delivery pipelines?">CI/CD Pipeline?</button>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="query-demo-btn" class="hud-btn-demo" title="Load preconfigured demonstration without API cost">LOAD DEMO DELIBERATION</button>
+            <button type="button" id="copy-ascii-btn" class="hud-btn ascii-btn" title="Copy ASCII diagram of deliberation">COPY ASCII</button>
+            <button type="button" id="compare-btn" class="hud-btn compare-btn">COMPARE VS SINGLE MODEL</button>
+            <button type="button" id="benchmark-btn" class="hud-btn benchmark-btn">RUN BENCHMARK</button>
+            <button type="submit" id="submit-btn" class="execute-btn">
+              <span class="btn-text">DELIBERATE [STREAM]</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+      
+      <!-- DELIBERATION STATUS & STEPPER -->
+      <section id="deliberation-timeline" class="timeline-section hidden">
+        <div class="timeline-label">DELIBERATION TRAJECTORY (LIVE STREAM)</div>
+        <div class="stepper-track">
+          <div class="step-item" id="step-r0">
+            <div class="step-num">00</div>
+            <div class="step-desc">ROUND 0<br><span>INDEPENDENT</span></div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-gate1">
+            <div class="step-num">--</div>
+            <div class="step-desc">CHECK 1<br><span>STANCE DELTA</span></div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-r1">
+            <div class="step-num">01</div>
+            <div class="step-desc">ROUND 1<br><span>PEER CRITIQUE</span></div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-gate2">
+            <div class="step-num">--</div>
+            <div class="step-desc">CHECK 2<br><span>CONVERGENCE</span></div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-r2">
+            <div class="step-num">02</div>
+            <div class="step-desc">ROUND 2<br><span>FINAL REBUTTAL</span></div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-core">
+            <div class="step-num">CORE</div>
+            <div class="step-desc">SYNTHESIS<br><span>ARBITRATION</span></div>
+          </div>
+        </div>
+        <div id="timeline-status-msg" class="timeline-status">CALCULATING PROBABILITIES...</div>
+      </section>
+
+      <!-- MAGI CORE VERDICT SECTION (PROMINENT SYNTHESIS) -->
+      <section class="core-section hidden" id="magi-core-section">
+        <div class="core-header">
+          <div class="core-title-group">
+            <span class="core-symbol">▲</span>
+            <span class="core-title">MAGI CORE ARBITRATION &amp; SYNTHESIS</span>
+          </div>
+          <div class="core-header-badges">
+            <span class="origin-badge mock" id="core-origin-badge">MOCK DEMONSTRATION</span>
+            <div class="decision-badge" id="core-decision-badge">PENDING</div>
+          </div>
+        </div>
+
+        <div id="core-epistemic-halt-banner" class="hidden" style="background: rgba(255, 50, 50, 0.15); border: 1px solid #ff3333; color: #ff5555; padding: 0.6rem; margin-bottom: 0.8rem; font-weight: bold; font-size: 0.82rem; letter-spacing: 0.05em; border-radius: 4px;">
+          [EPISTEMIC_HALT] AUTONOMOUS CLEARANCE REFUSED — ONE-WAY DOOR WITH UNRESOLVED DISSENT &amp; SPECULATIVE EVIDENCE. HUMAN ESCALATION MANDATED.
+        </div>
+
+        <div class="core-verdict-banner" id="core-verdict-banner">
+          <span class="verdict-tag">CORE VERDICT:</span>
+          <div class="verdict-statement" id="core-verdict-text">--</div>
+        </div>
+
+        <!-- QUALITY SCORES & FACTORS -->
+        <div class="core-grid">
+          <div class="core-col">
+            <div class="section-title">ARGUMENT QUALITY RATINGS (1 - 10)</div>
+            <div class="score-row">
+              <span class="score-name melchior-text">MELCHIOR-1:</span>
+              <div class="score-bar-track">
+                <div class="score-bar-fill melchior-fill" id="score-bar-melchior" style="width: 0%"></div>
+              </div>
+              <span class="score-num" id="score-val-melchior">--/10</span>
+            </div>
+            <div class="score-row">
+              <span class="score-name balthasar-text">BALTHASAR-2:</span>
+              <div class="score-bar-track">
+                <div class="score-bar-fill balthasar-fill" id="score-bar-balthasar" style="width: 0%"></div>
+              </div>
+              <span class="score-num" id="score-val-balthasar">--/10</span>
+            </div>
+            <div class="score-row">
+              <span class="score-name casper-text">CASPER-3:</span>
+              <div class="score-bar-track">
+                <div class="score-bar-fill casper-fill" id="score-bar-casper" style="width: 0%"></div>
+              </div>
+              <span class="score-num" id="score-val-casper">--/10</span>
+            </div>
+
+            <div class="section-title" style="margin-top: 1.2rem;">DECISIVE FACTORS</div>
+            <ul class="bullet-list" id="core-decisive-factors">
+              <li>--</li>
+            </ul>
+
+            <div class="section-title" style="margin-top: 1.2rem;">DECISION RISK METRICS</div>
+            <div class="metrics-grid" id="core-metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem; font-size: 0.75rem; margin-top: 0.4rem;">
+              <div class="meta-pill" id="metric-confidence">CONFIDENCE: --%</div>
+              <div class="meta-pill" id="metric-dissent">DISSENT: --%</div>
+              <div class="meta-pill" id="metric-reversibility">REVERSIBILITY: --%</div>
+              <div class="meta-pill" id="metric-risk">RISK: --%</div>
+              <div class="meta-pill" id="metric-evidence" style="grid-column: span 2;">EVIDENCE QUALITY: --/10</div>
+            </div>
+          </div>
+
+          <div class="core-col">
+            <div class="section-title">EXECUTIVE SYNTHESIS SUMMARY</div>
+            <p class="summary-text" id="core-synthesis-summary">--</p>
+
+            <div class="section-title" style="margin-top: 1.2rem;">DISSENTING OPINIONS ARCHIVE</div>
+            <ul class="bullet-list risk-list" id="core-dissenting-list">
+              <li>None recorded.</li>
+            </ul>
+
+            <div class="section-title" style="margin-top: 1.2rem;">MINORITY REPORT &amp; REVERSAL CONDITIONS</div>
+            <div id="core-minority-container" style="background: rgba(255, 140, 0, 0.06); border-left: 3px solid #ffaa00; padding: 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+              <div style="font-weight: bold; color: #ffaa00; margin-bottom: 0.3rem;" id="core-minority-dissent-agent">DISSENTING PERSPECTIVE: NONE</div>
+              <p style="margin: 0 0 0.4rem 0; color: var(--text-main); font-size: 0.8rem;" id="core-minority-concern">No active dissent recorded.</p>
+              <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.2rem;">REVERSAL CONDITIONS:</div>
+              <ul class="bullet-list" id="core-minority-reversal-list" style="margin: 0 0 0.5rem 0; padding-left: 1.1rem; font-size: 0.78rem;">
+                <li>None</li>
+              </ul>
+              <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.2rem;">OPERATIONAL REVERSAL CONTRACTS:</div>
+              <div id="core-minority-contracts-list" style="display: flex; flex-direction: column; gap: 0.3rem;">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- METADATA FOOTER -->
+        <div class="core-meta-footer">
+          <div class="meta-pills" id="core-metadata-pills">
+            <span class="meta-pill" id="meta-duration">DURATION: -- ms</span>
+            <span class="meta-pill" id="meta-rounds">ROUNDS: --</span>
+            <span class="meta-pill" id="meta-model">MODEL: --</span>
+            <span class="meta-pill" id="meta-lang">LANG: --</span>
+            <span class="meta-pill" id="meta-tokens">TOKENS: --</span>
+            <span class="meta-pill" id="meta-cost">EST. COST: --</span>
+          </div>
+          <button type="button" class="json-toggle-btn" id="json-modal-btn">VIEW RAW JSON</button>
+        </div>
+      </section>
+
+      <!-- THREE AGENT PANELS (THE MAGI TRIAD) -->
+      <main class="agents-grid">
+        
+        <!-- MELCHIOR-1 (SCIENTIFIC / LOGIC) -->
+        <article class="agent-panel melchior" id="panel-melchior">
+          <div class="panel-header">
+            <div class="agent-id-group">
+              <span class="stream-beacon" id="beacon-melchior"></span>
+              <div class="agent-id">MELCHIOR-1</div>
+            </div>
+            <div class="agent-role">ANALYTICAL REASONING</div>
+            <div class="round-tabs" id="tabs-melchior">
+              <button type="button" class="tab-btn active" data-round="0">R0</button>
+              <button type="button" class="tab-btn" data-round="1">R1</button>
+              <button type="button" class="tab-btn" data-round="2">R2</button>
+            </div>
+          </div>
+
+          <div class="agent-stance-bar">
+            <div class="stance-badge" id="melchior-stance">STANDBY</div>
+            <div class="confidence-box">
+              <span class="conf-label">CONFIDENCE:</span>
+              <span class="conf-val" id="melchior-conf">--%</span>
+              <div class="conf-meter-track">
+                <div class="conf-meter-fill" id="melchior-meter" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-content" id="melchior-content">
+            <div class="section-title">SUMMARY</div>
+            <p class="summary-text" id="melchior-summary">Awaiting query submission...</p>
+
+            <div class="section-title">KEY ARGUMENTS</div>
+            <ul class="bullet-list" id="melchior-arguments">
+              <li>System idle.</li>
+            </ul>
+
+            <div class="section-title">IDENTIFIED RISKS</div>
+            <ul class="bullet-list risk-list" id="melchior-risks">
+              <li>None noted.</li>
+            </ul>
+
+            <div class="peer-critiques-box hidden" id="melchior-critiques-box">
+              <div class="section-title">PEER CRITIQUES</div>
+              <div id="melchior-critiques"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- BALTHASAR-2 (CRITICAL / RISK) -->
+        <article class="agent-panel balthasar" id="panel-balthasar">
+          <div class="panel-header">
+            <div class="agent-id-group">
+              <span class="stream-beacon" id="beacon-balthasar"></span>
+              <div class="agent-id">BALTHASAR-2</div>
+            </div>
+            <div class="agent-role">CRITICAL REASONING &amp; RISK</div>
+            <div class="round-tabs" id="tabs-balthasar">
+              <button type="button" class="tab-btn active" data-round="0">R0</button>
+              <button type="button" class="tab-btn" data-round="1">R1</button>
+              <button type="button" class="tab-btn" data-round="2">R2</button>
+            </div>
+          </div>
+
+          <div class="agent-stance-bar">
+            <div class="stance-badge" id="balthasar-stance">STANDBY</div>
+            <div class="confidence-box">
+              <span class="conf-label">CONFIDENCE:</span>
+              <span class="conf-val" id="balthasar-conf">--%</span>
+              <div class="conf-meter-track">
+                <div class="conf-meter-fill" id="balthasar-meter" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-content" id="balthasar-content">
+            <div class="section-title">SUMMARY</div>
+            <p class="summary-text" id="balthasar-summary">Awaiting query submission...</p>
+
+            <div class="section-title">KEY ARGUMENTS</div>
+            <ul class="bullet-list" id="balthasar-arguments">
+              <li>System idle.</li>
+            </ul>
+
+            <div class="section-title">IDENTIFIED RISKS</div>
+            <ul class="bullet-list risk-list" id="balthasar-risks">
+              <li>None noted.</li>
+            </ul>
+
+            <div class="peer-critiques-box hidden" id="balthasar-critiques-box">
+              <div class="section-title">PEER CRITIQUES</div>
+              <div id="balthasar-critiques"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASPER-3 (LATERAL / PRAGMATIC) -->
+        <article class="agent-panel casper" id="panel-casper">
+          <div class="panel-header">
+            <div class="agent-id-group">
+              <span class="stream-beacon" id="beacon-casper"></span>
+              <div class="agent-id">CASPER-3</div>
+            </div>
+            <div class="agent-role">ALTERNATIVE &amp; PRAGMATIC</div>
+            <div class="round-tabs" id="tabs-casper">
+              <button type="button" class="tab-btn active" data-round="0">R0</button>
+              <button type="button" class="tab-btn" data-round="1">R1</button>
+              <button type="button" class="tab-btn" data-round="2">R2</button>
+            </div>
+          </div>
+
+          <div class="agent-stance-bar">
+            <div class="stance-badge" id="casper-stance">STANDBY</div>
+            <div class="confidence-box">
+              <span class="conf-label">CONFIDENCE:</span>
+              <span class="conf-val" id="casper-conf">--%</span>
+              <div class="conf-meter-track">
+                <div class="conf-meter-fill" id="casper-meter" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-content" id="casper-content">
+            <div class="section-title">SUMMARY</div>
+            <p class="summary-text" id="casper-summary">Awaiting query submission...</p>
+
+            <div class="section-title">KEY ARGUMENTS</div>
+            <ul class="bullet-list" id="casper-arguments">
+              <li>System idle.</li>
+            </ul>
+
+            <div class="section-title">IDENTIFIED RISKS</div>
+            <ul class="bullet-list risk-list" id="casper-risks">
+              <li>None noted.</li>
+            </ul>
+
+            <div class="peer-critiques-box hidden" id="casper-critiques-box">
+              <div class="section-title">PEER CRITIQUES</div>
+              <div id="casper-critiques"></div>
+            </div>
+          </div>
+        </article>
+
+      </main>
+
+      <!-- PRE-DELIBERATION INVESTIGATION BRIEF (V4) -->
+      <section id="investigation-section" class="investigation-section hidden">
+        <div class="investigation-header" id="investigation-header-toggle">
+          <div class="investigation-title-group">
+            <span class="investigation-badge">V4 COGNITIVE INVESTIGATION</span>
+            <span class="investigation-summary-label" id="investigation-summary-label">Awaiting dilemma investigation...</span>
+          </div>
+          <button type="button" id="btn-toggle-investigation" class="investigation-toggle-btn">COLLAPSE ▲</button>
+        </div>
+        <div class="investigation-body" id="investigation-body">
+          <div class="investigation-grid">
+            <div class="investigation-col col-knowns">
+              <div class="col-title">FACTS &amp; KNOWNS</div>
+              <ul id="investigation-knowns-list" class="investigation-list">
+                <li>Awaiting investigation trigger...</li>
+              </ul>
+            </div>
+            <div class="investigation-col col-unknowns">
+              <div class="col-title">CRITICAL UNKNOWNS</div>
+              <ul id="investigation-unknowns-list" class="investigation-list">
+                <li>None noted.</li>
+              </ul>
+            </div>
+            <div class="investigation-col col-evidence">
+              <div class="col-title">EVIDENCE REQUIREMENTS</div>
+              <ul id="investigation-evidence-list" class="investigation-list">
+                <li>None noted.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AGENT EPISTEMIC REPUTATION DOCK (V4.2) -->
+      <section id="reputation-dock" class="reputation-dock">
+        <div class="reputation-dock-header">
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <span class="reputation-dock-label">EPISTEMIC REPUTATION MATRIX</span>
+            <span class="origin-badge mock" style="font-size: 0.65rem; padding: 0.15rem 0.4rem;">DEMO CALIBRATION</span>
+          </div>
+          <span class="reputation-dock-sub">LEARNED ACCURACY &amp; DOMAIN MODIFIERS</span>
+        </div>
+        <div class="reputation-dock-grid">
+          <div class="rep-card melchior">
+            <div class="rep-name">MELCHIOR-1 (SCIENTIST)</div>
+            <div class="rep-score-val" id="rep-score-melchior">8.20 / 10</div>
+            <div class="rep-meta" id="rep-meta-melchior">Survival: 94% | Vindications: 2</div>
+          </div>
+          <div class="rep-card balthasar">
+            <div class="rep-name">BALTHASAR-2 (MOTHER / RISK)</div>
+            <div class="rep-score-val" id="rep-score-balthasar">7.90 / 10</div>
+            <div class="rep-meta" id="rep-meta-balthasar">False Alarm Rate: 18% | Vindications: 3</div>
+          </div>
+          <div class="rep-card casper">
+            <div class="rep-name">CASPER-3 (WOMAN / PRAGMATIST)</div>
+            <div class="rep-score-val" id="rep-score-casper">8.45 / 10</div>
+            <div class="rep-meta" id="rep-meta-casper">Survival: 91% | Vindications: 1</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- TACTICAL / ANIME AGENT INSPECT POPOVER MODAL -->
+  <div class="modal-backdrop hidden" id="tactical-agent-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="tactical-modal-title">AGENT // REASONING AUDIT</div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="tactical-modal-close-btn">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" id="tactical-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON MODAL (MAGI VS SINGLE GEMINI) -->
+  <div class="modal-backdrop hidden" id="compare-modal">
+    <div class="modal-box modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">COMPARISON: SINGLE GEMINI 3.1 PRO BASELINE VS. MAGI TRIAD DELIBERATION</div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="compare-close-btn">&times;</button>
+        </div>
+      </div>
+
+      <div class="compare-container">
+        <!-- LEFT: SINGLE BASELINE -->
+        <div class="compare-col baseline-col">
+          <div class="col-header single-hdr">
+            <span class="col-badge">BASELINE</span>
+            <h3>SINGLE GEMINI 3.1 PRO (MONOLITHIC)</h3>
+          </div>
+          <div class="col-body" id="compare-single-body">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- RIGHT: MAGI DELIBERATION -->
+        <div class="compare-col magi-col">
+          <div class="col-header magi-hdr">
+            <span class="col-badge">MAGI TRIAD</span>
+            <h3>MAGI DELIBERATION ARBITRATION</h3>
+          </div>
+          <div class="col-body" id="compare-magi-body">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-differential" id="compare-diff-summary">
+        <!-- Metrics summary -->
+      </div>
+    </div>
+  </div>
+
+  <!-- BENCHMARK MODAL -->
+  <div class="modal-backdrop hidden" id="benchmark-modal">
+    <div class="modal-box modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">MAGI SUPERCOMPUTER // EVALUATION &amp; BENCHMARK SCORECARD</div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="benchmark-close-btn">&times;</button>
+        </div>
+      </div>
+      <div class="benchmark-content" id="benchmark-content">
+        <div class="loading-spinner">RUNNING BENCHMARK SUITE...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RAW JSON MODAL -->
+  <div class="modal-backdrop hidden" id="json-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">MAGI STRUCTURED PAYLOAD (JSON)</div>
+        <div class="modal-actions">
+          <button type="button" class="copy-btn" id="modal-copy-btn">COPY TO CLIPBOARD</button>
+          <button type="button" class="close-btn" id="modal-close-btn">&times;</button>
+        </div>
+      </div>
+      <pre class="modal-json" id="modal-json-content"></pre>
+    </div>
+  </div>
+
+  <!-- JSON STORAGE & DRIVE BACKUP MODAL -->
+  <div class="modal-backdrop hidden" id="storage-modal">
+    <div class="modal-box modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">MAGI PERSISTENCE &amp; STORAGE MANAGER // JSON FILES</div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="storage-close-btn">&times;</button>
+        </div>
+      </div>
+      <div class="storage-modal-content" id="storage-modal-content">
+        <div class="storage-overview-grid">
+          <div class="storage-stat-box">
+            <span class="storage-stat-label">STORAGE ROOT DIRECTORY</span>
+            <span class="storage-stat-value" id="storage-dir-path">data/storage</span>
+          </div>
+          <div class="storage-stat-box">
+            <span class="storage-stat-label">TOTAL MANAGED FILES</span>
+            <span class="storage-stat-value" id="storage-total-files">--</span>
+          </div>
+          <div class="storage-stat-box">
+            <span class="storage-stat-label">TOTAL STORAGE FOOTPRINT</span>
+            <span class="storage-stat-value" id="storage-total-size">--</span>
+          </div>
+        </div>
+
+        <div class="storage-table-container">
+          <table class="storage-table">
+            <thead>
+              <tr>
+                <th>FILE</th>
+                <th>PURPOSE</th>
+                <th>RECORDS</th>
+                <th>SIZE</th>
+              </tr>
+            </thead>
+            <tbody id="storage-files-table-body">
+              <tr><td colspan="4">Loading storage telemetry...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="storage-backup-section">
+          <div class="storage-section-title">SYNC / BACKUP TO LOCAL DIRECTORY OR GOOGLE DRIVE</div>
+          <p class="storage-help-text">
+            Enter the target backup folder path (e.g. your local Google Drive folder path like G:\My Drive\MAGI_Backups or a custom backup path).
+          </p>
+          <div class="storage-backup-form">
+            <input 
+              type="text" 
+              id="storage-backup-path-input" 
+              class="storage-input" 
+              placeholder="e.g. G:\My Drive\MAGI_Backups or ./backups/magi_v4"
+              value="./backups/magi_v4" 
+            />
+            <button type="button" id="storage-backup-execute-btn" class="hud-btn-primary">EXECUTE BACKUP</button>
+          </div>
+          <div id="storage-backup-status" class="storage-backup-status hidden"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT THIS SYSTEM & OPERATOR DOCUMENTATION MODAL (SPRINT 6) -->
+  <div class="modal-backdrop hidden" id="about-modal">
+    <div class="modal-box modal-wide about-modal-box">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title">MAGI SUPERCOMPUTER // SYSTEM DOCUMENTATION &amp; ARCHITECTURE</div>
+          <div class="modal-subtitle">EVANGELION NERV-01 // COGNITIVE CONSENSUS ENGINE V4.6</div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="about-modal-close-btn">&times;</button>
+        </div>
+      </div>
+
+      <!-- ABOUT TABS -->
+      <div class="about-tabs-nav">
+        <button type="button" class="about-tab-btn active" data-tab="about-triad">THE TRIAD AGENTS</button>
+        <button type="button" class="about-tab-btn" data-tab="about-modes">FAST VS FULL MODE &amp; COSTS</button>
+        <button type="button" class="about-tab-btn" data-tab="about-provenance">DATA PROVENANCE &amp; CALIBRATION</button>
+        <button type="button" class="about-tab-btn" data-tab="about-architecture">ARCHITECTURE &amp; CHANGELOG</button>
+      </div>
+
+      <div class="about-modal-body">
+        <!-- TAB 1: THE TRIAD AGENTS -->
+        <div class="about-tab-pane" id="pane-about-triad">
+          <div class="about-intro-box">
+            <h4 class="about-heading">WHAT IS THE MAGI SYSTEM?</h4>
+            <p>
+              MAGI is an autonomous multi-agent consensus system inspired by the supercomputer triad designed by Dr. Naoko Akagi in Neon Genesis Evangelion. Rather than relying on a single conversational LLM with unpredictable blind spots, MAGI distributes complex, high-stakes decisions across three differentiated cognitive personas who analyze, cross-examine, and arbitrate difficult dilemmas.
+            </p>
+          </div>
+
+          <div class="about-triad-grid">
+            <div class="about-agent-card melchior-card">
+              <div class="about-agent-header">
+                <span class="about-agent-badge melchior">MELCHIOR-1</span>
+                <span class="about-agent-persona">DR. AKAGI AS A SCIENTIST</span>
+              </div>
+              <div class="about-agent-role">PRIMARY COGNITIVE PROFILE: ANALYTICAL &amp; OPTIMIZATION</div>
+              <p class="about-agent-desc">
+                Focuses rigorously on structural performance, mathematical efficiency, architectural purity, and memory safety. Prioritizes state-of-the-art tooling (e.g. Rust, zero-cost abstractions, compiled speed) and eliminating latency overhead.
+              </p>
+              <div class="about-agent-bias">
+                <strong>COGNITIVE BIAS:</strong> May underestimate human engineering fatigue, organizational migration drag, and second-system syndrome.
+              </div>
+            </div>
+
+            <div class="about-agent-card balthasar-card">
+              <div class="about-agent-header">
+                <span class="about-agent-badge balthasar">BALTHASAR-2</span>
+                <span class="about-agent-persona">DR. AKAGI AS A MOTHER</span>
+              </div>
+              <div class="about-agent-role">PRIMARY COGNITIVE PROFILE: RISK, DEFENSE &amp; SURVIVAL</div>
+              <p class="about-agent-desc">
+                Acts as the skeptical defense layer and existential risk sentinel. Scrutinizes catastrophic tail risks, developer burnout, production delivery halts, operational complexity, and vendor lock-in. Holds veto power through minority dissent reports.
+              </p>
+              <div class="about-agent-bias">
+                <strong>COGNITIVE BIAS:</strong> May exhibit excessive conservatism, risk aversion, and resistance to beneficial technological evolution.
+              </div>
+            </div>
+
+            <div class="about-agent-card casper-card">
+              <div class="about-agent-header">
+                <span class="about-agent-badge casper">CASPER-3</span>
+                <span class="about-agent-persona">DR. AKAGI AS A WOMAN</span>
+              </div>
+              <div class="about-agent-role">PRIMARY COGNITIVE PROFILE: LATERAL &amp; PRAGMATIC</div>
+              <p class="about-agent-desc">
+                Focuses on realistic compromises, transitional architectural patterns (such as the Strangler Fig pattern), organizational viability, and synthesis. Breaches deadlocks between Melchior and Balthasar by formulating actionable, reversible paths forward.
+              </p>
+              <div class="about-agent-bias">
+                <strong>COGNITIVE BIAS:</strong> May favor tactical short-term viability over long-term architectural perfection.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: FAST VS FULL MODE & COSTS -->
+        <div class="about-tab-pane hidden" id="pane-about-modes">
+          <div class="about-intro-box">
+            <h4 class="about-heading">EXECUTION STRATEGIES &amp; TOKEN ECONOMICS</h4>
+            <p>
+              MAGI treats execution strategy as a deliberate operational tradeoff between latency, cost, and epistemic independence.
+            </p>
+          </div>
+
+          <div class="about-comparison-table-wrapper">
+            <table class="about-table">
+              <thead>
+                <tr>
+                  <th>DIMENSION</th>
+                  <th>FAST DELIBERATION (1 REQ)</th>
+                  <th>FULL DELIBERATION (7 REQ)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>API Calls</strong></td>
+                  <td>1 Request (Unified Synthetic Triad)</td>
+                  <td>7 Requests (Multi-Round Interactive Pipeline)</td>
+                </tr>
+                <tr>
+                  <td><strong>Agent Independence</strong></td>
+                  <td>Simulated in single inference context</td>
+                  <td>Strictly independent isolated agent inferences</td>
+                </tr>
+                <tr>
+                  <td><strong>Cross-Examination</strong></td>
+                  <td>Single-pass counter-argumentation</td>
+                  <td>Multi-stage peer critiques &amp; convergence checks</td>
+                </tr>
+                <tr>
+                  <td><strong>Latency (Est.)</strong></td>
+                  <td>~0.8s - 2.5s</td>
+                  <td>~4.0s - 18.0s</td>
+                </tr>
+                <tr>
+                  <td><strong>Est. Token Cost</strong></td>
+                  <td>~$0.0003 - $0.002</td>
+                  <td>~$0.002 - $0.014</td>
+                </tr>
+                <tr>
+                  <td><strong>Recommended For</strong></td>
+                  <td>Rapid prototyping, testing, low-risk queries</td>
+                  <td>Critical architecture choices, one-way door dilemmas</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="about-guidance-box">
+            <h5 class="about-subheading">HOW TO CHOOSE BETWEEN FAST AND FULL MODE:</h5>
+            <ul class="bullet-list">
+              <li><strong>Use FAST MODE</strong> when exploring ideas, running rapid benchmarks, experimenting with prompts, or operating under strict rate limits.</li>
+              <li><strong>Use FULL MODE</strong> when making decisions that cannot be easily undone (irreversible migrations, critical security protocols, major cloud investments).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TAB 3: DATA PROVENANCE & CALIBRATION -->
+        <div class="about-tab-pane hidden" id="pane-about-provenance">
+          <div class="about-intro-box">
+            <h4 class="about-heading">DATA PROVENANCE &amp; RECORDING INTEGRITY</h4>
+            <p>
+              MAGI strictly distinguishes between authentic production execution and scripted or demonstrative telemetry.
+            </p>
+          </div>
+
+          <div class="about-provenance-cards">
+            <div class="about-prov-card">
+              <div class="prov-badge-row">
+                <span class="origin-badge live">LIVE DELIBERATION</span>
+                <span class="prov-tag">GENUINE API EXECUTION</span>
+              </div>
+              <p>Generated in real-time by configured LLM providers (Google Gemini 3.1 Pro, Groq Llama 3.3 70B, or local Ollama). Incurs actual token usage and latency.</p>
+            </div>
+
+            <div class="about-prov-card">
+              <div class="prov-badge-row">
+                <span class="origin-badge mock">MOCK DEMONSTRATION</span>
+                <span class="prov-tag">ZERO API COST</span>
+              </div>
+              <p>Uses verified deterministic fixtures from the built-in offline mock store (e.g. Node.js to Rust migration). Completely offline and incurs zero API cost.</p>
+            </div>
+
+            <div class="about-prov-card">
+              <div class="prov-badge-row">
+                <span class="origin-badge override">OPERATOR OVERRIDE</span>
+                <span class="prov-tag">CONTROLLED SIMULATION</span>
+              </div>
+              <p>Triggered manually by an authorized operator via the Operator Cockpit to test animation playback, simulate network timeouts (504), rate limits (429), or record video demonstrations.</p>
+            </div>
+          </div>
+
+          <div class="about-guidance-box" style="margin-top: 1rem;">
+            <h5 class="about-subheading">SIMULATED REPUTATION VS REAL METRICS:</h5>
+            <p style="font-size: 0.8rem; color: var(--text-dim); line-height: 1.4;">
+              The Epistemic Reputation Matrix displays historical calibration scores (survival rates, vindications, and false alarm metrics). In public mock demonstration mode, this matrix is explicitly tagged with <span class="origin-badge mock" style="font-size: 0.65rem; padding: 0.1rem 0.35rem;">DEMO CALIBRATION</span> to guarantee that synthetic data is never misrepresented as empirical production metrics.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 4: ARCHITECTURE & CHANGELOG -->
+        <div class="about-tab-pane hidden" id="pane-about-architecture">
+          <div class="about-intro-box">
+            <h4 class="about-heading">PIPELINE ARCHITECTURE &amp; CHANGELOG</h4>
+            <p>
+              V4.6 represents a complete shift from a toy chatbot to an authentic, high-instrumentation Operator Cockpit.
+            </p>
+          </div>
+
+          <div class="about-pipeline-diagram">
+            <div class="pipe-step">
+              <span class="pipe-num">01</span>
+              <span class="pipe-title">INVESTIGATION</span>
+              <span class="pipe-desc">Identify facts, unknowns &amp; needed evidence</span>
+            </div>
+            <div class="pipe-arrow">&rarr;</div>
+            <div class="pipe-step">
+              <span class="pipe-num">02</span>
+              <span class="pipe-title">INDEPENDENT R0</span>
+              <span class="pipe-desc">Melchior, Balthasar &amp; Casper formulate stances</span>
+            </div>
+            <div class="pipe-arrow">&rarr;</div>
+            <div class="pipe-step">
+              <span class="pipe-num">03</span>
+              <span class="pipe-title">PEER CRITIQUE</span>
+              <span class="pipe-desc">Cross-examination &amp; convergence delta checks</span>
+            </div>
+            <div class="pipe-arrow">&rarr;</div>
+            <div class="pipe-step">
+              <span class="pipe-num">04</span>
+              <span class="pipe-title">CORE SYNTHESIS</span>
+              <span class="pipe-desc">Arbitration, minority report &amp; reversal contracts</span>
+            </div>
+          </div>
+
+          <div class="about-changelog-box" style="margin-top: 1.2rem;">
+            <h5 class="about-subheading">SYSTEM VERSION CHANGELOG:</h5>
+            <ul class="changelog-list">
+              <li><strong>V4.6 (Current):</strong> Operator Cockpit Console, secure server-side session authentication, Fast Mode (1 req) vs Full Mode (7 req) real telemetry, prominence for MAGI Core synthesis, on-demand zero-cost demo deliberation.</li>
+              <li><strong>V4.5:</strong> Generic OpenAI-compatible &amp; Groq cloud provider adapters with graceful fallback circuits.</li>
+              <li><strong>V4.2:</strong> Epistemic reputation scoring, learned domain accuracy modifiers, and empirical outcome tracking.</li>
+              <li><strong>V4.0:</strong> Pre-deliberation cognitive investigation brief, epistemic halt on high-uncertainty irreversible decisions, and minority reversal contracts.</li>
+              <li><strong>V1.5:</strong> 1:1 Evangelion NERV Anime legacy monitor mode with CRT scanlines, audio alerts, and emergency rejection alarms.</li>
+              <li><strong>V1.0:</strong> Initial Melchior, Balthasar, Casper multi-agent deliberation prototype.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERATOR CONSOLE MODAL (Sprint 2 Operator Cockpit) -->
+  <div class="modal-backdrop hidden" id="operator-modal">
+    <div class="modal-box modal-wide operator-modal-box">
+      <div class="modal-header operator-modal-header">
+        <div class="operator-header-title">
+          <span class="operator-header-led" id="operator-header-led"></span>
+          <span id="operator-modal-title-text">MAGI // OPERATOR CONSOLE [LOCKED]</span>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="close-btn" id="operator-modal-close-btn">&times;</button>
+        </div>
+      </div>
+
+      <div class="operator-modal-content">
+        <!-- 1. LOCKED VIEW -->
+        <div id="operator-locked-view" class="operator-locked-view">
+          <div class="operator-security-notice">
+            <div class="security-hazard-stripe"></div>
+            <div class="security-content">
+              <span class="security-level">[CLEARANCE LEVEL 3 REQUIRED]</span>
+              <h3>RESTRICTED NERV COCKPIT CONTROLS</h3>
+              <p>Model overrides, temperature tuning, synthetic token thresholds, simulated disaster testing, and low-level pipeline diagnostics require active operator authentication.</p>
+            </div>
+          </div>
+
+          <form id="operator-login-form" class="operator-login-form">
+            <div class="operator-input-group">
+              <label for="operator-auth-key-input">ENTER OPERATOR ACCESS KEY (ADMIN_ACCESS_KEY):</label>
+              <input 
+                type="password" 
+                id="operator-auth-key-input" 
+                class="storage-input operator-key-input" 
+                placeholder="Enter admin credential to unlock..." 
+                autocomplete="current-password"
+                required 
+              />
+            </div>
+            <div id="operator-auth-feedback" class="operator-auth-feedback hidden"></div>
+            <div class="operator-form-actions">
+              <button type="submit" id="operator-unlock-submit-btn" class="hud-btn-primary operator-btn">
+                UNLOCK OPERATOR ACCESS
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 2. AUTHORIZED VIEW -->
+        <div id="operator-authorized-view" class="operator-authorized-view hidden">
+          <!-- Session Ribbon -->
+          <div class="operator-session-bar">
+            <div class="operator-session-status">
+              <span class="op-status-badge authorized">AUTHORIZED</span>
+              <span class="op-status-info">MODEL CONTROL ENABLED · DEMO OVERRIDES ACTIVE</span>
+            </div>
+            <div class="operator-session-countdown">
+              <span class="countdown-label">SESSION EXPIRES IN:</span>
+              <span class="countdown-value" id="operator-countdown-val">30:00</span>
+              <button type="button" id="operator-logout-btn" class="op-logout-btn" title="Revoke session token and lock console">
+                REVOKE ACCESS [LOGOUT]
+              </button>
+            </div>
+          </div>
+
+          <!-- Operator Console Tabs -->
+          <div class="operator-nav-tabs">
+            <button type="button" class="op-tab-btn active" data-tab="tab-op-model">MODEL OVERRIDE</button>
+            <button type="button" class="op-tab-btn" data-tab="tab-op-deliberation">DELIBERATION OVERRIDE</button>
+            <button type="button" class="op-tab-btn" data-tab="tab-op-diagnostics">SYSTEM DIAGNOSTICS</button>
+          </div>
+
+          <!-- TAB 1: MODEL OVERRIDE -->
+          <div class="op-tab-pane active" id="tab-op-model">
+            <div class="op-card">
+              <div class="op-card-header">ACTIVE MODEL CONFIGURATION &amp; OVERRIDES</div>
+              <div class="op-info-row">
+                <div class="op-info-col">
+                  <span class="info-k">DEFAULT ENGINE:</span>
+                  <span class="info-v" id="op-default-engine-val">MOCK FIXTURES</span>
+                </div>
+                <div class="op-info-col">
+                  <span class="info-k">ACTIVE ENGINE:</span>
+                  <span class="info-v highlight" id="op-active-engine-val">MOCK FIXTURES</span>
+                </div>
+                <div class="op-info-col">
+                  <span class="info-k">CLEARANCE:</span>
+                  <span class="info-v gold">OPERATOR AUTHORIZED</span>
+                </div>
+              </div>
+
+              <div class="op-controls-grid">
+                <div class="op-field">
+                  <label for="op-engine-select">PROVIDER / MODEL FAMILY:</label>
+                  <select id="op-engine-select" class="hud-select op-select">
+                    <option value="mock">MOCK FIXTURES (ZERO TOKEN COST)</option>
+                    <option value="gemini">GEMINI 3.1 PRO (REASONING CORE)</option>
+                    <option value="gemini-flash">GEMINI 2.5 FLASH (HIGH SPEED)</option>
+                    <option value="groq-free">PRODUCTION CORE (GROQ CLOUD)</option>
+                    <option value="ollama-balanced">OLLAMA LOCAL (BALANCED 7B/8B)</option>
+                    <option value="ollama-light">OLLAMA LOCAL (LIGHT 3B)</option>
+                  </select>
+                </div>
+
+                <div class="op-field">
+                  <label for="op-temperature-input">TEMPERATURE (<span id="op-temp-display">0.2</span>):</label>
+                  <input type="range" id="op-temperature-input" min="0" max="1" step="0.05" value="0.2" class="op-range" />
+                </div>
+
+                <div class="op-field">
+                  <label for="op-tokens-input">MAX OUTPUT TOKENS:</label>
+                  <input type="number" id="op-tokens-input" min="256" max="8192" step="256" value="2048" class="storage-input op-num-input" />
+                </div>
+              </div>
+
+              <div class="op-action-row">
+                <button type="button" id="op-apply-model-btn" class="hud-btn-primary">APPLY MODEL OVERRIDE</button>
+                <span id="op-model-feedback" class="op-feedback-tag hidden"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: DELIBERATION OVERRIDE & DEMO CONTROLS -->
+          <div class="op-tab-pane hidden" id="tab-op-deliberation">
+            <!-- 1. Strategy & Presentation Speed -->
+            <div class="op-card">
+              <div class="op-card-header">EXECUTION STRATEGY &amp; PRESENTATION SPEED</div>
+              <div class="op-grid-2col">
+                <div class="op-override-panel">
+                  <span class="panel-heading">DELIBERATION STRATEGY:</span>
+                  <div class="override-btn-group">
+                    <button type="button" id="op-btn-force-full" class="op-pill-btn active">FORCE FULL (7 REQ)</button>
+                    <button type="button" id="op-btn-force-fast" class="op-pill-btn">FORCE FAST (1 REQ)</button>
+                  </div>
+                  <p class="op-hint">Full Mode runs independent analyses, peer critique, and consensus synthesis. Fast Mode collapses deliberation into 1 synthetic triad request.</p>
+                </div>
+
+                <div class="op-override-panel">
+                  <span class="panel-heading">PRESENTATION SPEED:</span>
+                  <div class="override-btn-group" id="op-speed-group">
+                    <button type="button" class="op-pill-btn op-speed-btn" data-speed="2.0">2.0x (FAST)</button>
+                    <button type="button" class="op-pill-btn op-speed-btn active" data-speed="1.0">1.0x (NORMAL)</button>
+                    <button type="button" class="op-pill-btn op-speed-btn" data-speed="0.5">0.5x (CINEMATIC)</button>
+                  </div>
+                  <div class="op-cinematic-row">
+                    <button type="button" id="op-btn-cinematic" class="op-action-btn cinematic-btn">TOGGLE CINEMATIC RECORDING MODE</button>
+                    <p class="op-hint">Hides operational chrome, query controls, and HUD widgets for pristine screen recording capture.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Scripted Demo Scenarios -->
+            <div class="op-card">
+              <div class="op-card-header">SCRIPTED DEMO SCENARIOS (ZERO API COST)</div>
+              <p class="op-hint" style="margin-bottom: 0.8rem;">Load deterministic deliberation fixtures to demonstrate triad dynamics without token consumption. Stamped as OPERATOR OVERRIDE.</p>
+              <div class="op-scenarios-grid">
+                <div class="op-scenario-card">
+                  <div class="scenario-title">RUST REWRITE (CONVERGENCE)</div>
+                  <div class="scenario-desc">Initial architectural divergence (Melchior APPROVE, Balthasar REJECT, Casper PIVOT) converges on phased hybrid rollout.</div>
+                  <button type="button" class="op-pill-btn op-load-scenario-btn" data-scenario="rust-migration">LOAD &amp; RUN</button>
+                </div>
+                <div class="op-scenario-card">
+                  <div class="scenario-title">DUMMY PLUG (CROSS-CRITIQUE)</div>
+                  <div class="scenario-desc">High-stakes tactical dilemma with intense peer critique and boundary-setting between maternal protection and logic.</div>
+                  <button type="button" class="op-pill-btn op-load-scenario-btn" data-scenario="dummy-plug-override">LOAD &amp; RUN</button>
+                </div>
+                <div class="op-scenario-card">
+                  <div class="scenario-title">BLACK FRIDAY (LOAD SHEDDING)</div>
+                  <div class="scenario-desc">Critical infrastructure CPU saturation dilemma. Triad deliberates graceful degradation vs full capacity limits.</div>
+                  <button type="button" class="op-pill-btn op-load-scenario-btn" data-scenario="black-friday-cpu">LOAD &amp; RUN</button>
+                </div>
+                <div class="op-scenario-card">
+                  <div class="scenario-title">SEELE PROTOCOL (REJECTION)</div>
+                  <div class="scenario-desc">Radical existential proposal triggers unanimous rejection and emergency shutdown veto from all cores.</div>
+                  <button type="button" class="op-pill-btn op-load-scenario-btn" data-scenario="human-instrumentality">LOAD &amp; RUN</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Test Harness, Presets & Fault Injection -->
+            <div class="op-card">
+              <div class="op-card-header">ANIMATION PRESETS &amp; FAULT RESILIENCE SIMULATION</div>
+              <div class="op-grid-2col">
+                <div class="op-override-panel">
+                  <span class="panel-heading">ANIMATION HARNESS:</span>
+                  <div class="override-grid-btns">
+                    <button type="button" id="op-test-thinking" class="op-action-btn">TRIGGER THINKING</button>
+                    <button type="button" id="op-test-consensus" class="op-action-btn">SIMULATE CONSENSUS</button>
+                    <button type="button" id="op-test-divergence" class="op-action-btn">SIMULATE DIVERGENCE</button>
+                    <button type="button" id="op-test-emergency" class="op-action-btn danger">EMERGENCY ALARM</button>
+                    <button type="button" id="op-test-reset" class="op-action-btn">RESET TO STANDBY</button>
+                  </div>
+                </div>
+
+                <div class="op-override-panel">
+                  <span class="panel-heading">FAULT RESILIENCE SIMULATION:</span>
+                  <div class="override-grid-btns">
+                    <button type="button" id="op-test-timeout" class="op-action-btn danger">SIMULATE TIMEOUT (504)</button>
+                    <button type="button" id="op-test-ratelimit" class="op-action-btn danger">SIMULATE RATE LIMIT (429)</button>
+                  </div>
+                  <p class="op-hint">Validates system resilience, circuit breaker trip states, and user-facing graceful degradation banners under network or provider failures.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: SYSTEM DIAGNOSTICS -->
+          <div class="op-tab-pane hidden" id="tab-op-diagnostics">
+            <div class="op-card">
+              <div class="op-card-header">PROVIDER CONNECTIVITY &amp; TELEMETRY</div>
+              <div class="op-diagnostics-grid">
+                <div class="op-diag-card">
+                  <span class="diag-title">GROQ CLOUD API</span>
+                  <span class="diag-status checking" id="op-diag-groq">CHECKING...</span>
+                </div>
+                <div class="op-diag-card">
+                  <span class="diag-title">GEMINI CLOUD API</span>
+                  <span class="diag-status checking" id="op-diag-gemini">CHECKING...</span>
+                </div>
+                <div class="op-diag-card">
+                  <span class="diag-title">SUPABASE DATABASE</span>
+                  <span class="diag-status checking" id="op-diag-supabase">CHECKING...</span>
+                </div>
+                <div class="op-diag-card">
+                  <span class="diag-title">STANDALONE MOCK ENGINE</span>
+                  <span class="diag-status online" id="op-diag-mock">ONLINE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="op-card">
+              <div class="op-card-header">RAW DELIBERATION PAYLOAD INSPECTOR</div>
+              <pre class="op-raw-json" id="op-raw-json-inspector">No recent deliberation execution payload.</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERATOR FLOATING DEBUG DOCK (Active only when operator is authenticated) -->
+  <div id="operator-debug-dock" class="operator-debug-dock hidden">
+    <div class="debug-dock-header">
+      <div class="debug-dock-title-group">
+        <span class="debug-dock-led"></span>
+        <span class="debug-dock-title">OPERATOR DEBUG HUD</span>
+      </div>
+      <button type="button" id="debug-dock-toggle-btn" class="debug-dock-min-btn" title="Minimize / Expand Debug HUD">_</button>
+    </div>
+    <div id="debug-dock-body" class="debug-dock-body">
+      <button type="button" id="dock-btn-thinking" class="debug-dock-btn" title="Trigger Thinking Animation across all cores">
+        THINKING ANIMATION
+      </button>
+      <button type="button" id="dock-btn-rounds" class="debug-dock-btn primary" title="Simulate R0 -> Arbitration sequence">
+        R0 ➔ ARBITRATION
+      </button>
+      <button type="button" id="dock-btn-emergency" class="debug-dock-btn danger" title="Trigger Emergency Rejection Alarm">
+        EMERGENCY ALARM
+      </button>
+      <button type="button" id="dock-btn-reset" class="debug-dock-btn" title="Reset all cores to Standby">
+        RESET STANDBY
+      </button>
+    </div>
+  </div>
+
+  <!-- CINEMATIC RECORDING MODE EXIT DOCK -->
+  <div id="cinematic-exit-dock" class="cinematic-exit-dock hidden">
+    <button type="button" id="cinematic-exit-btn" class="cinematic-exit-btn">EXIT CINEMATIC MODE [ESC]</button>
+  </div>
+
+  <script type="module" src="./js/mock/store.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

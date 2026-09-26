@@ -1,0 +1,5 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // RETRO-COMPATIBILITY STYLESHEET WRAPPER   */
+/* Modular styles are now organized under ./css/                  */
+/* ============================================================= */
+@import url('./css/main.css');

@@ -1,0 +1,45 @@
+{
+  "name": "magi",
+  "version": "4.6.0",
+  "description": "Multi-agent AI deliberation system inspired by the MAGI supercomputers from Neon Genesis Evangelion",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "tsx src/cli/main.ts",
+    "serve": "tsx src/server/server.ts",
+    "benchmark": "tsx src/benchmark/benchmark-runner.ts",
+    "eval": "tsx src/evaluation/eval-runner.ts",
+    "eval:correlate": "tsx src/evaluation/correlate-human-eval.ts",
+    "eval:scientific": "tsx src/evaluation/scientific-validation-cli.ts",
+    "eval:validate": "tsx src/evaluation/scientific-validation-cli.ts --all --mock --save",
+    "ablation": "tsx src/evaluation/ablation-cli.ts",
+    "test:gemini": "tsx src/scripts/test-gemini-live.ts",
+    "test:supabase": "tsx src/scripts/test-supabase.ts"
+  },
+  "keywords": [
+    "ai",
+    "multi-agent",
+    "deliberation",
+    "gemini",
+    "magi"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^2.21.0",
+    "@supabase/supabase-js": "^2.116.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.6"
+  }
+}

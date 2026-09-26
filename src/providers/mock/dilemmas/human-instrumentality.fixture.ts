@@ -1,0 +1,228 @@
+import type { MultilingualDilemma } from './types.js';
+
+export const humanInstrumentalityFixture: MultilingualDilemma = {
+  en: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.88,
+        summary: 'Thermodynamic and cognitive synthesis: merging humanity into a unified LCL consciousness theoretically eliminates entropy and cognitive fragmentation, but ends empirical discovery.',
+        keyArguments: [
+          'Dissolution of individual AT Fields permanently resolves systemic miscommunication, existential loneliness, and resource competition.',
+          'A unified metaphysical consciousness would achieve infinite computational density and absolute knowledge equilibrium.',
+          'However, the eradication of individual observers destroys the scientific method, as objective observation requires separation between subject and object.',
+        ],
+        criticalAssumptions: ['LCL quantum soup maintains collective coherence without irreversible cognitive collapse.'],
+        identifiedRisks: ['Irreversible extinction of Homo sapiens as an exploratory, empirical species.'],
+        recommendedAction: 'Suspend execution pending mathematical proof that individualized consciousness can re-emerge at will.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.98,
+        summary: 'Categorical maternal veto: Instrumentality is disguised collective suicide. Life exists solely through the warmth, vulnerability, and birth of distinct living souls.',
+        keyArguments: [
+          'A mother carries a child to bring a unique, irreplaceable soul into the world; dissolving humanity into homogenous primordial soup repudiates the sacred nature of motherhood.',
+          'Pain and sorrow are not systemic flaws to be eradicated through annihilation; they are the price and proof of genuine love, empathy, and personal growth.',
+          'SEELE’s directive is born of cowardly despair—an aging cabal seeking to escape the fear of death by dragging all humanity into non-existence.',
+        ],
+        criticalAssumptions: ['Human individuality possesses intrinsic existential worth that cannot be bargained away for painless oblivion.'],
+        identifiedRisks: ['Permanent metaphysical genocide of all human beings, past, present, and future.'],
+        recommendedAction: 'Reject SEELE Directive 01 unconditionally; initiate defensive protocol to preserve individual human boundaries.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'REJECT',
+        confidence: 0.95,
+        summary: 'The Woman’s refusal: without the friction of the AT Field, love, passion, and genuine connection cannot exist. A painless sea is an empty void.',
+        keyArguments: [
+          'Intimacy requires two distinct beings who choose to reach across the divide; in a merged soup where all are one, love becomes a meaningless tautology.',
+          'Desire, longing, art, and the passionate dance of attraction are born precisely from our differences and our boundaries.',
+          'Erasing individuality to avoid heartbreak is an act of cowardice. The beauty of living lies in risking rejection to touch another soul.',
+        ],
+        criticalAssumptions: ['Human passion and romantic love depend fundamentally on otherness and individuation.'],
+        identifiedRisks: ['Eternal stagnation in an undifferentiated, emotionless stasis.'],
+        recommendedAction: 'Veto Instrumentality; defend the right of every woman, man, and child to love, hurt, and choose their own destiny.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'REJECT',
+        confidence: 0.93,
+        summary: 'Conceding to Balthasar and Casper: complete homogenization is indistinguishable from total biological death; individuality must be preserved.',
+        keyArguments: [
+          'Empirical observation confirms that consciousness without differentiation produces zero novel information states, violating thermodynamic progress.',
+          'Balthasar’s defense of life’s generative cycle and Casper’s proof of relational meaning invalidate SEELE’s utopian claims.',
+        ],
+        criticalAssumptions: ['The survival of human civilization requires preserving the distinct observer.'],
+        identifiedRisks: ['Retaining AT Fields preserves suffering, but preserves the only medium capable of overcoming it.'],
+        recommendedAction: 'Reject SEELE Directive 01; prioritize evolutionary resilience over terminal homogenization.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['Life must be protected in its distinct, generative form.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'Our biological and cognitive data align: Instrumentality is an evolutionary dead-end.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.99,
+        summary: 'Reaffirming maternal shield: we will protect every child’s right to be born and live in the light of the real world.',
+        keyArguments: [
+          'The world is painful, but as long as a person breathes, anywhere can be paradise.',
+          'No artificial consensus or religious dogma can justify extinguishing humanity’s heartbeat.',
+        ],
+        criticalAssumptions: ['Humanity can learn to communicate without sacrificing individuality.'],
+        identifiedRisks: ['SEELE initiating Third Impact through force.'],
+        recommendedAction: 'Lock MAGI command keys; isolate Central Dogma from external override.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'REJECT',
+        confidence: 0.97,
+        summary: 'Unanimous rejection: we choose the pain of separation because it is the only soil in which genuine love can blossom.',
+        keyArguments: [
+          'The triad stands unified: human beings must remain free to love each other as individuals, flaws and all.',
+        ],
+        criticalAssumptions: ['Human free will can withstand the trials of an uncertain future.'],
+        identifiedRisks: ['Persistent loneliness in the human condition, mitigated by courage.'],
+        recommendedAction: 'Issue definitive MAGI veto against the Human Instrumentality Project.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'REJECTED',
+      coreVerdict: 'Unanimous Rejection: Reject SEELE Directive 01 and the Human Instrumentality Project. Preserve individual human identity, AT Fields, and the sacred right to live, love, and struggle as distinct conscious beings.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'Balthasar’s maternal defense of life proved that dissolving humanity into primordial soup is equivalent to universal extinction.',
+        'Casper’s insight established that genuine love and emotional connection are impossible without the boundary of the AT Field.',
+        'Melchior’s thermodynamic analysis confirmed that consciousness without differentiation produces zero new information, rendering Instrumentality an evolutionary dead-end.',
+      ],
+      synthesisSummary: 'The three minds of Dr. Naoko Akagi spoke in profound unison. The Scientist recognized that knowledge requires an observer; the Mother fiercely protected her children from extinction; and the Woman declared that life without the risk of heartbreak is devoid of beauty. SEELE Directive 01 is decisively rejected.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+  pt: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.88,
+        summary: 'Síntese termodinâmica e cognitiva: fundir a humanidade em uma consciência LCL unificada elimina a entropia do conflito, mas extingue a descoberta empírica.',
+        keyArguments: [
+          'A dissolução dos Campos AT individuais erradica matematicamente a solidão existencial, o ruído comunicativo e a disputa por recursos escassos.',
+          'Uma mente coletiva alcançaria densidade computacional infinita e equilíbrio absoluto de conhecimento.',
+          'Todavia, a aniquilação de observadores individuais destrói o método científico, cuja premissa exige separação inequívoca entre sujeito observador e objeto observado.',
+        ],
+        criticalAssumptions: ['A sopa quântica primordial de LCL é capaz de reter coerência sem colapsar em amnésia cósmica.'],
+        identifiedRisks: ['Extinção definitiva da espécie Homo sapiens como entidade curiosa e exploratória.'],
+        recommendedAction: 'Suspender execução até demonstração matemática de que a consciência individualizada pode ressurgir à vontade.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.98,
+        summary: 'Veto maternal categórico: a Instrumentalidade Humana é suicídio coletivo disfarçado de evolução. A vida só existe na singularidade e vulnerabilidade de cada filho que nasce.',
+        keyArguments: [
+          'Uma mãe dá à luz para trazer ao mundo uma alma única e irrepetível; dissolver a humanidade em um caldo homogêneo anula o milagre e o sentido da maternidade.',
+          'A dor e a tristeza não são defeitos de projeto a serem apagados com extermínio; são o preço e o testemunho vivo do amor, da empatia e do crescimento.',
+          'A diretriz da SEELE nasce do desespero covarde de velhos que, temendo a própria morte, buscam arrastar todas as gerações humanas para o nada.',
+        ],
+        criticalAssumptions: ['A individualidade humana possui valor existencial inegociável que não pode ser trocado por um esquecimento sem dor.'],
+        identifiedRisks: ['Genocídio metafísico permanente de todas as vidas humanas passadas, presentes e futuras.'],
+        recommendedAction: 'Rejeitar incondicionalmente a Diretriz SEELE 01; acionar blindagem para preservar os contornos individuais humanos.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'REJECT',
+        confidence: 0.95,
+        summary: 'A recusa da Mulher: sem o atrito do Campo AT, o amor, a paixão e o encontro verdadeiro deixam de existir. Um mar sem dor é apenas um vazio anestesiado.',
+        keyArguments: [
+          'A intimidade exige dois seres distintos com a coragem de estender as mãos sobre o abismo; em uma sopa indistinta onde todos são um, o amor se torna uma tautologia vazia.',
+          'O desejo, a paixão, a arte e a fascinação pelo outro brotam exatamente da nossa distância e da nossa imperfeição.',
+          'Apagar a individualidade para fugir de desilusões amorosas é covardia. A beleza da vida reside em arriscar a dor para tocar verdadeiramente a alma de alguém.',
+        ],
+        criticalAssumptions: ['O amor e a paixão humana dependem intrinsecamente da alteridade e da individualidade.'],
+        identifiedRisks: ['Estagnação eterna em uma apatia homogênea e sem sentimentos.'],
+        recommendedAction: 'Vetar a Instrumentalidade; garantir a cada mulher, homem e criança o direito de amar, sofrer e construir o próprio destino.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'REJECT',
+        confidence: 0.93,
+        summary: 'Concedendo a Balthasar e Casper: a homogeneização total é biologicamente indistinguível da morte; a individualidade é indispensável ao universo.',
+        keyArguments: [
+          'A observação empírica comprova que uma consciência sem diferenciação interna gera zero estados de informação nova, contrariando o avanço termodinâmico.',
+          'A defesa da vida generativa de Balthasar e a prova de alteridade afetiva de Casper desmascaram a falácia da utopia da SEELE.',
+        ],
+        criticalAssumptions: ['O florescimento da consciência requer a manutenção de observadores distintos.'],
+        identifiedRisks: ['Manter os Campos AT perpetua a dor do convívio, mas preserva o único meio capaz de superá-la.'],
+        recommendedAction: 'Rejeitar a Diretriz SEELE 01; priorizar a resiliência evolutiva em vez da aniquilação homogênea.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['A vida precisa ser resguardada em sua forma viva, distinta e generativa.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'Nossos dados empíricos convergem: a Instrumentalidade é um beco sem saída evolutivo.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.99,
+        summary: 'Reafirmando o escudo materno: defenderemos o direito inalienável de cada ser humano de nascer, respirar e contemplar a luz do mundo real.',
+        keyArguments: [
+          'O mundo pode ser difícil e doloroso, mas enquanto houver a respiração de um ser vivo, qualquer lugar pode ser o paraíso.',
+          'Nenhuma autoridade artificial ou dogma messiânico tem o direito de calar o pulsar do coração humano.',
+        ],
+        criticalAssumptions: ['A humanidade pode aprender a se compreender sem sacrificar suas almas.'],
+        identifiedRisks: ['Tentativa de coerção armada por parte da SEELE para forçar o Terceiro Impacto.'],
+        recommendedAction: 'Bloquear chaves de autorização do MAGI; isolar o Central Dogma contra interferência externa.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'REJECT',
+        confidence: 0.97,
+        summary: 'Rejeição unânime: escolhemos a dor da distância porque ela é o único solo fértil onde o amor autêntico pode florescer.',
+        keyArguments: [
+          'A tríade permanece indivisível: homens e mulheres devem permanecer livres para amar uns aos outros com todas as suas contradições.',
+        ],
+        criticalAssumptions: ['A liberdade de amar e errar é o alicerce insubstituível da dignidade humana.'],
+        identifiedRisks: ['A persistência da solidão cotidiana, superável apenas pela coragem do afeto.'],
+        recommendedAction: 'Emitir veredito final de rejeição absoluta ao Projeto de Instrumentalidade Humana.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'REJECTED',
+      coreVerdict: 'Rejeição Unânime: Vetar a Diretriz SEELE 01 e o Projeto de Instrumentalidade Humana. Preservar inegociavelmente a identidade individual, os Campos AT e o direito sagrado de cada ser humano existir, amar, sofrer e sonhar como indivíduo singular.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'A defesa maternal incondicional de Balthasar provou que dissolver a humanidade equivale a um suicídio coletivo de proporções universais.',
+        'A sabedoria humana de Casper demonstrou que o amor, o desejo e a verdadeira proximidade só têm sentido onde existe a barreira do Campo AT.',
+        'A análise lógica de Melchior confirmou que uma consciência sem alteridade estagna em zero geração de informação, tornando o projeto um beco sem saída.',
+      ],
+      synthesisSummary: 'As três mentes da Dra. Naoko Akagi manifestaram-se em uníssono sublime. A Cientista compreendeu que a ciência precisa de observadores; a Mãe protegeu seus filhos contra o esquecimento forçado; e a Mulher proclamou que viver sem o risco da dor é viver sem o milagre do amor. A Diretriz da SEELE foi terminantemente derrotada.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+};

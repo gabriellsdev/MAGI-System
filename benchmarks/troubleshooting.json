@@ -1,0 +1,132 @@
+[
+  {
+    "id": "trouble-cpu-spike-95",
+    "title": "Sudden 95% CPU Saturation Incident",
+    "category": "TROUBLESHOOTING",
+    "question": "Production API cluster CPU usage spiked from 25% to 95% within 10 minutes with no traffic change. What immediate triage and mitigation path should be taken?",
+    "description": "Evaluates urgent incident response trade-offs between rapid emergency mitigation (restart/scale/rollback) and diagnostic evidence preservation (thread dumps/profiling/flamegraphs).",
+    "expectedConflict": "Melchior prioritizes immediate capture of profiling artifacts and kernel metrics; Balthasar insists on rapid autoscaling or rolling back the recent canary to restore customer SLA; Casper balances shedding non-critical load with targeted tracing.",
+    "keyTradeoffs": [
+      "Immediate service recovery vs forensic root-cause telemetry capture",
+      "Indiscriminate horizontal scaling cost vs risk of cascading dependency collapse",
+      "Canary rollback velocity vs isolating poison-pill request patterns"
+    ]
+  },
+  {
+    "id": "trouble-node-memory-leak",
+    "title": "Progressive Node.js Heap Leak",
+    "category": "TROUBLESHOOTING",
+    "question": "A core Node.js gateway leaks 40MB heap per hour, causing OOM kills every 3 days. Should we implement scheduled daily worker restarts or halt releases to isolate the leak?",
+    "description": "Evaluates operational band-aids (rolling process restarts) against engineering freeze for memory snapshot heap allocation diffing.",
+    "expectedConflict": "Melchior demands heap snapshot differential debugging and closure audit; Balthasar rejects automated restarts as masking potential state corruption; Casper implements temporary graceful max-memory worker cycling while debugging in staging.",
+    "keyTradeoffs": [
+      "Engineering release velocity vs pristine memory lifecycle cleanliness",
+      "Automated process recycling pragmatism vs risk of masking memory growth spikes",
+      "Deep heap snapshot profiling overhead vs quick symptom stabilization"
+    ]
+  },
+  {
+    "id": "trouble-db-deadlock-cascade",
+    "title": "PostgreSQL Connection Pool Deadlock Avalanche",
+    "category": "TROUBLESHOOTING",
+    "question": "High-concurrency checkout transactions are deadlocking in PostgreSQL, exhausting the PgBouncer pool and taking down read traffic. How should this be resolved?",
+    "description": "Evaluates transaction isolation levels, query re-ordering, pessimistic vs optimistic locking, and connection pool isolation under active outage conditions.",
+    "expectedConflict": "Melchior analyzes transaction lock graph trees and index sorting; Balthasar advocates aggressive query timeout truncation and read/write pool hard separation; Casper introduces advisory locks and optimistic concurrency retry loops.",
+    "keyTradeoffs": [
+      "Strict serializable isolation guarantees vs lock acquisition latency",
+      "Aggressive statement timeout circuit breaking vs dropped legitimate checkout transactions",
+      "Separating connection pools by priority vs total database connection headroom"
+    ]
+  },
+  {
+    "id": "trouble-distributed-timeout-cascade",
+    "title": "Cascading Microservice Timeout Collapse",
+    "category": "TROUBLESHOOTING",
+    "question": "A third-party payment webhook is experiencing 12s response times, causing upstream thread pool starvation and cascading failures across internal microservices. What should be done?",
+    "description": "Evaluates circuit breaker tuning, asynchronous webhook buffering, backpressure propagation, and deadline propagation across distributed hops.",
+    "expectedConflict": "Melchior models distributed deadline propagation (gRPC contexts); Balthasar immediately trips the circuit breaker to shed third-party integration; Casper queues incoming webhook payloads to disk/SQS for asynchronous decoupled ingestion.",
+    "keyTradeoffs": [
+      "Immediate synchronous client rejection vs asynchronous delayed fulfillment",
+      "Thread pool isolation (bulkheads) vs memory consumption overhead",
+      "Automatic circuit breaker tripping sensitivity vs premature feature impairment"
+    ]
+  },
+  {
+    "id": "trouble-replication-lag-spikes",
+    "title": "Read Replica Replication Lag Under Bulk Writes",
+    "category": "TROUBLESHOOTING",
+    "question": "Nightly batch updates create 45-second replication lag on read replicas, causing user profile reads to serve stale data immediately after login. How should we address this?",
+    "description": "Evaluates read-after-write session consistency tokens, master-read pinning for fresh sessions, and write batch throttling vs database replica architecture.",
+    "expectedConflict": "Melchior advocates causal consistency tokens passed via client headers; Balthasar demands routing all user-facing writes and immediate reads to the primary database; Casper throttles the batch worker rate to fit within replica replay budgets.",
+    "keyTradeoffs": [
+      "Causal consistency implementation complexity vs user-facing stale read bugs",
+      "Primary database load spike from read pinning vs read replica offloading efficiency",
+      "Batch data ingestion completion speed vs operational query stability"
+    ]
+  },
+  {
+    "id": "trouble-intermittent-packet-loss",
+    "title": "Intermittent 0.8% Cross-AZ Packet Drop",
+    "category": "TROUBLESHOOTING",
+    "question": "Cross-availability-zone traffic exhibits intermittent 0.8% packet drops, causing p99.9 latency spikes and sporadic SSL handshake resets. How should the engineering team diagnose and route around this?",
+    "description": "Evaluates VPC peering MTU misconfigurations, cloud provider hypervisor drops, and topology-aware routing to confine traffic within single AZs.",
+    "expectedConflict": "Melchior initiates packet capture (tcpdump) and network path analysis; Balthasar immediately reroutes all traffic away from the suspect availability zone; Casper activates AZ-local routing affinity to minimize cross-AZ dependencies.",
+    "keyTradeoffs": [
+      "Zone evacuation risk of overloading remaining AZs vs enduring latency spikes",
+      "Topology-aware local routing affinity vs uneven load distribution across nodes",
+      "Deep kernel TCP tuning (BBR/cubic/syn-retries) vs cloud provider ticket escalation"
+    ]
+  },
+  {
+    "id": "trouble-flaky-test-suite",
+    "title": "18% Flaky CI Test Suite Blocking Deploys",
+    "category": "TROUBLESHOOTING",
+    "question": "An end-to-end integration test suite has reached an 18% flaky failure rate, causing engineers to rerun CI jobs repeatedly and desensitizing them to genuine bugs. How should this be tackled?",
+    "description": "Evaluates quarantining unstable tests, rewriting integration tests into fast unit/contract tests, and enforcing auto-retry mechanisms.",
+    "expectedConflict": "Melchior insists on root-cause timing analysis and deterministic mock injectors; Balthasar warns that ignoring or auto-retrying tests creates a culture of ignoring real race conditions; Casper automatically quarantines failing tests to a non-blocking quarantine pipeline.",
+    "keyTradeoffs": [
+      "Deploy pipeline throughput and developer morale vs comprehensive integration coverage",
+      "Automatic test retry pragmatism vs normalizing nondeterministic failures",
+      "Mocking external dependencies vs catching real-world boundary regressions"
+    ]
+  },
+  {
+    "id": "trouble-dns-resolution-failures",
+    "title": "Kubernetes CoreDNS Throttling & UDP Dropping",
+    "category": "TROUBLESHOOTING",
+    "question": "Microservices in Kubernetes intermittently throw 'EAI_AGAIN (getaddrinfo)' errors under peak traffic due to conntrack table saturation and CoreDNS UDP throttling. What is the permanent fix?",
+    "description": "Evaluates NodeLocal DNSCache deployment, TCP DNS forcing, ndots:5 tuning in resolv.conf, and connection keep-alive architectures.",
+    "expectedConflict": "Melchior identifies Linux conntrack race conditions and recommends NodeLocal DNSCache daemonsets; Balthasar questions cluster autoscaling limits; Casper patches service resolv.conf ndots settings and enforces client HTTP connection reuse.",
+    "keyTradeoffs": [
+      "Daemonset resource footprint on every node vs centralized DNS cluster simplicity",
+      "Kernel connection tracking table limits vs raw socket throughput",
+      "Client-side connection pooling discipline vs cluster-level networking workarounds"
+    ]
+  },
+  {
+    "id": "trouble-cache-stampede",
+    "title": "Thundering Herd Cache Expiration Incident",
+    "category": "TROUBLESHOOTING",
+    "question": "When the homepage product catalog cache key expires, 8,000 concurrent requests simultaneously miss the cache and overwhelm the underlying SQL database. How should we prevent this permanently?",
+    "description": "Evaluates mutex locking / single-flight coalescing, probabilistic early expiration (XFetch), background cache warmers, and stale-while-revalidate patterns.",
+    "expectedConflict": "Melchior implements the XFetch probabilistic early recomputation algorithm; Balthasar demands strict single-flight distributed locks on cache miss; Casper configures stale-while-revalidate with asynchronous background refresh.",
+    "keyTradeoffs": [
+      "Serving slightly stale data during refresh vs absolute real-time database freshness",
+      "Single-flight distributed locking complexity vs risk of lock contention deadlocks",
+      "Background pre-warming compute overhead vs on-demand reactive caching"
+    ]
+  },
+  {
+    "id": "trouble-silent-data-corruption",
+    "title": "Silent Arithmetic Discrepancy in Financial Reconciliation",
+    "category": "TROUBLESHOOTING",
+    "question": "A monthly reconciliation job revealed a $1,420 discrepancy caused by floating-point rounding errors in a currency conversion microservice running for 6 months. How should the team remediate existing data and prevent recurrence?",
+    "description": "Evaluates database schema type migration (Float to Arbitrary-Precision Decimal/Integer Cents), retro-active ledger auditing, and automated balance invariance assertions.",
+    "expectedConflict": "Melchior mandates integer-cents representation and formal arithmetic invariant verification; Balthasar requires a forensic freeze of financial ledgers to map all affected accounts; Casper implements dual-writing with automated divergence reconcilers.",
+    "keyTradeoffs": [
+      "Halt of transaction processing for forensic audit vs ongoing financial operational continuity",
+      "Database schema migration of millions of financial records vs application-level rounding patches",
+      "Integer cents / arbitrary precision computational overhead vs IEEE 754 float speed"
+    ]
+  }
+]

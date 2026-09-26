@@ -1,0 +1,488 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // STATUS & TELEMETRY INDICATORS           */
+/* Badges, confidence meters, health chips, and scoring bars     */
+/* ============================================================= */
+
+/* Primary System Pulse Indicator */
+.system-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+}
+
+.status-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--casper-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--casper-color);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.status-label {
+  font-size: 0.75rem;
+  color: var(--casper-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Provider Status Chips */
+.status-chips-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-chip {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  letter-spacing: 0.8px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.status-chip.online {
+  background: rgba(0, 255, 157, 0.1);
+  color: #00ff9d;
+  border-color: rgba(0, 255, 157, 0.35);
+  box-shadow: 0 0 6px rgba(0, 255, 157, 0.2);
+}
+
+.status-chip.offline {
+  background: rgba(255, 0, 85, 0.1);
+  color: #ff5577;
+  border-color: rgba(255, 0, 85, 0.35);
+}
+
+/* Agent Stance Badges */
+.agent-stance-bar {
+  padding: 0.8rem 1rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stance-badge {
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+
+.stance-badge.APPROVE {
+  background: rgba(0, 255, 157, 0.15);
+  color: #00ff9d;
+  border-color: #00ff9d;
+}
+
+.stance-badge.REJECT {
+  background: rgba(255, 0, 85, 0.15);
+  color: #ff0055;
+  border-color: #ff0055;
+}
+
+.stance-badge.CONDITIONAL {
+  background: rgba(255, 157, 0, 0.15);
+  color: #ff9d00;
+  border-color: #ff9d00;
+}
+
+.stance-badge.PIVOT {
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  border-color: #00e5ff;
+}
+
+.stance-badge.STANDBY {
+  background: rgba(121, 134, 156, 0.15);
+  color: #79869c;
+  border-color: #79869c;
+}
+
+/* Confidence Meters */
+.confidence-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.conf-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.conf-val {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.conf-meter-track {
+  width: 90px;
+  height: 4px;
+  background: #242c3d;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.conf-meter-fill {
+  height: 100%;
+  background: var(--core-color);
+  transition: width 0.4s ease-out;
+}
+
+/* Core Decision Badges */
+.decision-badge {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  padding: 0.3rem 1rem;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  border: 1px solid var(--core-color);
+  color: #fff;
+  background: rgba(0, 229, 255, 0.2);
+}
+
+.decision-badge.consensus-reached,
+.decision-badge.unanimous-consensus {
+  border-color: #00ff9d;
+  background: rgba(0, 255, 157, 0.2);
+  color: #00ff9d;
+}
+
+.decision-badge.conditional-pass {
+  border-color: #ffaa00;
+  background: rgba(255, 170, 0, 0.2);
+  color: #ffaa00;
+}
+
+.decision-badge.rejected {
+  border-color: #ff0055;
+  background: rgba(255, 0, 85, 0.25);
+  color: #ff5577;
+}
+
+/* Scoring Bars */
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.score-name {
+  width: 100px;
+  font-weight: bold;
+}
+
+.melchior-text { color: var(--melchior-color); }
+.balthasar-text { color: var(--balthasar-color); }
+.casper-text { color: var(--casper-color); }
+
+.score-bar-track {
+  flex-grow: 1;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.melchior-fill { background: var(--melchior-color); }
+.balthasar-fill { background: var(--balthasar-color); }
+.casper-fill { background: var(--casper-color); }
+
+.score-num {
+  width: 45px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Metadata Pills */
+.meta-pills {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  font-size: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+  color: var(--text-dim);
+}
+
+/* ============================================================= */
+/* SESSION STATUS RIBBON & PRE-RUN OPERATIONAL SUMMARY           */
+/* ============================================================= */
+
+.session-ribbon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 16, 26, 0.92);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.35rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  backdrop-filter: blur(4px);
+  user-select: none;
+}
+
+.session-ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.session-beacon-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--casper-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--casper-color);
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+.session-beacon-dot.ready {
+  background: #00ff9d;
+  box-shadow: 0 0 6px #00ff9d;
+}
+
+.session-beacon-dot.running {
+  background: #ffd000;
+  box-shadow: 0 0 6px #ffd000;
+  animation: pulse 1s infinite alternate;
+}
+
+.session-beacon-dot.complete {
+  background: #00ff9d;
+  box-shadow: 0 0 6px #00ff9d;
+}
+
+.session-beacon-dot.error {
+  background: #ff0055;
+  box-shadow: 0 0 6px #ff0055;
+  animation: pulse 0.7s infinite alternate;
+}
+
+.session-beacon-dot.standby {
+  background: #79869c;
+  box-shadow: none;
+  animation: none;
+}
+
+.session-text {
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.8px;
+}
+
+.session-ribbon-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.session-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  letter-spacing: 0.8px;
+}
+
+.session-pill.session-access {
+  background: rgba(0, 200, 255, 0.1);
+  color: #00c8ff;
+  border-color: rgba(0, 200, 255, 0.3);
+}
+
+.session-pill.session-access.operator {
+  background: rgba(255, 208, 0, 0.12);
+  color: #ffd000;
+  border-color: rgba(255, 208, 0, 0.4);
+}
+
+.session-pill.session-mode {
+  background: rgba(255, 110, 0, 0.1);
+  color: var(--core-color);
+  border-color: rgba(255, 110, 0, 0.3);
+}
+
+.session-pill.session-mode.fast {
+  background: rgba(255, 208, 0, 0.1);
+  color: #ffd000;
+  border-color: rgba(255, 208, 0, 0.35);
+}
+
+/* Pre-Execution Operational Summary Bar */
+.pre-run-summary-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: rgba(5, 10, 18, 0.8);
+  border: 1px dashed var(--border-color);
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.pre-run-metric {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.metric-label {
+  color: var(--text-dim);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.metric-val {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.metric-val.status-ready {
+  color: #00ff9d;
+}
+
+.metric-val.status-running {
+  color: #ffd000;
+  animation: pulse 1s infinite alternate;
+}
+
+.metric-val.status-complete {
+  color: #00ff9d;
+}
+
+.metric-val.status-error {
+  color: #ff0055;
+}
+
+.metric-val.status-standby {
+  color: var(--text-dim);
+}
+
+.metric-divider {
+  color: var(--border-color);
+  font-weight: bold;
+}
+
+/* ============================================================= */
+/* EXECUTION ORIGIN STAMPS (Section 6 MAGI_IMP.md)               */
+/* ============================================================= */
+
+.core-header-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.origin-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.origin-badge.live {
+  background: rgba(0, 255, 157, 0.12);
+  border: 1px solid rgba(0, 255, 157, 0.6);
+  color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.25);
+}
+
+.origin-badge.mock {
+  background: rgba(255, 208, 0, 0.1);
+  border: 1px solid rgba(255, 208, 0, 0.5);
+  color: #ffd000;
+  box-shadow: 0 0 8px rgba(255, 208, 0, 0.2);
+}
+
+.origin-badge.override {
+  background: rgba(180, 0, 255, 0.12);
+  border: 1px solid rgba(180, 0, 255, 0.6);
+  color: #d066ff;
+  box-shadow: 0 0 12px rgba(180, 0, 255, 0.35);
+}
+
+.anime-origin-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+}
+
+.anime-origin-tag.live {
+  background: rgba(0, 255, 157, 0.15);
+  border: 1px solid rgba(0, 255, 157, 0.5);
+  color: #00ff9d;
+}
+
+.anime-origin-tag.mock {
+  background: rgba(255, 208, 0, 0.12);
+  border: 1px solid rgba(255, 208, 0, 0.45);
+  color: #ffd000;
+}
+
+.anime-origin-tag.override {
+  background: rgba(180, 0, 255, 0.15);
+  border: 1px solid rgba(180, 0, 255, 0.55);
+  color: #d066ff;
+}
+
+.tactical-origin-tag {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.45rem;
+}
+

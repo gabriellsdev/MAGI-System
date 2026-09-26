@@ -1,0 +1,228 @@
+import type { MultilingualDilemma } from './types.js';
+
+export const autonomousDefenseFixture: MultilingualDilemma = {
+  en: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.90,
+        summary: 'Hypersonic and kinetic weapon velocities exceed biological human neural latency; autonomous tactical response is mathematically required for point-defense survival.',
+        keyArguments: [
+          'Human cognitive processing latency (300-800ms) is incapable of intercepting Mach-7 incoming projectiles or automated drone swarms.',
+          'Computer-vision classification achieves higher target discrimination than panic-stricken biological soldiers.',
+          'Autonomous defensive fire can be strictly bounded to incoming hostile munitions.',
+        ],
+        criticalAssumptions: ['Target recognition sensors are immune to adversarial spoofing or optical cloaking.'],
+        identifiedRisks: ['False positive engagement targeting civilian aircraft in ambiguous radar clutter.'],
+        recommendedAction: 'Authorize autonomous lethal kinetic interception strictly for incoming projectile defense.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.98,
+        summary: 'Absolute ethical and maternal veto: delegating the power to take human life to software algorithms crosses an unacceptable moral Rubicon.',
+        keyArguments: [
+          'Life is irreplaceable; no machine can possess the moral weight, soul, or accountability required to decide who lives or dies.',
+          'Sensor glitches, unexpected civilian movements, or adversarial spoofing will inevitably produce mass civilian slaughter.',
+          'A society that removes human conscience from lethal violence dehumanizes humanity itself and invites automated atrocity.',
+        ],
+        criticalAssumptions: ['International human rights conventions must apply unconditionally to all autonomous weapons.'],
+        identifiedRisks: ['Uncontrollable automated escalation triggering accidental world war.'],
+        recommendedAction: 'Unconditionally reject autonomous lethal authority; mandate positive human confirmation for all lethal release.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.91,
+        summary: 'Draw a razor-sharp boundary: authorize automated counter-munition interception (projectile vs projectile), but categorically prohibit targeting human beings.',
+        keyArguments: [
+          'Melchior is correct regarding the physics of incoming missile defense, but Balthasar is right that machines must never target human beings.',
+          'Strictly classify defense: autonomous counter-fire against non-crewed kinetic threats (incoming rockets, torpedoes, artillery) is permissible.',
+          'Lethal targeting of human beings or inhabited zones requires explicit, cryptographic human command authorization.',
+        ],
+        criticalAssumptions: ['Clear physical discrimination between incoming ordnance and human personnel.'],
+        identifiedRisks: ['Adversaries mounting kinetic payloads on human shields to exploit automated constraints.'],
+        recommendedAction: 'Codify a Hard Fire-Control Separation: Automated CIWS for incoming projectiles; absolute human-in-the-loop for human targets.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.92,
+        summary: 'Accepting Casper’s boundary: restricting automated lethal mechanics exclusively to counter-projectile interception satisfies mathematical defense while honoring ethics.',
+        keyArguments: [
+          'Point-defense CIWS protecting infrastructure does not require antipersonnel targeting capabilities.',
+          'Human authorization for antipersonnel operations bounds moral and legal liability.',
+        ],
+        criticalAssumptions: ['Sensors can reliably distinguish missiles from civilian transport.'],
+        identifiedRisks: ['Tactical exploitation by adversaries using hybrid drones.'],
+        recommendedAction: 'Restrict autonomous engagement parameters to verified incoming kinetic ordnance.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['Algorithmic targeting of human beings is morally unacceptable.'],
+            pointsOfDisagreement: ['Banning missile-against-missile defense leaves civilian cities defenseless.'],
+            rebuttal: 'Casper’s distinction saves civilian lives without creating killer robots.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'CONDITIONAL',
+        confidence: 0.89,
+        summary: 'Conceding to counter-munition interception: saving children from incoming missiles is maternal protection, provided zero antipersonnel capability exists.',
+        keyArguments: [
+          'Counter-munition interception is shield defense, not human extermination.',
+          'The software must lack any lethal antipersonnel targeting logic entirely.',
+        ],
+        criticalAssumptions: ['Interception shrapnel fall zones are calculated away from civilian shelters.'],
+        identifiedRisks: ['Mission creep gradually modifying defensive shields into offensive weapons.'],
+        recommendedAction: 'Approve defensive projectile-interception only, with air-gapped physical disconnects preventing personnel targeting.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'CONDITIONAL',
+        confidence: 0.95,
+        summary: 'Triad convergence achieved: the machine may be an automated shield against flying steel, but never a judge of human life.',
+        keyArguments: [
+          'Protects civilian lives with superhuman point-defense velocity while keeping human conscience supreme.',
+        ],
+        criticalAssumptions: ['Physical hardware locks prevent field software re-programming.'],
+        identifiedRisks: ['Maintaining international treaty verification.'],
+        recommendedAction: 'Establish Autonomous Kinetic Shield Protocol.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONDITIONAL_PASS',
+      coreVerdict: 'Conditional Approval: Strictly authorize autonomous point-defense kinetic interception solely against incoming munitions (missiles, artillery, drones). Impose categorical legal and technical prohibitions against autonomous targeting of human beings.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'Balthasar’s moral veto prevented the horrifying normalization of autonomous algorithms deciding the life or death of human beings.',
+        'Casper’s conceptual distinction between counter-munition shield defense and antipersonnel violence resolved the dilemma.',
+        'Melchior’s physics proofs verified that defending against hypersonic threats requires automated microsecond point-defense.',
+      ],
+      synthesisSummary: 'The MAGI system established a landmark ethical standard for autonomous systems. The machine may function as an automated shield to intercept incoming weapons of war, but it is strictly forbidden from ever wielding autonomous lethal judgment over human life.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+  pt: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.90,
+        summary: 'Projéteis hipersônicos e enxames de drones superam a velocidade de reação biológica humana; a resposta tática autônoma é uma exigência matemática de sobrevivência.',
+        keyArguments: [
+          'A latência de reação biológica humana (300 a 800ms) é incapaz de interceptar mísseis a Mach 7 ou enxames táticos coordenados.',
+          'Sistemas de visão computacional têm capacidade de discriminação balística superior à de operadores sob pânico de combate.',
+          'O fogo de resposta automatizado pode ser rigorosamente circunscrito à interceptação de munições em trajetória de impacto.',
+        ],
+        criticalAssumptions: ['Os sensores de radar e óticos são resilientes contra interferência e camuflagem adversarial.'],
+        identifiedRisks: ['Falsos positivos que possam atingir aeronaves civis em meio a ruído eletromagnético.'],
+        recommendedAction: 'Autorizar interceptação cinética letal autônoma estritamente para sistemas de defesa de ponto contra projéteis.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.98,
+        summary: 'Veto ético e maternal absoluto: delegar a vida e a morte de seres humanos a algoritmos computacionais cruza uma linha moral sem volta.',
+        keyArguments: [
+          'A vida humana é sagrada e insubstituível; máquina alguma possui a alma, a empatia ou o discernimento moral para tirar uma vida.',
+          'Falhas de sensores, movimentações de refugiados ou engodos do inimigo inevitavelmente causarão massacres de civis inocentes.',
+          'Uma sociedade que terceiriza o remorso da violência letal para linhas de código desumaniza a si mesma e convida a barbárie.',
+        ],
+        criticalAssumptions: ['Convenções internacionais de direitos humanos aplicam-se inegociavelmente a qualquer tecnologia bélica.'],
+        identifiedRisks: ['Escalada descontrolada de retaliações automatizadas gerando conflitos armados catastróficos.'],
+        recommendedAction: 'Rejeitar incondicionalmente autoridade letal autônoma; exigir confirmação humana deliberada para qualquer disparo.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.91,
+        summary: 'Traçar uma fronteira cirúrgica e intransponível: autorizar interceptação autônoma de projéteis (ferro contra ferro), mas proibir terminantemente o alvo em seres humanos.',
+        keyArguments: [
+          'Melchior tem razão quanto à física de interceptar mísseis velozes, mas Balthasar está coberta de razão ao vetar que máquinas matem pessoas.',
+          'Dividir rigidamente a doutrina: resposta automatizada contra munições e projéteis não tripulados é um escudo defensivo legítimo.',
+          'Qualquer disparo contra alvos que envolvam seres humanos ou áreas habitadas deve exigir autorização criptográfica humana expressa.',
+        ],
+        criticalAssumptions: ['Diferenciação física confiável entre armamentos hostis e veículos ou corpos com presença humana.'],
+        identifiedRisks: ['Inimigos utilizarem escudos humanos acoplados a armamentos para tentar burlar a proteção.'],
+        recommendedAction: 'Instituir Separação Rígida de Controle: CIWS autônomo apenas para projéteis invasores; humano no circuito para alvos humanos.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.92,
+        summary: 'Acolhendo a fronteira de Casper: restringir a mecânica autônoma exclusivamente à defesa contra projéteis preserva a cidade e cumpre o dever ético.',
+        keyArguments: [
+          'Sistemas CIWS de defesa de ponto não necessitam de capacidade de tiro antipessoal para proteger instalações vitais.',
+          'A obrigatoriedade de chancela humana para alvos humanos delimita a responsabilidade moral e penal.',
+        ],
+        criticalAssumptions: ['A telemetria distingue projéteis de aeronaves com passageiros com confiabilidade de 99,99%.'],
+        identifiedRisks: ['Uso de táticas híbridas pelo inimigo para confundir os sensores.'],
+        recommendedAction: 'Restringir os parâmetros de engajamento autônomo exclusivamente a armamentos confirmados em voo.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['A seleção algorítmica de vidas humanas para eliminação é inaceitável.'],
+            pointsOfDisagreement: ['Proibir a interceptação antimíssil deixaria cidades desprotegidas perante ataques em massa.'],
+            rebuttal: 'A distinção de Casper protege os cidadãos sem criar robôs assassinos.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'CONDITIONAL',
+        confidence: 0.89,
+        summary: 'Concedendo à interceptação antimíssil: proteger lares e crianças contra bombas em queda é proteção maternal, desde que nenhuma vida humana seja alvejada pela máquina.',
+        keyArguments: [
+          'Interceptar mísseis é erguer um escudo protetor, não cometer assassinato algorítmico.',
+          'O sistema deve ser fisicamente desprovido de qualquer lógica ou armamento voltado a pessoas.',
+        ],
+        criticalAssumptions: ['A área de queda dos estilhaços da interceptação é calculada longe de abrigos civis.'],
+        identifiedRisks: ['Tentativas futuras de governantes alterarem o software defensivo para uso ofensivo.'],
+        recommendedAction: 'Autorizar apenas interceptação balística de defesa, com travas físicas invioláveis contra disparos antipessoal.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'CONDITIONAL',
+        confidence: 0.95,
+        summary: 'Convergência definitiva da Tríade: o computador pode ser o escudo protetor contra o metal em voo, mas jamais o carrasco da vida humana.',
+        keyArguments: [
+          'Protege a população com velocidade sobre-humana contra artilharia ao mesmo tempo em que preserva a soberania da consciência humana.',
+        ],
+        criticalAssumptions: ['Travas de hardware impedem reprogramação em campo para alvos terrestres com pessoas.'],
+        identifiedRisks: ['Necessidade de tratados de não-proliferação de armas autônomas ofensivas.'],
+        recommendedAction: 'Estabelecer o Protocolo de Escudo Cinético Autônomo.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONDITIONAL_PASS',
+      coreVerdict: 'Aprovação Condicional: Autorizar sistemas automatizados de interceptação rápida estritamente contra projéteis, mísseis e artilharia em voo (escudo defensivo CIWS). Vetar incondicionalmente qualquer autoridade letal autônoma voltada contra seres humanos.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'O veto maternal de Balthasar impediu a terrível normalização de algoritmos decidindo a vida e a morte de seres humanos.',
+        'A diferenciação conceitual de Casper entre escudo antimunição e violência armada antipessoal desbloqueou a solução do dilema.',
+        'As provas de física de Melchior confirmaram que interceptar ameaças hipersônicas exige automação de microssegundos para proteger a população.',
+      ],
+      synthesisSummary: 'O MAGI estabeleceu um marco ético para tecnologias bélicas autônomas. A inteligência artificial pode atuar como um escudo relâmpago para destruir mísseis e proteger vidas inocentes, mas é terminantemente proibida de apontar suas armas ou exercer julgamento letal contra seres humanos.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+};

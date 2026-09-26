@@ -1,0 +1,148 @@
+{
+  "HIST-009": [
+    {
+      "id": "rc-pool-starve",
+      "metric": "db_pool_utilization_percent",
+      "operator": ">=",
+      "threshold": 95,
+      "window": "5m",
+      "action": "ROLLBACK",
+      "description": "Database connection pool utilization must not exceed 95% for more than 5 minutes",
+      "status": "TRIPPED",
+      "trippedAt": "2026-08-20T13:42:00Z",
+      "trippedValue": 98.4
+    }
+  ],
+  "HIST-010": [
+    {
+      "id": "rc-p99-lock",
+      "metric": "p99_latency_ms",
+      "operator": ">",
+      "threshold": 500,
+      "window": "10m",
+      "action": "CIRCUIT_BREAK",
+      "description": "P99 response latency must remain under 500ms under production load",
+      "status": "TRIPPED",
+      "trippedAt": "2026-08-24T02:11:00Z",
+      "trippedValue": 825
+    }
+  ],
+  "HIST-021": [
+    {
+      "id": "rc-edge-err",
+      "metric": "error_rate_percent",
+      "operator": ">",
+      "threshold": 1.5,
+      "window": "5m",
+      "action": "ROLLBACK",
+      "description": "Edge API 5xx error rate must not exceed 1.5% during canary rollout",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "rc-edge-lat",
+      "metric": "p99_latency_ms",
+      "operator": ">",
+      "threshold": 250,
+      "window": "15m",
+      "action": "REEVALUATE",
+      "description": "Edge proxy p99 latency must remain under 250ms",
+      "status": "ACTIVE"
+    }
+  ],
+  "DEC-1790339433330-VPB9J": [
+    {
+      "id": "DEC-1790339433330-VPB9J-rc1",
+      "metric": "error_rate_percent",
+      "operator": ">",
+      "threshold": 1,
+      "window": "5m",
+      "action": "ROLLBACK",
+      "description": "Breach if 5xx error rate exceeds 1.0% in initial canary window",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790339433330-VPB9J-rc2",
+      "metric": "p99_latency_ms",
+      "operator": ">",
+      "threshold": 500,
+      "window": "15m",
+      "action": "CIRCUIT_BREAK",
+      "description": "Breach if p99 response latency exceeds 500ms under load",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790339433330-VPB9J-rc3",
+      "metric": "sla_drop_percent",
+      "operator": ">",
+      "threshold": 15,
+      "window": "1h",
+      "action": "HUMAN_ESCALATION",
+      "description": "Breach if service level agreement drops more than 15%",
+      "status": "ACTIVE"
+    }
+  ],
+  "DEC-1790354347372-H9Y9I": [
+    {
+      "id": "DEC-1790354347372-H9Y9I-rc1",
+      "metric": "error_rate_percent",
+      "operator": ">",
+      "threshold": 1,
+      "window": "5m",
+      "action": "ROLLBACK",
+      "description": "Breach if 5xx error rate exceeds 1.0% in initial canary window",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790354347372-H9Y9I-rc2",
+      "metric": "p99_latency_ms",
+      "operator": ">",
+      "threshold": 500,
+      "window": "15m",
+      "action": "CIRCUIT_BREAK",
+      "description": "Breach if p99 response latency exceeds 500ms under load",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790354347372-H9Y9I-rc3",
+      "metric": "sla_drop_percent",
+      "operator": ">",
+      "threshold": 15,
+      "window": "1h",
+      "action": "HUMAN_ESCALATION",
+      "description": "Breach if service level agreement drops more than 15%",
+      "status": "ACTIVE"
+    }
+  ],
+  "DEC-1790354761911-EO44Z": [
+    {
+      "id": "DEC-1790354761911-EO44Z-rc1",
+      "metric": "error_rate_percent",
+      "operator": ">",
+      "threshold": 1,
+      "window": "5m",
+      "action": "ROLLBACK",
+      "description": "Breach if 5xx error rate exceeds 1.0% in initial canary window",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790354761911-EO44Z-rc2",
+      "metric": "p99_latency_ms",
+      "operator": ">",
+      "threshold": 500,
+      "window": "15m",
+      "action": "CIRCUIT_BREAK",
+      "description": "Breach if p99 response latency exceeds 500ms under load",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DEC-1790354761911-EO44Z-rc3",
+      "metric": "sla_drop_percent",
+      "operator": ">",
+      "threshold": 15,
+      "window": "1h",
+      "action": "HUMAN_ESCALATION",
+      "description": "Breach if service level agreement drops more than 15%",
+      "status": "ACTIVE"
+    }
+  ]
+}

@@ -1,0 +1,1074 @@
+/* ============================================================= */
+/* V1.5 ADDITIONS: 1:1 ANIME NERV MAGI INTERFACE                 */
+/* ============================================================= */
+
+.anime-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
+  gap: 1.2rem;
+}
+
+.anime-crt-monitor {
+  width: 100%;
+  max-width: 980px;
+  background: #000000;
+  border: 3px solid #ff7700;
+  box-shadow: 0 0 35px rgba(255, 119, 0, 0.25), inset 0 0 40px rgba(0, 0, 0, 0.95);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+/* Hazard Stripes (Top & Bottom) */
+.hazard-stripe {
+  width: 100%;
+  height: 12px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 12px,
+    #ff8800 12px,
+    #ff8800 24px
+  );
+}
+
+.top-hazard {
+  border-bottom: 2px solid #ff7700;
+}
+
+.bottom-hazard {
+  border-top: 2px solid #ff7700;
+}
+
+/* EMERGENCY ALARM STATE (Episode 13 / Rejection & Impasse Lockout) */
+.anime-crt-monitor.emergency-alarm {
+  border-color: #ff1744;
+  animation: monitorEmergencyPulse 1.2s infinite ease-in-out;
+}
+
+.anime-crt-monitor.emergency-alarm .hazard-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 12px,
+    #ff1744 12px,
+    #ff1744 24px
+  );
+  animation: hazardStrobe 0.7s infinite alternate ease-in-out;
+}
+
+.anime-crt-monitor.emergency-alarm .top-hazard {
+  border-bottom: 2px solid #ff1744;
+}
+
+.anime-crt-monitor.emergency-alarm .bottom-hazard {
+  border-top: 2px solid #ff1744;
+}
+
+.anime-crt-monitor.emergency-alarm .nexus-plaque {
+  border-color: #ff1744;
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.85);
+}
+
+.anime-crt-monitor.emergency-alarm .nexus-plaque span {
+  color: #ff1744;
+  text-shadow: 0 0 12px rgba(255, 23, 68, 0.9);
+}
+
+.anime-crt-monitor.emergency-alarm .nexus-bus-line,
+.anime-crt-monitor.emergency-alarm .nexus-bus-horizontal {
+  background: #ff1744;
+  box-shadow: 0 0 10px #ff1744;
+}
+
+@keyframes monitorEmergencyPulse {
+  0%, 100% {
+    box-shadow: 0 0 35px rgba(255, 23, 68, 0.4), inset 0 0 40px rgba(255, 23, 68, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 23, 68, 0.8), inset 0 0 70px rgba(255, 23, 68, 0.35);
+  }
+}
+
+@keyframes hazardStrobe {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 4px #ff1744);
+  }
+  100% {
+    filter: brightness(1.7) drop-shadow(0 0 18px #ff0033);
+  }
+}
+
+.anime-frame-inner {
+  padding: 1.4rem 2rem 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #000000;
+}
+
+/* Top Kanji & Telemetry Grid */
+.anime-top-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.anime-telemetry-left,
+.anime-telemetry-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-telemetry-right {
+  align-items: flex-end;
+}
+
+.anime-kanji-title {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'MS Gothic', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #ff8800;
+  letter-spacing: 12px;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 136, 0, 0.5);
+}
+
+.anime-green-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0.4rem 0 0.6rem 0;
+  width: 190px;
+}
+
+.green-line {
+  height: 2px;
+  background-color: #00ff66;
+  box-shadow: 0 0 6px #00ff66;
+}
+
+.anime-code-block {
+  font-family: var(--font-mono);
+  color: #ff8800;
+  line-height: 1.25;
+  text-shadow: 0 0 6px rgba(255, 136, 0, 0.3);
+}
+
+.code-main {
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+.anime-code-sub {
+  font-size: 0.76rem;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Stamp Box (Top-Right) */
+.anime-stamp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.anime-stamp-box {
+  border: 3px solid #ff8800;
+  padding: 0.35rem 0.9rem;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+  line-height: 1;
+  text-align: center;
+  min-width: 90px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.anime-stamp-box.stamp-standby {
+  border-color: #ff8800;
+  color: #ff8800;
+  box-shadow: 0 0 8px rgba(255, 136, 0, 0.3);
+}
+
+.anime-stamp-box.stamp-deliberating {
+  border-color: #ff8800;
+  color: #ff8800;
+  animation: blink 0.8s infinite;
+}
+
+.anime-stamp-box.stamp-consensus,
+.anime-stamp-box.stamp-passed {
+  border-color: #4ef29f;
+  color: #4ef29f;
+  background: rgba(78, 242, 159, 0.15);
+  box-shadow: 0 0 16px rgba(78, 242, 159, 0.4);
+}
+
+.anime-stamp-box.stamp-rejected {
+  border-color: #ff1744;
+  color: #ff1744;
+  background: rgba(255, 23, 68, 0.15);
+  box-shadow: 0 0 16px rgba(255, 23, 68, 0.4);
+  animation: blink 1.2s infinite;
+}
+
+.anime-resolution-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #ff8800;
+  text-align: right;
+}
+
+.anime-monitor-fs-btn {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #ff7700;
+  color: #ffaa33;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.65rem;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.anime-monitor-fs-btn:hover {
+  background: #ff7700;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(255, 119, 0, 0.6);
+}
+
+/* ============================================================= */
+/* CENTRAL TRIAD POLYS: BALTHASAR (TOP), CASPER (L), MELCHIOR (R)*/
+/* ============================================================= */
+
+.anime-triad-stage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 820px) {
+  .anime-triad-stage {
+    transform: scale(0.75);
+    transform-origin: center center;
+    margin: -40px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .anime-triad-stage {
+    transform: scale(0.55);
+    transform-origin: center center;
+    margin: -80px 0;
+  }
+}
+
+/* Circuit Bus Lines */
+.nexus-bus-line {
+  background: #ff7700;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 0 6px #ff7700;
+}
+
+.bus-top {
+  width: 4px;
+  height: 38px;
+  top: 195px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bus-bottom-left {
+  width: 52px;
+  height: 4px;
+  top: 236px;
+  left: calc(50% - 92px);
+  transform: rotate(34deg);
+}
+
+.bus-bottom-right {
+  width: 52px;
+  height: 4px;
+  top: 236px;
+  right: calc(50% - 92px);
+  transform: rotate(-34deg);
+}
+
+.nexus-bus-horizontal {
+  width: 130px;
+  height: 4px;
+  background: #ff7700;
+  position: absolute;
+  top: 288px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  box-shadow: 0 0 6px #ff7700;
+}
+
+/* Central Plaque: MAGI */
+.anime-nexus-hub {
+  position: absolute;
+  top: 232px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.nexus-plaque {
+  width: 150px;
+  height: 46px;
+  background: #000000;
+  border: 2px solid #ff7700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.5);
+  clip-path: polygon(14% 0%, 86% 0%, 100% 50%, 86% 100%, 14% 100%, 0% 50%);
+}
+
+.nexus-plaque span {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: 5px;
+  color: #ff7700;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 119, 0, 0.6);
+}
+
+/* Screen Wrappers & Absolute Positioning */
+.anime-screen-wrapper {
+  position: absolute;
+  z-index: 3;
+}
+
+.wrapper-balthasar {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 200px;
+}
+
+.wrapper-casper {
+  bottom: 0;
+  left: calc(50% - 335px);
+  width: 320px;
+  height: 180px;
+}
+
+.wrapper-melchior {
+  bottom: 0;
+  right: calc(50% - 335px);
+  width: 320px;
+  height: 180px;
+}
+
+/* Screen Polygons & Clip-Paths */
+.anime-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+}
+
+/* Balthasar polygon: chamfered bottom corners */
+.poly-balthasar {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 72% 100%, 28% 100%, 0 75%);
+}
+
+/* Casper polygon: chamfered top-right corner */
+.poly-casper {
+  clip-path: polygon(0 0, 70% 0, 100% 34%, 100% 100%, 0 100%);
+}
+
+/* Melchior polygon: chamfered top-left corner */
+.poly-melchior {
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%, 0 34%);
+}
+
+.anime-screen-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.anime-agent-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.anime-vote-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.anime-conf-text {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.anime-inspect-hint {
+  position: absolute;
+  bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.anime-screen:hover .anime-inspect-hint {
+  opacity: 0.85;
+}
+
+/* ============================================================= */
+/* ANIME SCREEN COLOR STATES (STANDBY, BLINKING, RESOLUTION)     */
+/* ============================================================= */
+
+/* 1. STANDBY: NOMINAL BLUE */
+.anime-screen.state-standby {
+  background: #083259;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+.anime-screen.state-standby .anime-agent-label {
+  color: #7fc0ff;
+}
+
+.anime-screen.state-standby .anime-vote-text {
+  color: #5aa5e6;
+  font-size: 1.1rem;
+}
+
+.anime-screen.state-standby .anime-inspect-hint {
+  color: #7fc0ff;
+}
+
+/* 2. DELIBERATING: STROBE BLINKING */
+.anime-screen.state-deliberating {
+  animation: anime-screen-blink 0.45s infinite alternate ease-in-out;
+}
+
+.anime-screen.state-deliberating .anime-agent-label {
+  color: #ffffff;
+}
+
+.anime-screen.state-deliberating .anime-vote-text {
+  color: #80d0ff;
+}
+
+.anime-screen.state-deliberating .anime-conf-text {
+  color: #aae0ff;
+  letter-spacing: 2px;
+}
+
+@keyframes anime-screen-blink {
+  0% {
+    background: #0a4073;
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  100% {
+    background: #00172e;
+    opacity: 0.35;
+    filter: brightness(0.6);
+  }
+}
+
+/* 3. RESOLUTION: APPROVED (VIVID LIME GREEN) */
+.anime-screen.state-approved {
+  background: #4ef29f !important;
+  animation: none !important;
+  box-shadow: 0 0 35px rgba(78, 242, 159, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.anime-screen.state-approved .anime-agent-label,
+.anime-screen.state-approved .anime-vote-text,
+.anime-screen.state-approved .anime-conf-text {
+  color: #000000 !important;
+}
+
+.anime-screen.state-approved .anime-inspect-hint {
+  color: #000000 !important;
+}
+
+/* 3. RESOLUTION: REJECTED (VIVID CRIMSON RED) */
+.anime-screen.state-rejected {
+  background: #ff1744 !important;
+  animation: none !important;
+  box-shadow: 0 0 35px rgba(255, 23, 68, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.anime-screen.state-rejected .anime-agent-label,
+.anime-screen.state-rejected .anime-vote-text,
+.anime-screen.state-rejected .anime-conf-text {
+  color: #ffffff !important;
+}
+
+.anime-screen.state-rejected .anime-inspect-hint {
+  color: #ffffff !important;
+}
+
+/* 3. RESOLUTION: CONDITIONAL / PIVOT (AMBER) */
+.anime-screen.state-conditional {
+  background: #ff9900 !important;
+  animation: none !important;
+  box-shadow: 0 0 35px rgba(255, 153, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.anime-screen.state-conditional .anime-agent-label,
+.anime-screen.state-conditional .anime-vote-text,
+.anime-screen.state-conditional .anime-conf-text {
+  color: #000000 !important;
+}
+
+.anime-screen.state-conditional .anime-inspect-hint {
+  color: #000000 !important;
+}
+
+/* Bottom Console Bar */
+.anime-bottom-console {
+  border-top: 2px solid #ff7700;
+  padding-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: #ff8800;
+}
+
+.anime-console-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.anime-console-row.anime-console-question-row {
+  align-items: flex-start;
+  padding-top: 0.2rem;
+}
+
+.anime-console-row.anime-console-question-row .console-label {
+  padding-top: 0.45rem;
+}
+
+.console-label {
+  width: 110px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.console-code-dots {
+  letter-spacing: 2px;
+  color: #ff8800;
+}
+
+.anime-question-form {
+  display: flex;
+  flex-grow: 1;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.console-question-input {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 38px;
+  max-height: 240px;
+  resize: vertical;
+  overflow-y: auto;
+  background: #05070c;
+  border: 1px solid #ff7700;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  padding: 0.45rem 0.8rem;
+  outline: none;
+  border-radius: 2px;
+  line-height: 1.45;
+  letter-spacing: 0.5px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
+}
+
+.console-question-input:focus {
+  border-color: #ffaa33;
+  box-shadow: 0 0 10px rgba(255, 136, 0, 0.4), inset 0 0 6px rgba(255, 136, 0, 0.2);
+  background: #080c14;
+}
+
+.console-question-input::placeholder {
+  color: #79869c;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
+
+.console-question-input::-webkit-scrollbar {
+  width: 5px;
+}
+.console-question-input::-webkit-scrollbar-track {
+  background: #050810;
+}
+.console-question-input::-webkit-scrollbar-thumb {
+  background: #ff7700;
+  border-radius: 2px;
+}
+
+.anime-console-submit-btn {
+  background: rgba(255, 119, 0, 0.15);
+  border: 1px solid #ff7700;
+  color: #ffaa33;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 0.5rem 0.9rem;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anime-console-submit-btn:hover:not(:disabled) {
+  background: #ff7700;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(255, 119, 0, 0.6);
+}
+
+.anime-console-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #555555;
+  color: #777777;
+}
+
+/* ============================================================= */
+/* ANIME INTER-CORE DEBATE CHAT & DELIBERATION HISTORY LOG       */
+/* ============================================================= */
+
+.anime-chat-wrapper {
+  width: 100%;
+  max-width: 980px;
+  background: #020408;
+  border: 2px solid #ff7700;
+  box-shadow: 0 0 25px rgba(255, 119, 0, 0.18), inset 0 0 30px rgba(0, 0, 0, 0.9);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2rem;
+}
+
+.anime-chat-header {
+  background: #0d0800;
+  border-bottom: 2px solid #ff7700;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anime-chat-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.anime-chat-status-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff9d;
+  box-shadow: 0 0 8px #00ff9d;
+  animation: ledPulse 2s infinite ease-in-out;
+}
+
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.anime-chat-title {
+  font-size: 0.88rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #ff8800;
+  text-shadow: 0 0 6px rgba(255, 136, 0, 0.4);
+}
+
+.anime-chat-counter {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(255, 136, 0, 0.15);
+  border: 1px solid #ff7700;
+  color: #ffaa33;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+
+.anime-chat-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.anime-chat-btn {
+  background: rgba(255, 119, 0, 0.08);
+  border: 1px solid #ff7700;
+  color: #ff8800;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.anime-chat-btn:hover {
+  background: #ff7700;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
+}
+
+.anime-chat-toggle {
+  font-weight: bold;
+}
+
+.anime-chat-body {
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+  max-height: 540px;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.anime-chat-wrapper.collapsed .anime-chat-body {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.anime-chat-messages {
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  scroll-behavior: smooth;
+}
+
+/* Custom Cyberpunk Scrollbar */
+.anime-chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.anime-chat-messages::-webkit-scrollbar-track {
+  background: #050810;
+}
+.anime-chat-messages::-webkit-scrollbar-thumb {
+  background: #ff7700;
+  border-radius: 2px;
+}
+
+.anime-chat-system-msg {
+  font-size: 0.8rem;
+  color: #79869c;
+  letter-spacing: 1px;
+  border-left: 2px solid #79869c;
+  padding-left: 0.6rem;
+}
+
+.system-bracket {
+  color: #00ff9d;
+  font-weight: bold;
+}
+
+/* Message Cards */
+.chat-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.8rem 1rem;
+  border-radius: 2px;
+  line-height: 1.45;
+  font-size: 0.86rem;
+  animation: chatMsgFadeIn 0.25s ease-out;
+}
+
+@keyframes chatMsgFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
+}
+
+.chat-sender-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+
+.chat-time {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* 1. User / Operator Message */
+.chat-entry.chat-user {
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-left: 4px solid #00e5ff;
+}
+
+.chat-entry.chat-user .chat-sender-info {
+  color: #00e5ff;
+}
+
+.chat-user-text {
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+/* 2. Agent Messages (MELCHIOR, BALTHASAR, CASPER) */
+.chat-entry.chat-agent {
+  background: rgba(10, 14, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.chat-entry.chat-melchior {
+  border-left: 4px solid #ff8800;
+}
+.chat-entry.chat-melchior .chat-sender-info {
+  color: #ff8800;
+}
+
+.chat-entry.chat-balthasar {
+  border-left: 4px solid #ff3344;
+}
+.chat-entry.chat-balthasar .chat-sender-info {
+  color: #ff4455;
+}
+
+.chat-entry.chat-casper {
+  border-left: 4px solid #00e5ff;
+}
+.chat-entry.chat-casper .chat-sender-info {
+  color: #00e5ff;
+}
+
+.chat-stance-pill {
+  font-size: 0.72rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 2px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+}
+
+.chat-stance-pill.APPROVE {
+  background: rgba(0, 255, 157, 0.15);
+  color: #00ff9d;
+  border: 1px solid #00ff9d;
+}
+
+.chat-stance-pill.REJECT {
+  background: rgba(255, 51, 68, 0.15);
+  color: #ff3344;
+  border: 1px solid #ff3344;
+}
+
+.chat-stance-pill.CONDITIONAL {
+  background: rgba(255, 157, 0, 0.15);
+  color: #ff9d00;
+  border: 1px solid #ff9d00;
+}
+
+.chat-stance-pill.PIVOT {
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+}
+
+.chat-agent-summary {
+  color: #e2e8f0;
+}
+
+/* Inter-Core Critiques / Discussion */
+.chat-critiques-box {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 136, 0, 0.25);
+  border-radius: 2px;
+}
+
+.chat-critiques-title {
+  font-size: 0.72rem;
+  color: #ffaa33;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chat-critique-item {
+  font-size: 0.82rem;
+  color: #b0c4de;
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+.chat-critique-target {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* 3. Inter-Core Gate Notice (Disagreement / Consensus) */
+.chat-entry.chat-gate {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chat-entry.chat-disagreement {
+  background: rgba(255, 51, 68, 0.1);
+  border: 1px dashed #ff3344;
+  color: #ff6677;
+}
+
+.chat-entry.chat-consensus {
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px dashed #00ff9d;
+  color: #00ff9d;
+}
+
+/* 4. Final MAGI Core Verdict */
+.chat-entry.chat-synthesis {
+  background: rgba(0, 255, 157, 0.06);
+  border: 2px solid #00ff9d;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.15);
+}
+
+.chat-entry.chat-synthesis .chat-sender-info {
+  color: #00ff9d;
+}
+
+.chat-verdict-text {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.chat-synthesis-summary {
+  color: #cbd5e1;
+  font-size: 0.86rem;
+}
+
+.chat-telemetry-row {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #79869c;
+  display: flex;
+  gap: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Chat User Query Wrapping */
+.chat-user-text {
+  color: #ffffff;
+  font-size: 0.92rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+/* ============================================================= */
+/* FULLSCREEN TERMINAL EXPANSION                                 */
+/* ============================================================= */
+.magi-body.is-fullscreen {
+  overflow-y: auto;
+}
+
+.magi-body.is-fullscreen .hud-container {
+  max-width: 98vw;
+  padding: 0.6rem 1.2rem;
+}
+
+.magi-body.is-fullscreen .anime-crt-monitor {
+  max-width: 1400px;
+  width: 96vw;
+  box-shadow: 0 0 60px rgba(255, 119, 0, 0.4), inset 0 0 50px rgba(0, 0, 0, 0.95);
+}
+
+.magi-body.is-fullscreen .anime-triad-stage {
+  min-height: 520px;
+}
+
+.magi-body.is-fullscreen .anime-screen {
+  transform: scale(1.08);
+}
+
+.magi-body.is-fullscreen .tactical-box-frame {
+  max-width: 1300px;
+}
+
+.magi-body.is-fullscreen .anime-chat-wrapper {
+  max-width: 1400px;
+  width: 96vw;
+}
+

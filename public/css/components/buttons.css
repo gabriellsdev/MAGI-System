@@ -1,0 +1,334 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // BUTTON COMPONENTS                       */
+/* Action triggers, tabs, toggles, and interactive pills         */
+/* ============================================================= */
+
+/* View Mode Toggles */
+.view-switch-group {
+  display: flex;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.view-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.view-toggle-btn.active {
+  background: var(--core-color);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--core-glow);
+}
+
+/* Audio Synthesizer Toggle */
+.audio-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.audio-btn.active {
+  border-color: var(--casper-color);
+  color: var(--casper-color);
+  box-shadow: 0 0 8px var(--casper-glow);
+}
+
+/* Collapsible Panel Toggle */
+.query-toggle-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.query-toggle-btn:hover {
+  color: var(--text-highlight);
+  border-color: var(--core-color);
+}
+
+.query-toggle-btn.minimized {
+  border-color: var(--melchior-color);
+  color: var(--melchior-color);
+  box-shadow: 0 0 8px var(--melchior-glow);
+}
+
+/* Fullscreen Controls */
+.fullscreen-toggle-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.fullscreen-toggle-btn:hover {
+  color: var(--text-highlight);
+  border-color: var(--core-color);
+  box-shadow: 0 0 8px var(--core-glow);
+}
+
+.fullscreen-toggle-btn.active {
+  border-color: var(--core-color);
+  color: var(--core-color);
+  box-shadow: 0 0 10px var(--core-glow);
+}
+
+/* Primary Execution Button */
+.execute-btn, .submit-btn {
+  background: var(--melchior-color);
+  color: #000;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px var(--melchior-glow);
+}
+
+.execute-btn:hover, .submit-btn:hover {
+  background: #ffb433;
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px var(--melchior-glow);
+}
+
+.execute-btn:disabled, .submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Demo Deliberation Trigger (Zero Cost) */
+.hud-btn-demo {
+  background: rgba(255, 170, 0, 0.08);
+  border: 1px solid rgba(255, 170, 0, 0.45);
+  color: #ffbb33;
+  padding: 0.7rem 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-btn-demo:hover {
+  background: rgba(255, 170, 0, 0.2);
+  border-color: #ffaa00;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 170, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.hud-btn-demo:active {
+  transform: translateY(0);
+}
+
+.hud-btn-demo:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Preset Dilemma Pills */
+.quick-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pill-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.preset-pill {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.preset-pill:hover {
+  color: var(--core-color);
+  border-color: var(--core-color);
+}
+
+.preset-pill.active,
+.preset-pill.selected {
+  color: var(--core-color);
+  border-color: var(--core-color);
+  background: rgba(255, 110, 0, 0.12);
+  box-shadow: 0 0 8px rgba(255, 110, 0, 0.25);
+}
+
+.preset-pill.highlight-pill {
+  border-color: rgba(255, 110, 0, 0.4);
+}
+
+/* Deliberation Round Tabs */
+.round-tabs {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 4px;
+}
+
+.tab-btn {
+  background: var(--bg-card);
+  color: var(--text-dim);
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  color: #fff;
+  border-color: var(--core-color);
+  background: rgba(0, 229, 255, 0.15);
+}
+
+/* Tools Dropdown & Operator Actions */
+.tools-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tools-menu-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.tools-menu-btn:hover, .tools-menu-btn.active {
+  color: var(--core-color);
+  border-color: var(--core-color);
+  box-shadow: 0 0 8px var(--core-glow);
+}
+
+.tools-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background: #080c14;
+  border: 1px solid var(--core-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 10px var(--core-glow);
+  border-radius: 3px;
+  min-width: 220px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0;
+}
+
+.tools-menu-item {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+}
+
+.tools-menu-item:hover {
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--core-color);
+}
+
+/* Operator Unlock Button */
+.operator-unlock-btn {
+  background: transparent;
+  border: 1px solid #ff7700;
+  color: #ffaa33;
+  padding: 0.35rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.operator-unlock-btn.active {
+  background: rgba(255, 119, 0, 0.2);
+  border-color: #ffaa33;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 119, 0, 0.4);
+}
+
+/* Raw JSON Toggle */
+.json-toggle-btn {
+  background: transparent;
+  color: var(--core-color);
+  border: 1px solid var(--core-color);
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.json-toggle-btn:hover {
+  background: var(--core-color);
+  color: #000;
+}

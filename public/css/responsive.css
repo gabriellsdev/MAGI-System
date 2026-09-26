@@ -1,0 +1,570 @@
+/* ============================================================= */
+/* MOBILE RESPONSIVE ENHANCEMENTS (SMARTPHONES & SMALL SCREENS)  */
+/* ============================================================= */
+
+@media (max-width: 768px) {
+  /* Container & Overall Spacing */
+  .hud-container {
+    padding: 0.75rem 0.5rem;
+    gap: 1rem;
+  }
+
+  /* Header & Logo */
+  .hud-header {
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .logo-group {
+    gap: 0.6rem;
+  }
+
+  .magi-mark {
+    font-size: 2.3rem;
+    letter-spacing: 2px;
+  }
+
+  .system-code {
+    font-size: 0.75rem;
+  }
+
+  .system-sub {
+    font-size: 0.65rem;
+  }
+
+  /* Header Controls Grid */
+  .hud-controls {
+    width: 100%;
+    gap: 0.6rem;
+    justify-content: space-between;
+  }
+
+  .control-item {
+    flex: 1 1 calc(50% - 0.4rem);
+    min-width: 135px;
+  }
+
+  #engine-control-item {
+    flex: 1 1 100%;
+  }
+
+  .view-switch-group {
+    width: 100%;
+  }
+
+  .view-toggle-btn {
+    flex: 1;
+    font-size: 0.72rem;
+    padding: 0.45rem 0.4rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hud-select {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .status-chips-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .status-chip {
+    flex: 1 1 calc(50% - 0.4rem);
+    text-align: center;
+    font-size: 0.68rem;
+    padding: 0.35rem 0.5rem;
+    min-width: 120px;
+  }
+
+  .tools-dropdown-container {
+    flex: 1 1 calc(50% - 0.4rem);
+  }
+
+  .hud-btn-tools {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .tools-dropdown-menu {
+    left: 0;
+    right: auto;
+    max-width: 90vw;
+    min-width: 240px;
+  }
+
+  .hud-btn-fast-mode {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  /* Query Section */
+  .query-section {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .terminal-bar {
+    font-size: 0.78rem;
+  }
+
+  .magi-textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .dropdown-badge-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .dropdown-mode-tag,
+  .dropdown-hint-tag {
+    font-size: 0.68rem;
+  }
+
+  .magi-dropdown-select {
+    font-size: 0.88rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .quick-pills {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .preset-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.72rem;
+  }
+
+  .query-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+
+  .action-buttons-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .execute-btn {
+    width: 100%;
+    order: -1;
+    padding: 0.75rem 1rem;
+    font-size: 1.15rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hud-btn-demo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hud-btn {
+    flex: 1 1 calc(33.333% - 0.4rem);
+    font-size: 0.72rem;
+    padding: 0.5rem 0.4rem;
+    justify-content: center;
+    text-align: center;
+    min-width: 85px;
+  }
+
+  /* Deliberation Timeline & Stepper */
+  .timeline-section {
+    padding: 0.8rem;
+  }
+
+  .stepper-track {
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .step-item {
+    min-width: 85px;
+    flex-shrink: 0;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .step-num {
+    font-size: 0.95rem;
+  }
+
+  .step-desc {
+    font-size: 0.65rem;
+  }
+
+  .step-connector {
+    min-width: 10px;
+  }
+
+  /* Diagnostic Agent Panels */
+  .agents-grid {
+    gap: 1rem;
+  }
+
+  .panel-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.75rem 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .agent-id {
+    font-size: 1.4rem;
+  }
+
+  .agent-role {
+    width: 100%;
+    order: 3;
+  }
+
+  .round-tabs {
+    position: static;
+    order: 2;
+  }
+
+  .agent-stance-bar {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .agent-tabs-content {
+    padding: 0.75rem 0.8rem;
+  }
+
+  .agent-section-title {
+    font-size: 0.75rem;
+  }
+
+  .agent-section-body {
+    font-size: 0.82rem;
+    word-break: break-word;
+  }
+
+  /* MAGI Core Verdict / Consensus Card */
+  .core-section {
+    padding: 0.9rem;
+    gap: 0.9rem;
+  }
+
+  .core-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .core-title {
+    font-size: 1.5rem;
+  }
+
+  .decision-badge {
+    font-size: 1.2rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .verdict-statement {
+    font-size: 1rem;
+  }
+
+  /* Anime MAGI Monitor View */
+  .anime-crt-monitor {
+    border-width: 2px;
+  }
+
+  .anime-frame-inner {
+    padding: 0.8rem 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .anime-top-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .anime-kanji-title {
+    font-size: 1.7rem;
+    letter-spacing: 4px;
+  }
+
+  .anime-green-lines {
+    width: 110px;
+    margin: 0.2rem 0 0.4rem 0;
+  }
+
+  .code-main {
+    font-size: 0.95rem;
+  }
+
+  .anime-code-sub {
+    font-size: 0.66rem;
+  }
+
+  .anime-stamp-box {
+    font-size: 1.3rem;
+    min-width: 65px;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .anime-resolution-label {
+    font-size: 0.62rem;
+  }
+
+  .anime-monitor-fs-btn {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .anime-bottom-console {
+    padding-top: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .anime-console-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .console-label {
+    width: 100%;
+    font-size: 0.78rem;
+  }
+
+  .console-code-dots {
+    word-break: break-all;
+    font-size: 0.75rem;
+  }
+
+  .anime-question-form {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .console-question-input {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.88rem;
+  }
+
+  .anime-console-dropdown-select {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .anime-console-submit-btn {
+    width: 100%;
+    height: 42px;
+    font-size: 0.88rem;
+    justify-content: center;
+  }
+
+  .console-telemetry-val {
+    font-size: 0.72rem;
+    word-break: break-word;
+  }
+
+  /* Anime Chat History Log */
+  .anime-chat-wrapper {
+    margin-bottom: 1.2rem;
+  }
+
+  .anime-chat-header {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .anime-chat-title {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .anime-chat-actions {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .anime-chat-btn {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* Tactical View Adjustments */
+  .tactical-frame-title {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .tactical-card {
+    padding: 0.9rem 0.75rem;
+  }
+
+  .tactical-card-name {
+    font-size: 1.1rem;
+  }
+
+  .tactical-core-header {
+    font-size: 1.2rem;
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    padding: 0.5rem;
+  }
+
+  .modal-box {
+    max-height: 94vh;
+    width: 100%;
+  }
+
+  .modal-header {
+    padding: 0.6rem 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .modal-title {
+    font-size: 0.82rem;
+  }
+
+  .modal-actions {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .storage-stat-value {
+    font-size: 1.2rem;
+  }
+
+  .storage-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .operator-debug-dock {
+    right: 8px;
+    left: 8px;
+    max-width: calc(100vw - 16px);
+    bottom: 8px;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .debug-dock-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+  }
+
+  .debug-dock-btn {
+    font-size: 0.62rem;
+    padding: 0.35rem 0.3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra tight screens (360px - 480px) */
+  .magi-mark {
+    font-size: 1.85rem;
+    letter-spacing: 1.5px;
+  }
+
+  .control-item {
+    flex: 1 1 100%;
+  }
+
+  .status-chip {
+    flex: 1 1 100%;
+  }
+
+  .anime-triad-stage {
+    transform: scale(0.44);
+    transform-origin: center center;
+    margin: -115px 0;
+  }
+
+  .anime-kanji-title {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+  }
+
+  .anime-green-lines {
+    width: 75px;
+  }
+
+  .anime-stamp-box {
+    font-size: 1.15rem;
+    min-width: 55px;
+    letter-spacing: 1px;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .anime-code-row.code-main {
+    font-size: 0.85rem;
+  }
+
+  .action-buttons-group .hud-btn,
+  .action-buttons-group .hud-btn-demo {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Ultra-narrow devices */
+  .anime-triad-stage {
+    transform: scale(0.38);
+    transform-origin: center center;
+    margin: -130px 0;
+  }
+
+  .anime-kanji-title {
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+  }
+
+  .anime-green-lines {
+    width: 60px;
+  }
+
+  .anime-stamp-box {
+    font-size: 1rem;
+    min-width: 48px;
+    padding: 0.1rem 0.3rem;
+  }
+}
+
+
+
+
+
+
+

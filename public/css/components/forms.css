@@ -1,0 +1,167 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // FORM & INPUT COMPONENTS                 */
+/* Dropdowns, textareas, prompt inputs, and option styling       */
+/* ============================================================= */
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.hud-select {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.hud-select:focus {
+  border-color: var(--core-color);
+}
+
+.magi-textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-highlight);
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.8rem;
+  border-radius: 2px;
+  resize: vertical;
+  outline: none;
+}
+
+.magi-textarea:focus {
+  border-color: var(--core-color);
+  box-shadow: 0 0 8px var(--core-glow);
+}
+
+/* Mock Scenario Dropdown Selector */
+.mock-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  animation: fadeInDown 0.25s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-badge-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.1rem 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+}
+
+.dropdown-mode-tag {
+  color: #00ff9d;
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(0, 255, 157, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(0, 255, 157, 0.4);
+}
+
+.dropdown-hint-tag {
+  color: #ffaa33;
+  letter-spacing: 0.8px;
+}
+
+.magi-dropdown-select {
+  width: 100%;
+  background: #060912;
+  border: 2px solid #ff7700;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 119, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.magi-dropdown-select:focus {
+  border-color: #ffaa33;
+  box-shadow: 0 0 14px rgba(255, 136, 0, 0.5);
+  background: #080d1a;
+}
+
+.magi-dropdown-select optgroup {
+  background: #04070e;
+  color: #ff8800;
+  font-weight: bold;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 0.2rem;
+}
+
+.magi-dropdown-select option {
+  background: #0a0f1d;
+  color: #f1f5f9;
+  font-weight: normal;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Anime CRT Bottom Console Selector */
+.anime-console-dropdown-select {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 42px;
+  background: #05070c;
+  border: 1px solid #ff7700;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  padding: 0.45rem 0.8rem;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+  box-shadow: 0 0 8px rgba(255, 119, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.anime-console-dropdown-select:focus {
+  border-color: #ffaa33;
+  box-shadow: 0 0 12px rgba(255, 136, 0, 0.5);
+  background: #090e18;
+}
+
+.anime-console-dropdown-select optgroup {
+  background: #030508;
+  color: #ff8800;
+  font-weight: bold;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+}
+
+.anime-console-dropdown-select option {
+  background: #080c14;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 0.35rem;
+}

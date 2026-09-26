@@ -1,0 +1,249 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // PANEL & CARD CONTAINERS                 */
+/* Agent cards, query terminal, core verdict, and docking bays   */
+/* ============================================================= */
+
+/* Collapsible Query Section */
+.query-section {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 1.2rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.query-section.collapsed {
+  padding-bottom: 0.8rem;
+}
+
+
+
+#magi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.query-section.collapsed #magi-form {
+  max-height: 0;
+  opacity: 0;
+  margin-top: -0.8rem;
+}
+
+.terminal-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--melchior-color);
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.terminal-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.prompt-symbol {
+  color: var(--core-color);
+}
+
+.query-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Triad Agents Grid */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 980px) {
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agent-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.agent-panel.melchior {
+  border-top: 3px solid var(--melchior-color);
+}
+.agent-panel.melchior:hover {
+  box-shadow: var(--glow-melchior);
+}
+
+.agent-panel.balthasar {
+  border-top: 3px solid var(--balthasar-color);
+}
+.agent-panel.balthasar:hover {
+  box-shadow: var(--glow-balthasar);
+}
+
+.agent-panel.casper {
+  border-top: 3px solid var(--casper-color);
+}
+.agent-panel.casper:hover {
+  box-shadow: var(--glow-casper);
+}
+
+.panel-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.agent-id {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.melchior .agent-id { color: var(--melchior-color); }
+.balthasar .agent-id { color: var(--balthasar-color); }
+.casper .agent-id { color: var(--casper-color); }
+
+.agent-role {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.agent-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.peer-critiques-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.5rem;
+}
+
+/* MAGI Core Verdict Section */
+.core-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--core-color);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: var(--glow-core);
+}
+
+.core-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.core-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.core-symbol {
+  color: var(--core-color);
+  font-size: 1.2rem;
+}
+
+.core-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--core-color);
+}
+
+.core-verdict-banner {
+  background: var(--bg-card);
+  border-left: 4px solid var(--casper-color);
+  padding: 1rem;
+  border-radius: 2px;
+}
+
+.verdict-tag {
+  font-size: 0.75rem;
+  color: var(--casper-color);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.verdict-statement {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.core-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .core-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.core-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.core-meta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

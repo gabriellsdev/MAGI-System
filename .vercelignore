@@ -1,0 +1,7 @@
+.env
+.env.local
+.env.*.local
+tests/
+dist/
+.gemini/
+*.log

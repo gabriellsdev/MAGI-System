@@ -1,0 +1,375 @@
+/* ============================================================= */
+/* V1.4 ADDITIONS: TACTICAL TERMINAL VIEW (NERV MINIMALIST)      */
+/* ============================================================= */
+
+.tactical-view-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.tactical-box-frame {
+  width: 100%;
+  max-width: 860px;
+  background: #080b11;
+  border: 1px solid #2e384d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 229, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ASCII Border Header & Footer */
+.tactical-frame-header,
+.tactical-frame-footer {
+  display: flex;
+  align-items: center;
+  color: #4b5875;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.4rem 0.8rem;
+  user-select: none;
+}
+
+.box-corner {
+  color: var(--core-color);
+  font-weight: bold;
+}
+
+.box-line-h {
+  flex-grow: 1;
+  height: 1px;
+  background: #2e384d;
+  margin: 0 0.8rem;
+}
+
+.tactical-frame-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.tactical-frame-content {
+  padding: 1.5rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tactical Query Display */
+.tactical-query-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tactical-query-label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.tactical-query-box {
+  border: 1px solid #3d4a63;
+  background: #05070c;
+  padding: 1rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: #ffffff;
+  line-height: 1.4;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Triad Grid */
+.tactical-triad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .tactical-triad-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tactical-card {
+  border: 1px solid #2e384d;
+  background: #06090f;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.tactical-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tactical-card.melchior {
+  border-top: 3px solid var(--melchior-color);
+}
+.tactical-card.melchior:hover {
+  border-color: var(--melchior-color);
+  box-shadow: 0 0 15px var(--melchior-glow);
+}
+
+.tactical-card.balthasar {
+  border-top: 3px solid var(--balthasar-color);
+}
+.tactical-card.balthasar:hover {
+  border-color: var(--balthasar-color);
+  box-shadow: 0 0 15px var(--balthasar-glow);
+}
+
+.tactical-card.casper {
+  border-top: 3px solid var(--casper-color);
+}
+.tactical-card.casper:hover {
+  border-color: var(--casper-color);
+  box-shadow: 0 0 15px var(--casper-glow);
+}
+
+.tactical-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid #1a2233;
+  padding-bottom: 0.5rem;
+}
+
+.tactical-card-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.melchior .tactical-card-name { color: var(--melchior-color); }
+.balthasar .tactical-card-name { color: var(--balthasar-color); }
+.casper .tactical-card-name { color: var(--casper-color); }
+
+.tactical-card-role {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.tactical-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0;
+  gap: 0.5rem;
+}
+
+.tactical-stance-badge {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  padding: 0.2rem 0.8rem;
+  border-radius: 2px;
+  text-align: center;
+  width: 100%;
+}
+
+.tactical-stance-badge.APPROVE {
+  color: #00ff9d;
+  background: rgba(0, 255, 157, 0.12);
+  border: 1px solid rgba(0, 255, 157, 0.4);
+}
+
+.tactical-stance-badge.REJECT {
+  color: #ff0055;
+  background: rgba(255, 0, 85, 0.12);
+  border: 1px solid rgba(255, 0, 85, 0.4);
+}
+
+.tactical-stance-badge.PIVOT {
+  color: #00e5ff;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+}
+
+.tactical-stance-badge.CONDITIONAL {
+  color: #ff9d00;
+  background: rgba(255, 157, 0, 0.12);
+  border: 1px solid rgba(255, 157, 0, 0.4);
+}
+
+.tactical-stance-badge.STANDBY {
+  color: #79869c;
+  background: rgba(121, 134, 156, 0.12);
+  border: 1px solid rgba(121, 134, 156, 0.3);
+}
+
+.tactical-conf-metric {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.tactical-inspect-tag {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.tactical-card:hover .tactical-inspect-tag {
+  opacity: 1;
+  color: var(--core-color);
+}
+
+/* Deliberation Flow Section */
+.tactical-flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+
+.tactical-arrow {
+  font-size: 1.6rem;
+  color: var(--core-color);
+  line-height: 1;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.tactical-arrow.active {
+  animation: arrow-bounce 0.8s infinite alternate;
+  color: #00ff9d;
+  text-shadow: 0 0 10px var(--core-glow);
+}
+
+@keyframes arrow-bounce {
+  from { transform: translateY(-3px); opacity: 0.6; }
+  to { transform: translateY(3px); opacity: 1; }
+}
+
+.tactical-flow-status {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--text-primary);
+  font-weight: bold;
+  padding: 0.3rem 0.9rem;
+  background: #0d121c;
+  border: 1px solid #2e384d;
+  border-radius: 2px;
+}
+
+.tactical-flow-status.deliberating {
+  border-color: var(--core-color);
+  color: var(--core-color);
+  box-shadow: 0 0 10px var(--core-glow);
+  animation: blink 1.2s infinite;
+}
+
+/* MAGI CORE Verdict Box */
+.tactical-core-box {
+  border: 1px solid #3d4a63;
+  background: #05070c;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  border-radius: 2px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.tactical-core-box.resolved {
+  border-color: var(--core-color);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.tactical-core-box.epistemic-halt {
+  border-color: #ff3333;
+  box-shadow: 0 0 25px rgba(255, 51, 51, 0.35);
+}
+
+.tactical-core-box.epistemic-halt .tactical-core-header {
+  color: #ff5555;
+}
+
+.tactical-core-box.epistemic-halt .tactical-decision-text {
+  color: #ff3333;
+  text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+.tactical-core-header {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: var(--core-color);
+  font-weight: 700;
+}
+
+.tactical-core-decision-line {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.tactical-decision-sep {
+  color: var(--text-dim);
+}
+
+.tactical-decision-conf {
+  color: var(--casper-color);
+}
+
+.tactical-core-verdict-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  max-width: 680px;
+}
+
+/* Tactical Popover Modal Body */
+.tactical-popover-content {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.tactical-popover-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.8rem;
+}
+

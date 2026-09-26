@@ -1,0 +1,119 @@
+[
+  {
+    "agentId": "MELCHIOR",
+    "baseReputation": 7.4,
+    "totalDecisionsInvolved": 21,
+    "survivedDecisions": 17,
+    "revertedDecisions": 4,
+    "minorityVindications": 1,
+    "falseAlarms": 2,
+    "domainReputations": {
+      "ARCHITECTURE": {
+        "domain": "ARCHITECTURE",
+        "score": 8.2,
+        "decisionsEvaluated": 8,
+        "accuracyRate": 0.875,
+        "vindicationCount": 1
+      },
+      "SCIENTIFIC": {
+        "domain": "SCIENTIFIC",
+        "score": 8.4,
+        "decisionsEvaluated": 6,
+        "accuracyRate": 0.833,
+        "vindicationCount": 0
+      },
+      "DATABASE": {
+        "domain": "DATABASE",
+        "score": 6.6,
+        "decisionsEvaluated": 4,
+        "accuracyRate": 0.5,
+        "vindicationCount": 0
+      },
+      "GENERAL": {
+        "domain": "GENERAL",
+        "score": 7.4,
+        "decisionsEvaluated": 3,
+        "accuracyRate": 0.667,
+        "vindicationCount": 0
+      }
+    }
+  },
+  {
+    "agentId": "BALTHASAR",
+    "baseReputation": 7.9,
+    "totalDecisionsInvolved": 21,
+    "survivedDecisions": 16,
+    "revertedDecisions": 5,
+    "minorityVindications": 3,
+    "falseAlarms": 1,
+    "domainReputations": {
+      "DATABASE": {
+        "domain": "DATABASE",
+        "score": 8.6,
+        "decisionsEvaluated": 6,
+        "accuracyRate": 0.833,
+        "vindicationCount": 2
+      },
+      "INFRASTRUCTURE": {
+        "domain": "INFRASTRUCTURE",
+        "score": 8.3,
+        "decisionsEvaluated": 7,
+        "accuracyRate": 0.857,
+        "vindicationCount": 1
+      },
+      "SECURITY": {
+        "domain": "SECURITY",
+        "score": 8.1,
+        "decisionsEvaluated": 5,
+        "accuracyRate": 0.8,
+        "vindicationCount": 0
+      },
+      "GENERAL": {
+        "domain": "GENERAL",
+        "score": 7.5,
+        "decisionsEvaluated": 3,
+        "accuracyRate": 0.667,
+        "vindicationCount": 0
+      }
+    }
+  },
+  {
+    "agentId": "CASPER",
+    "baseReputation": 7.3,
+    "totalDecisionsInvolved": 21,
+    "survivedDecisions": 17,
+    "revertedDecisions": 4,
+    "minorityVindications": 1,
+    "falseAlarms": 1,
+    "domainReputations": {
+      "OPERATIONS": {
+        "domain": "OPERATIONS",
+        "score": 8.1,
+        "decisionsEvaluated": 8,
+        "accuracyRate": 0.875,
+        "vindicationCount": 1
+      },
+      "GOVERNANCE": {
+        "domain": "GOVERNANCE",
+        "score": 7.8,
+        "decisionsEvaluated": 5,
+        "accuracyRate": 0.8,
+        "vindicationCount": 0
+      },
+      "FINANCIAL": {
+        "domain": "FINANCIAL",
+        "score": 7.7,
+        "decisionsEvaluated": 5,
+        "accuracyRate": 0.8,
+        "vindicationCount": 0
+      },
+      "GENERAL": {
+        "domain": "GENERAL",
+        "score": 7.2,
+        "decisionsEvaluated": 3,
+        "accuracyRate": 0.667,
+        "vindicationCount": 0
+      }
+    }
+  }
+]

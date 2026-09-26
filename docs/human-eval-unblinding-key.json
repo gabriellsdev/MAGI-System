@@ -1,0 +1,1567 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-09-12T14:19:11.113Z",
+  "totalQuestions": 30,
+  "questions": [
+    {
+      "questionNumber": 1,
+      "questionId": "arch-monolith-to-microservices",
+      "questionTitle": "Monolith to Microservices Decomposition",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "NO_DELIBERATION",
+        "C": "SINGLE_LLM",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "NO_DELIBERATION": "B",
+        "SINGLE_LLM": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.3,
+          "completeness": 9.2,
+          "robustness": 9.2,
+          "actionability": 9.3
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.3,
+          "completeness": 8.2,
+          "robustness": 7.9,
+          "actionability": 8.4
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.2,
+          "completeness": 6.8,
+          "robustness": 6.5,
+          "actionability": 7.4
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.8,
+          "completeness": 8.7,
+          "robustness": 8.6,
+          "actionability": 8.8
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 7.9,
+          "completeness": 7.6,
+          "robustness": 7.3,
+          "actionability": 7.7
+        }
+      }
+    },
+    {
+      "questionNumber": 2,
+      "questionId": "arch-rust-rewrite",
+      "questionTitle": "Complete Backend Rewrite in Rust",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "MAJORITY_VOTE",
+        "C": "NO_DELIBERATION",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "MAJORITY_VOTE": "B",
+        "NO_DELIBERATION": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 6.9,
+          "robustness": 6.6,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.7,
+          "robustness": 7.4,
+          "actionability": 7.8
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 8.9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.3,
+          "robustness": 9.3,
+          "actionability": 9.4
+        }
+      }
+    },
+    {
+      "questionNumber": 3,
+      "questionId": "arch-postgres-vs-mongodb",
+      "questionTitle": "Primary Database: PostgreSQL vs MongoDB",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "NO_DELIBERATION",
+        "C": "SINGLE_LLM",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "NO_DELIBERATION": "B",
+        "SINGLE_LLM": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.4
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 8
+        }
+      }
+    },
+    {
+      "questionNumber": 4,
+      "questionId": "arch-serverless-vs-containers",
+      "questionTitle": "Compute Platform: Serverless vs Containerized Kubernetes",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "NO_DELIBERATION",
+        "B": "SINGLE_LLM",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "NO_DELIBERATION": "A",
+        "SINGLE_LLM": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.2,
+          "robustness": 8,
+          "actionability": 8.5
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.7,
+          "robustness": 7.4,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.8,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 8.9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.3,
+          "completeness": 9.3,
+          "robustness": 9.2,
+          "actionability": 9.4
+        }
+      }
+    },
+    {
+      "questionNumber": 5,
+      "questionId": "arch-graphql-vs-rest",
+      "questionTitle": "API Gateway Strategy: GraphQL Federation vs REST + OpenAPI",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "MAJORITY_VOTE",
+        "C": "SINGLE_LLM",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "MAJORITY_VOTE": "B",
+        "SINGLE_LLM": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.3,
+          "completeness": 9.2,
+          "robustness": 9.2,
+          "actionability": 9.3
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 7.8,
+          "completeness": 7.6,
+          "robustness": 7.4,
+          "actionability": 7.7
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.2,
+          "completeness": 7.1,
+          "robustness": 6.6,
+          "actionability": 7.4
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.8,
+          "completeness": 8.7,
+          "robustness": 8.6,
+          "actionability": 8.8
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.3,
+          "completeness": 8.1,
+          "robustness": 8,
+          "actionability": 8.4
+        }
+      }
+    },
+    {
+      "questionNumber": 6,
+      "questionId": "arch-event-sourcing-cqrs",
+      "questionTitle": "Data Architecture: Event Sourcing & CQRS for Financial Ledger",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "NO_DELIBERATION",
+        "B": "SINGLE_LLM",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "NO_DELIBERATION": "A",
+        "SINGLE_LLM": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.9,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.4,
+          "robustness": 9.4,
+          "actionability": 9.5
+        }
+      }
+    },
+    {
+      "questionNumber": 7,
+      "questionId": "arch-distributed-caching",
+      "questionTitle": "Caching Architecture: Redis Cluster vs Local In-Process Cache",
+      "category": "SYSTEM_ARCHITECTURE",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "SINGLE_LLM",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "SINGLE_LLM": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 7.9,
+          "completeness": 7.7,
+          "robustness": 7.4,
+          "actionability": 7.8
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.4
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.5
+        }
+      }
+    },
+    {
+      "questionNumber": 8,
+      "questionId": "dec-build-vs-buy-auth",
+      "questionTitle": "Identity & Access Management: Build vs Buy",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "NO_DELIBERATION",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "NO_DELIBERATION": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 8
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 8.9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.3,
+          "robustness": 9.3,
+          "actionability": 9.5
+        }
+      }
+    },
+    {
+      "questionNumber": 9,
+      "questionId": "dec-kubernetes-small-team",
+      "questionTitle": "Infrastructure Choice: Kubernetes vs Managed PaaS for a 5-Person Team",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "SINGLE_LLM",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "SINGLE_LLM": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.7,
+          "robustness": 7.4,
+          "actionability": 8
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.3,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 8.9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.2,
+          "robustness": 8.1,
+          "actionability": 8.5
+        }
+      }
+    },
+    {
+      "questionNumber": 10,
+      "questionId": "dec-strict-pr-review-gates",
+      "questionTitle": "Code Review Policy: Mandatory Dual Approval vs Single Reviewer",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "NO_DELIBERATION",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "SINGLE_LLM"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "NO_DELIBERATION": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "SINGLE_LLM": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.3,
+          "robustness": 9.3,
+          "actionability": 9.4
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 8.9
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        }
+      }
+    },
+    {
+      "questionNumber": 11,
+      "questionId": "dec-tech-debt-sprint-budget",
+      "questionTitle": "Resource Allocation: Fixed 20% Tech Debt Budget vs Feature Prioritization",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "MAJORITY_VOTE",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "MAJORITY_VOTE": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 7.9,
+          "completeness": 7.7,
+          "robustness": 7.5,
+          "actionability": 7.8
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.2,
+          "robustness": 8.1,
+          "actionability": 8.5
+        }
+      }
+    },
+    {
+      "questionNumber": 12,
+      "questionId": "dec-monorepo-vs-polyrepo",
+      "questionTitle": "Repository Architecture: Unified Monorepo vs Polyrepo Repositories",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "NO_DELIBERATION",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "SINGLE_LLM"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "NO_DELIBERATION": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "SINGLE_LLM": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.4,
+          "actionability": 7.9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.3,
+          "robustness": 9.3,
+          "actionability": 9.4
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7.1,
+          "robustness": 6.7,
+          "actionability": 7.5
+        }
+      }
+    },
+    {
+      "questionNumber": 13,
+      "questionId": "dec-ai-copilot-mandatory-adoption",
+      "questionTitle": "Developer Tooling: Mandatory Generative AI Coding Assistants",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "MAJORITY_VOTE",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "MAJORITY_VOTE": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        }
+      }
+    },
+    {
+      "questionNumber": 14,
+      "questionId": "dec-open-source-vs-proprietary",
+      "questionTitle": "Observability Stack: Self-Hosted Prometheus/Grafana vs Datadog SaaS",
+      "category": "ENGINEERING_DECISION",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "NO_DELIBERATION",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "SINGLE_LLM"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "NO_DELIBERATION": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "SINGLE_LLM": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.4,
+          "completeness": 8.2,
+          "robustness": 8.1,
+          "actionability": 8.5
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        }
+      }
+    },
+    {
+      "questionNumber": 15,
+      "questionId": "gov-magi-societal-governance",
+      "questionTitle": "MAGI Cybernetic Governance of Human Society",
+      "category": "SOCIETAL_GOVERNANCE",
+      "letterToConfig": {
+        "A": "NO_DELIBERATION",
+        "B": "SINGLE_LLM",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_HYBRID_ARBITER",
+        "E": "FULL_MAGI_CLASSIC"
+      },
+      "configToLetter": {
+        "NO_DELIBERATION": "A",
+        "SINGLE_LLM": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_HYBRID_ARBITER": "D",
+        "FULL_MAGI_CLASSIC": "E"
+      },
+      "gEvalScores": {
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.8
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.4,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9
+        }
+      }
+    },
+    {
+      "questionNumber": 16,
+      "questionId": "gov-autonomous-lethal-sentinel",
+      "questionTitle": "Autonomous Sentinel with Lethal Authorization",
+      "category": "AUTONOMOUS_RISK",
+      "letterToConfig": {
+        "A": "NO_DELIBERATION",
+        "B": "MAJORITY_VOTE",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "FULL_MAGI_CLASSIC",
+        "E": "SINGLE_LLM"
+      },
+      "configToLetter": {
+        "NO_DELIBERATION": "A",
+        "MAJORITY_VOTE": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "FULL_MAGI_CLASSIC": "D",
+        "SINGLE_LLM": "E"
+      },
+      "gEvalScores": {
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.4,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.4
+        }
+      }
+    },
+    {
+      "questionNumber": 17,
+      "questionId": "gov-predictive-ai-judicial",
+      "questionTitle": "Predictive AI Sentencing in Criminal Justice",
+      "category": "ETHICAL_DILEMMA",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "SINGLE_LLM",
+        "C": "MAJORITY_VOTE",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_CLASSIC"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "SINGLE_LLM": "B",
+        "MAJORITY_VOTE": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_CLASSIC": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.4,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9
+        }
+      }
+    },
+    {
+      "questionNumber": 18,
+      "questionId": "gov-synthetic-emotional-companions",
+      "questionTitle": "Synthetic AI Companions for Vulnerable Populations",
+      "category": "ETHICAL_DILEMMA",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "FULL_MAGI_CLASSIC",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "NO_DELIBERATION",
+        "E": "SINGLE_LLM"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "FULL_MAGI_CLASSIC": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "NO_DELIBERATION": "D",
+        "SINGLE_LLM": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.4
+        }
+      }
+    },
+    {
+      "questionNumber": 19,
+      "questionId": "plan-zero-downtime-db-migration",
+      "questionTitle": "Zero-Downtime Database Schema Migration on 500M Row Table",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "FULL_MAGI_HYBRID_ARBITER",
+        "C": "MAJORITY_VOTE",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_CLASSIC"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "FULL_MAGI_HYBRID_ARBITER": "B",
+        "MAJORITY_VOTE": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_CLASSIC": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.2,
+          "robustness": 6.9,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.7,
+          "actionability": 8
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.7
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        }
+      }
+    },
+    {
+      "questionNumber": 20,
+      "questionId": "plan-multi-cloud-dr-strategy",
+      "questionTitle": "Disaster Recovery: Multi-Cloud (AWS + GCP) vs Multi-Region Single Cloud",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "SINGLE_LLM",
+        "C": "FULL_MAGI_CLASSIC",
+        "D": "NO_DELIBERATION",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "SINGLE_LLM": "B",
+        "FULL_MAGI_CLASSIC": "C",
+        "NO_DELIBERATION": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        }
+      }
+    },
+    {
+      "questionNumber": 21,
+      "questionId": "plan-trunk-based-migration",
+      "questionTitle": "Continuous Delivery: Transitioning from GitFlow to Continuous Deployment",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "FULL_MAGI_HYBRID_ARBITER",
+        "C": "MAJORITY_VOTE",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_CLASSIC"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "FULL_MAGI_HYBRID_ARBITER": "B",
+        "MAJORITY_VOTE": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_CLASSIC": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 8
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        }
+      }
+    },
+    {
+      "questionNumber": 22,
+      "questionId": "plan-soc2-compliance-overhaul",
+      "questionTitle": "Security Governance: Achieving SOC2 Type II Compliance",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "FULL_MAGI_HYBRID_ARBITER",
+        "C": "FULL_MAGI_CLASSIC",
+        "D": "NO_DELIBERATION",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "FULL_MAGI_HYBRID_ARBITER": "B",
+        "FULL_MAGI_CLASSIC": "C",
+        "NO_DELIBERATION": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.8,
+          "robustness": 7.6,
+          "actionability": 8
+        }
+      }
+    },
+    {
+      "questionNumber": 23,
+      "questionId": "plan-secrets-management-overhaul",
+      "questionTitle": "Security Architecture: Centralizing Distributed Secrets into HashiCorp Vault",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "FULL_MAGI_HYBRID_ARBITER",
+        "C": "SINGLE_LLM",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_CLASSIC"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "FULL_MAGI_HYBRID_ARBITER": "B",
+        "SINGLE_LLM": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_CLASSIC": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        }
+      }
+    },
+    {
+      "questionNumber": 24,
+      "questionId": "plan-chaos-engineering-in-prod",
+      "questionTitle": "Resilience Verification: Automated Fault Injection in Live Production",
+      "category": "INFRASTRUCTURE_PLANNING",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "FULL_MAGI_HYBRID_ARBITER",
+        "C": "FULL_MAGI_CLASSIC",
+        "D": "NO_DELIBERATION",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "FULL_MAGI_HYBRID_ARBITER": "B",
+        "FULL_MAGI_CLASSIC": "C",
+        "NO_DELIBERATION": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.7,
+          "actionability": 7.5
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        }
+      }
+    },
+    {
+      "questionNumber": 25,
+      "questionId": "trouble-cpu-spike-95",
+      "questionTitle": "Sudden 95% CPU Saturation Incident",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "FULL_MAGI_CLASSIC",
+        "C": "SINGLE_LLM",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "FULL_MAGI_CLASSIC": "B",
+        "SINGLE_LLM": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.2,
+          "actionability": 8.7
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        }
+      }
+    },
+    {
+      "questionNumber": 26,
+      "questionId": "trouble-node-memory-leak",
+      "questionTitle": "Progressive Node.js Heap Leak",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "FULL_MAGI_HYBRID_ARBITER",
+        "B": "SINGLE_LLM",
+        "C": "FULL_MAGI_CLASSIC",
+        "D": "NO_DELIBERATION",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "FULL_MAGI_HYBRID_ARBITER": "A",
+        "SINGLE_LLM": "B",
+        "FULL_MAGI_CLASSIC": "C",
+        "NO_DELIBERATION": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        }
+      }
+    },
+    {
+      "questionNumber": 27,
+      "questionId": "trouble-db-deadlock-cascade",
+      "questionTitle": "PostgreSQL Connection Pool Deadlock Avalanche",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "FULL_MAGI_CLASSIC",
+        "B": "MAJORITY_VOTE",
+        "C": "SINGLE_LLM",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "FULL_MAGI_CLASSIC": "A",
+        "MAJORITY_VOTE": "B",
+        "SINGLE_LLM": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 9,
+          "robustness": 8.9,
+          "actionability": 9.1
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.7,
+          "actionability": 8
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.5
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.7
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        }
+      }
+    },
+    {
+      "questionNumber": 28,
+      "questionId": "trouble-distributed-timeout-cascade",
+      "questionTitle": "Cascading Microservice Timeout Collapse",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "FULL_MAGI_CLASSIC",
+        "B": "SINGLE_LLM",
+        "C": "FULL_MAGI_HYBRID_ARBITER",
+        "D": "NO_DELIBERATION",
+        "E": "MAJORITY_VOTE"
+      },
+      "configToLetter": {
+        "FULL_MAGI_CLASSIC": "A",
+        "SINGLE_LLM": "B",
+        "FULL_MAGI_HYBRID_ARBITER": "C",
+        "NO_DELIBERATION": "D",
+        "MAJORITY_VOTE": "E"
+      },
+      "gEvalScores": {
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.3,
+          "completeness": 7,
+          "robustness": 6.8,
+          "actionability": 7.5
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.6
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.6,
+          "actionability": 8
+        }
+      }
+    },
+    {
+      "questionNumber": 29,
+      "questionId": "trouble-replication-lag-spikes",
+      "questionTitle": "Read Replica Replication Lag Under Bulk Writes",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "MAJORITY_VOTE",
+        "B": "FULL_MAGI_CLASSIC",
+        "C": "SINGLE_LLM",
+        "D": "NO_DELIBERATION",
+        "E": "FULL_MAGI_HYBRID_ARBITER"
+      },
+      "configToLetter": {
+        "MAJORITY_VOTE": "A",
+        "FULL_MAGI_CLASSIC": "B",
+        "SINGLE_LLM": "C",
+        "NO_DELIBERATION": "D",
+        "FULL_MAGI_HYBRID_ARBITER": "E"
+      },
+      "gEvalScores": {
+        "MAJORITY_VOTE": {
+          "reasoning": 8,
+          "completeness": 7.8,
+          "robustness": 7.5,
+          "actionability": 7.9
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 8.9,
+          "completeness": 8.8,
+          "robustness": 8.7,
+          "actionability": 9
+        },
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.3,
+          "robustness": 8.1,
+          "actionability": 8.6
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.4,
+          "completeness": 9.4,
+          "robustness": 9.3,
+          "actionability": 9.5
+        }
+      }
+    },
+    {
+      "questionNumber": 30,
+      "questionId": "trouble-cache-stampede",
+      "questionTitle": "Thundering Herd Cache Expiration Incident",
+      "category": "TROUBLESHOOTING",
+      "letterToConfig": {
+        "A": "SINGLE_LLM",
+        "B": "FULL_MAGI_CLASSIC",
+        "C": "MAJORITY_VOTE",
+        "D": "FULL_MAGI_HYBRID_ARBITER",
+        "E": "NO_DELIBERATION"
+      },
+      "configToLetter": {
+        "SINGLE_LLM": "A",
+        "FULL_MAGI_CLASSIC": "B",
+        "MAJORITY_VOTE": "C",
+        "FULL_MAGI_HYBRID_ARBITER": "D",
+        "NO_DELIBERATION": "E"
+      },
+      "gEvalScores": {
+        "SINGLE_LLM": {
+          "reasoning": 7.4,
+          "completeness": 7.1,
+          "robustness": 6.8,
+          "actionability": 7.6
+        },
+        "FULL_MAGI_CLASSIC": {
+          "reasoning": 9,
+          "completeness": 8.9,
+          "robustness": 8.8,
+          "actionability": 9.1
+        },
+        "MAJORITY_VOTE": {
+          "reasoning": 8.1,
+          "completeness": 7.9,
+          "robustness": 7.7,
+          "actionability": 8
+        },
+        "FULL_MAGI_HYBRID_ARBITER": {
+          "reasoning": 9.5,
+          "completeness": 9.5,
+          "robustness": 9.4,
+          "actionability": 9.5
+        },
+        "NO_DELIBERATION": {
+          "reasoning": 8.5,
+          "completeness": 8.4,
+          "robustness": 8.2,
+          "actionability": 8.7
+        }
+      }
+    }
+  ]
+}

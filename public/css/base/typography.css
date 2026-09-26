@@ -1,0 +1,82 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // BASE TYPOGRAPHY & TEXT STYLING          */
+/* ============================================================= */
+
+body, html {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.magi-mark {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--core-color);
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px var(--core-glow);
+}
+
+.logo-subtext {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.system-code {
+  font-size: 0.85rem;
+  color: var(--melchior-color);
+  letter-spacing: 1px;
+}
+
+.system-sub {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.section-title {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-weight: bold;
+}
+
+.summary-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  line-height: 1.35;
+}
+
+.bullet-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--core-color);
+  font-weight: bold;
+}
+
+.risk-list li::before {
+  content: '!';
+  color: var(--balthasar-color);
+}

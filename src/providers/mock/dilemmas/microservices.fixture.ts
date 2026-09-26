@@ -1,0 +1,228 @@
+import type { MultilingualDilemma } from './types.js';
+
+export const microservicesFixture: MultilingualDilemma = {
+  en: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.89,
+        summary: 'Microservices allow independent deployment pipelines, granular horizontal scaling, and isolated blast radiuses for high-scale multi-team organizations.',
+        keyArguments: [
+          'De-couples large engineering squads, eliminating coordination bottlenecks in continuous delivery.',
+          'Enables polyglot service selection tailored to specific data and compute requirements.',
+          'Isolates memory leaks or service panics from crashing unrelated business domains.',
+        ],
+        criticalAssumptions: ['Organization has robust distributed tracing, service mesh, and container orchestration.'],
+        identifiedRisks: ['Distributed transaction complexity (Sagas, two-phase commits, eventual consistency).'],
+        recommendedAction: 'Transition system architecture to microservices topology.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.94,
+        summary: 'Microservices introduce crippling network latency, distributed failure modes, and operational overhead far exceeding team capacity.',
+        keyArguments: [
+          'Replacing in-memory function calls with network RPCs multiplies latency by factors of 100x to 1000x.',
+          'Debugging distributed failures across 40 services requires complex observability infrastructure that small-to-midsize teams cannot sustain.',
+          'A modular monolith with enforced package boundaries provides 90% of architectural separation with zero network tax.',
+        ],
+        criticalAssumptions: ['Codebase tooling can enforce strict package encapsulation without leaky abstractions.'],
+        identifiedRisks: ['Severe drop in developer productivity due to local environment orchestration friction.'],
+        recommendedAction: 'Retain and refactor into a disciplined Modular Monolith.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.90,
+        summary: 'Architecture should follow Conway’s Law: maintain a modular monolith until team size and domain boundaries genuinely demand decoupling.',
+        keyArguments: [
+          'Splitting a monolith before understanding domain boundaries produces the worst pattern: a distributed monolith.',
+          'Enforce strict hexagonal architecture and domain boundaries within a single deployable artifact first.',
+          'Extract a microservice only when an independent team owns a clearly bounded context with distinct scaling requirements.',
+        ],
+        criticalAssumptions: ['Domain-Driven Design (DDD) principles can be rigorously practiced in the monolith.'],
+        identifiedRisks: ['Team members taking shortcuts and bypassing internal modular boundaries.'],
+        recommendedAction: 'Adopt Modular Monolith with strict boundary linters; extract services only under demonstrated operational need.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.91,
+        summary: 'Conceding to Balthasar and Casper: prematurely fragmenting into microservices without mature observability degrades net system reliability.',
+        keyArguments: [
+          'Network tax and eventual consistency trade-offs are sub-optimal for our current transaction volume.',
+          'A modular monolith with automated boundary enforcement preserves architectural hygiene while avoiding distributed systems failure modes.',
+        ],
+        criticalAssumptions: ['Architecture tests (e.g., ArchUnit/dep-cruiser) run as mandatory CI gates.'],
+        identifiedRisks: ['Monolith build times increasing over time.'],
+        recommendedAction: 'Standardize on Modular Monolith; establish explicit criteria for future service extraction.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['Distributed failure overhead is a significant risk factor.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'A strictly bounded modular monolith solves both team independence and operational simplicity.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'APPROVE',
+        confidence: 0.92,
+        summary: 'Approving Casper’s modular monolith strategy: protects engineers from distributed nightmare while keeping code clean and deployable.',
+        keyArguments: [
+          'Zero network partition risk between business modules.',
+          'Transactions remain ACID compliant within the primary database.',
+        ],
+        criticalAssumptions: ['Engineers respect module boundaries and do not write cross-domain SQL joins.'],
+        identifiedRisks: ['Shared database schema drift.'],
+        recommendedAction: 'Enforce schema-per-module conventions within the single database instance.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'APPROVE',
+        confidence: 0.95,
+        summary: 'Consensus achieved: empower developers with fast local builds and clear domain boundaries.',
+        keyArguments: [
+          'Developers can run the entire system on a laptop with zero Kubernetes overhead.',
+        ],
+        criticalAssumptions: ['CI pipeline keeps monolith compilation under 3 minutes.'],
+        identifiedRisks: ['Maintaining vigilance against architectural erosion.'],
+        recommendedAction: 'Formalize Modular Monolith architectural standard.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONSENSUS_REACHED',
+      coreVerdict: 'Unanimous Architectural Consensus: Standardize on a disciplined Modular Monolith with enforced domain boundaries. Reject premature microservice proliferation until organization size and distinct scaling bottlenecks demand service extraction.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'Balthasar’s demonstration of network latency penalties and distributed failure complexity warned against unnecessary overhead.',
+        'Casper’s Conway’s Law alignment proved that a modular monolith delivers clean architecture without destroying developer ergonomics.',
+        'Melchior validated that premature service distribution creates eventual consistency bottlenecks without tangible throughput benefits.',
+      ],
+      synthesisSummary: 'MAGI prevented a classic premature optimization catastrophe. The cores unanimously agreed that microservices are an organizational scaling mechanism, not a badge of honor. A disciplined modular monolith provides superior developer velocity, simpler operations, and pristine architectural hygiene.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+  pt: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.89,
+        summary: 'Microsserviços possibilitam esteiras independentes de deploy, escala horizontal cirúrgica e raio de explosão isolado para times em crescimento.',
+        keyArguments: [
+          'Desacopla esquadrões de engenharia, eliminando gargalos de coordenação em deploys contínuos.',
+          'Permite escolher tecnologias poliglotas sob medida para os requisitos de dados de cada serviço.',
+          'Isola falhas de memória ou travamentos, impedindo que um módulo secundário derrube a empresa inteira.',
+        ],
+        criticalAssumptions: ['A organização possui maturidade em observabilidade distribuída, malha de serviços e contêineres.'],
+        identifiedRisks: ['Complexidade de transações distribuídas (padrão Saga, consistência eventual, reconciliação assíncrona).'],
+        recommendedAction: 'Evoluir a arquitetura do sistema para topologia de microsserviços.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.94,
+        summary: 'Microsserviços introduzem latência de rede crítica, modos de falha distribuídos e uma sobrecarga operacional que excede a capacidade do time.',
+        keyArguments: [
+          'Trocar chamadas de método em memória por chamadas RPC de rede multiplica a latência entre 100x e 1000x.',
+          'Depurar falhas distribuídas espalhadas em dezenas de serviços exige ferramentas pesadas que times médios não conseguem sustentar.',
+          'Um monólito modular com fronteiras de pacote bem demarcadas entrega 90% dos benefícios com zero imposto de rede.',
+        ],
+        criticalAssumptions: ['Ferramentas de análise estática conseguem barrar dependências cíclicas entre módulos.'],
+        identifiedRisks: ['Queda drástica na produtividade dos desenvolvedores pela dificuldade de rodar o ambiente localmente.'],
+        recommendedAction: 'Manter e refatorar o sistema em direção a um Monólito Modular disciplinado.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.90,
+        summary: 'A arquitetura deve acompanhar a Lei de Conway: consolidar um monólito modular até que o tamanho da equipe e a escala realmente justifiquem a extração.',
+        keyArguments: [
+          'Fatiar o monólito antes de consolidar os limites de domínio gera a pior das aberrações: o monólito distribuído.',
+          'Adotar arquitetura hexagonal e isolamento de módulos dentro de um único artefato antes de qualquer separação de rede.',
+          'Extrair um serviço isolado apenas quando um time independente assumir um domínio com requisitos de escala incomparáveis.',
+        ],
+        criticalAssumptions: ['Princípios de Domain-Driven Design (DDD) são seguidos com rigor no monólito.'],
+        identifiedRisks: ['Desenvolvedores burlarem as fronteiras de módulo por atalhos no código.'],
+        recommendedAction: 'Adotar Monólito Modular com linters de dependência; extrair serviços apenas sob necessidade operacional comprovada.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'CONDITIONAL',
+        confidence: 0.91,
+        summary: 'Concedendo a Balthasar e Casper: fragmentar serviços prematuramente sem observabilidade madura degrada a confiabilidade líquida da arquitetura.',
+        keyArguments: [
+          'O custo de rede e a complexidade de consistência eventual são desfavoráveis para nosso volume atual.',
+          'Um monólito modular com testes de arquitetura garante higiene sem os riscos de falhas distribuídas.',
+        ],
+        criticalAssumptions: ['Testes de arquitetura (ArchUnit / dependency-cruiser) rodam obrigatoriamente no CI.'],
+        identifiedRisks: ['Aumento no tempo de compilação da base única conforme ela cresce.'],
+        recommendedAction: 'Padronizar em Monólito Modular com regras claras de governança para futuras extrações.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['O custo operacional de sistemas distribuídos é um risco expressivo.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'O monólito modular disciplinado une simplicidade operacional com excelência de design.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'APPROVE',
+        confidence: 0.92,
+        summary: 'Aprovando a estratégia de Monólito Modular de Casper: protege os engenheiros de pesadelos operacionais e mantém a entrega segura.',
+        keyArguments: [
+          'Zero risco de particionamento de rede entre os módulos do negócio.',
+          'Transações permanecem íntegras sob garantias ACID no banco primário.',
+        ],
+        criticalAssumptions: ['Engenheiros respeitam o isolamento e não fazem joins diretos entre esquemas de domínios alheios.'],
+        identifiedRisks: ['Possível acoplamento indevido no banco de dados compartilhado.'],
+        recommendedAction: 'Aplicar isolamento de esquemas por módulo dentro da mesma instância de banco.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'APPROVE',
+        confidence: 0.95,
+        summary: 'Consenso firmado: dar aos desenvolvedores uma experiência de desenvolvimento ágil no computador e limites de domínio cristalinos.',
+        keyArguments: [
+          'Qualquer desenvolvedor roda a aplicação completa em seu notebook sem precisar de um cluster Kubernetes complexo.',
+        ],
+        criticalAssumptions: ['O pipeline de CI mantém o build do monólito abaixo de 3 minutos.'],
+        identifiedRisks: ['Vigilância contínua contra erosão das fronteiras arquiteturais.'],
+        recommendedAction: 'Formalizar o padrão de Monólito Modular como diretriz oficial da organização.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONSENSUS_REACHED',
+      coreVerdict: 'Consenso Arquitetural Unânime: Padronizar a arquitetura em um Monólito Modular com fronteiras de domínio estritas. Rejeitar a fragmentação prematura em microsserviços até que a escala da equipe e gargalos operacionais específicos exijam extração de serviços.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'A demonstração de Balthasar sobre o imposto de latência e modos de falha distribuídos barrou a complexidade desnecessária.',
+        'A harmonização de Casper com a Lei de Conway provou que o monólito modular preserva a ergonomia e o bem-estar dos desenvolvedores.',
+        'Melchior confirmou que distribuir serviços sem maturidade operacional gera gargalos graves de consistência eventual sem ganho real.',
+      ],
+      synthesisSummary: 'O MAGI evitou uma catástrofe de otimização prematura. A Tríade acordou que microsserviços são uma resposta para escala organizacional avançada, não um atalho de qualidade. Um monólito modular bem desenhado oferece velocidade superior, operações simples e integridade impecável.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+};

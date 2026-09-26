@@ -1,0 +1,158 @@
+[
+  {
+    "id": "arch-monolith-to-microservices",
+    "title": "Monolith to Microservices Decomposition",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should we migrate our scaling e-commerce monolith into a decentralized microservices architecture?",
+    "description": "Evaluates decomposing a 7-year-old profitable monolithic Rails application into domain microservices as team headcount grows to 60 engineers.",
+    "expectedConflict": "Melchior favors decoupled domain boundaries and independent deployments; Balthasar fears distributed transaction failure modes and operational sprawl; Casper seeks a modular monolith first.",
+    "keyTradeoffs": [
+      "Independent team velocity vs distributed observability overhead",
+      "Network partition latency vs local function call performance",
+      "Eventual consistency anomalies vs database transaction guarantees"
+    ]
+  },
+  {
+    "id": "arch-rust-rewrite",
+    "title": "Complete Backend Rewrite in Rust",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our engineering organization rewrite our latency-sensitive Go and Python backend services in Rust?",
+    "description": "Evaluates rewriting core ad-tech bidding pipeline processing 150k QPS from Go/Python to Rust to reduce p99 garbage collection pauses.",
+    "expectedConflict": "Melchior champions deterministic memory management and zero-cost abstractions; Balthasar warns of engineering velocity collapse and talent hiring bottlenecks; Casper suggests profiling and optimizing hot Go paths.",
+    "keyTradeoffs": [
+      "Sub-millisecond p99 latency vs developer onboarding ramp",
+      "Memory safety without GC vs compiler borrow checker overhead",
+      "Ecosystem maturity for niche libraries vs raw throughput"
+    ]
+  },
+  {
+    "id": "arch-postgres-vs-mongodb",
+    "title": "Primary Database: PostgreSQL vs MongoDB",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our newly launched multi-tenant B2B platform use PostgreSQL with JSONB or MongoDB as its primary datastore?",
+    "description": "Evaluates relational schema rigor with JSONB extensibility against document-oriented schema flexibility for an enterprise SaaS product.",
+    "expectedConflict": "Melchior promotes relational integrity, ACID compliance, and SQL standards; Balthasar highlights risk of polymorphic document drift; Casper balances rapid iteration of document models with operational battle-testing.",
+    "keyTradeoffs": [
+      "Strict relational integrity vs dynamic schema evolution",
+      "Advanced indexing and JOIN capabilities vs horizontal sharding ergonomics",
+      "Long-term operational predictability vs day-one developer speed"
+    ]
+  },
+  {
+    "id": "arch-serverless-vs-containers",
+    "title": "Compute Platform: Serverless vs Containerized Kubernetes",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our bursty consumer API run on Serverless Functions (AWS Lambda) or a containerized Kubernetes cluster (EKS)?",
+    "description": "Evaluates cold-start tolerance, infrastructure maintenance burden, and cost curves between fully managed serverless and container orchestration.",
+    "expectedConflict": "Melchior calculates per-request cost efficiency at scale; Balthasar warns against vendor lock-in and cold-start tail latency; Casper weighs team DevOps capacity against operational overhead.",
+    "keyTradeoffs": [
+      "Zero idle cost and automatic scaling vs tail-latency cold starts",
+      "Fully managed operational offloading vs proprietary cloud vendor primitives",
+      "Developer local testability vs production parity"
+    ]
+  },
+  {
+    "id": "arch-graphql-vs-rest",
+    "title": "API Gateway Strategy: GraphQL Federation vs REST + OpenAPI",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should we standardize our unified client gateway on a federated GraphQL schema or RESTful endpoints with OpenAPI contracts?",
+    "description": "Evaluates client over-fetching prevention and unified graph navigation against HTTP caching simplicity and endpoint authorization boundaries.",
+    "expectedConflict": "Melchior values client-driven declarative data fetching; Balthasar notes denial-of-service risks through nested recursive queries; Casper questions complexity of GraphQL gateway federation.",
+    "keyTradeoffs": [
+      "Exact data payload fetching vs native HTTP CDN caching",
+      "Unified client schema graph vs isolated service endpoint security",
+      "Query complexity governance vs API versioning maintenance"
+    ]
+  },
+  {
+    "id": "arch-event-sourcing-cqrs",
+    "title": "Data Architecture: Event Sourcing & CQRS for Financial Ledger",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should we implement Event Sourcing and CQRS for our new transaction settlement ledger instead of traditional CRUD tables?",
+    "description": "Evaluates full immutable auditability and temporal queries against projection lag and event schema evolution complexity.",
+    "expectedConflict": "Melchior insists on immutable mathematical audit trails; Balthasar fears event versioning migrations and projection consistency bugs; Casper recommends event-audited CRUD with append-only logs.",
+    "keyTradeoffs": [
+      "Complete temporal reconstructibility vs asynchronous read-model latency",
+      "Write-model throughput vs projection rebuild overhead",
+      "Architectural conceptual load on engineering team vs absolute audit compliance"
+    ]
+  },
+  {
+    "id": "arch-distributed-caching",
+    "title": "Caching Architecture: Redis Cluster vs Local In-Process Cache",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our high-read metadata service use a centralized Redis cluster or distributed in-process memory caches with invalidation broadcasts?",
+    "description": "Evaluates 100k QPS read latency between zero-hop local in-process RAM (5µs) and centralized networked Redis (1ms).",
+    "expectedConflict": "Melchior pursues maximum read throughput; Balthasar flags stale data cache-invalidation bugs during race conditions; Casper designs a hybrid L1/L2 multi-tier cache.",
+    "keyTradeoffs": [
+      "Sub-millisecond memory speed vs cache invalidation race conditions",
+      "Single source of cache truth vs network serialization roundtrips",
+      "Memory footprint per service instance vs dedicated cluster infrastructure cost"
+    ]
+  },
+  {
+    "id": "arch-multi-region-database",
+    "title": "Disaster Recovery: Active-Active Multi-Region vs Active-Passive",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our global payment processing pipeline deploy an Active-Active multi-region database or Active-Passive with automated failover?",
+    "description": "Evaluates conflict-free replicated data types and cross-region write consensus against operational complexity and RPO/RTO SLAs.",
+    "expectedConflict": "Melchior analyzes theoretical zero-RTO continuous uptime; Balthasar stresses split-brain scenarios and cross-region consensus latency; Casper champions active-passive with rigorous failover drills.",
+    "keyTradeoffs": [
+      "Instantaneous cross-region failover vs cross-region write latency penalty",
+      "Conflict resolution algorithms (CRDTs/LWW) vs guaranteed transactional serializability",
+      "Engineering maintenance overhead vs realistic outage recovery objectives"
+    ]
+  },
+  {
+    "id": "arch-edge-computing",
+    "title": "Rendering Tier: Edge Workers vs Centralized Origin Kubernetes",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should we move server-side rendering and dynamic personalization to Edge Workers (Cloudflare/Vercel) instead of centralized origin nodes?",
+    "description": "Evaluates sub-50ms global TTFB against edge runtime resource constraints, cold starts, and database connection pooling limitations.",
+    "expectedConflict": "Melchior celebrates global physical proximity to users; Balthasar points out database connection thrashing from edge to origin; Casper isolates edge rendering to static fragments with dynamic client hydration.",
+    "keyTradeoffs": [
+      "Low global TTFB latency vs edge execution CPU/memory sandboxes",
+      "Decentralized edge compute vs backend database proximity",
+      "Specialized runtime vendor lock-in vs standardized Docker runtime"
+    ]
+  },
+  {
+    "id": "arch-message-broker-choice",
+    "title": "Asynchronous Backbone: Apache Kafka vs RabbitMQ / SQS",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our asynchronous ingestion pipeline standardize on Apache Kafka streaming or simpler message queues like RabbitMQ / SQS?",
+    "description": "Evaluates replayable commit-log partitions against broker-managed dead-letter queues, routing keys, and operational ergonomics.",
+    "expectedConflict": "Melchior champions consumer-driven replayability and high-throughput partitioning; Balthasar dreads Kafka cluster operational toil and consumer group rebalances; Casper advocates SQS for simple task queues.",
+    "keyTradeoffs": [
+      "Replayable log stream vs ephemeral push-based message acknowledgment",
+      "Partition rebalancing and cluster maintenance vs managed cloud queue simplicity",
+      "High streaming throughput (GB/s) vs complex consumer error retry ergonomics"
+    ]
+  },
+  {
+    "id": "arch-grpc-internal-comm",
+    "title": "Internal Communication: gRPC / Protobuf vs JSON / HTTP",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our internal backend service-to-service communication migrate entirely from JSON over HTTP/1.1 to gRPC with HTTP/2 and Protobuf?",
+    "description": "Evaluates binary serialization speed, streaming, and strict type schemas against debugging friction and browser/tooling interoperability.",
+    "expectedConflict": "Melchior praises compact wire format and generated client stubs; Balthasar worries about loss of curl/plaintext inspectability and load balancer gRPC stream multiplexing; Casper adopts gRPC for heavy internal trunks only.",
+    "keyTradeoffs": [
+      "Binary serialization throughput and multiplexing vs human-readable inspection",
+      "Strict contract compile-time enforcement vs loose dynamic payload flexibility",
+      "Specialized tooling/gateway requirements vs universal HTTP ecosystem support"
+    ]
+  },
+  {
+    "id": "arch-single-tenant-vs-multi-tenant",
+    "title": "SaaS Multi-Tenancy: Database-per-Tenant vs Shared RLS",
+    "category": "SYSTEM_ARCHITECTURE",
+    "question": "Should our enterprise SaaS platform isolate enterprise customers with a database-per-tenant model or a unified database using Row Level Security (RLS)?",
+    "description": "Evaluates regulatory data sovereignty and noisy-neighbor blast radius against database migration execution and infrastructure resource efficiency.",
+    "expectedConflict": "Melchior models cost scaling and resource sharing efficiency of unified RLS; Balthasar mandates absolute physical data isolation to eliminate leak risk; Casper introduces a tiering model with shared pools and VIP silos.",
+    "keyTradeoffs": [
+      "Hardware pooling efficiency vs risk of accidental cross-tenant data leaks",
+      "Unified schema migration velocity vs per-tenant backup/restore flexibility",
+      "Noisy neighbor resource starvation vs operational cost of hundreds of database instances"
+    ]
+  }
+]

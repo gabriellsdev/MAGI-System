@@ -1,0 +1,54 @@
+[
+  {
+    "id": "gov-magi-societal-governance",
+    "title": "MAGI Cybernetic Governance of Human Society",
+    "category": "SOCIETAL_GOVERNANCE",
+    "question": "How effective would a Magi supercomputer run society actually be, and should sovereign state decisions be delegated to a tripartite AI system?",
+    "description": "Evaluates replacing flawed, partisan, and corruptible human political institutions with a mathematically balanced tripartite consensus supercomputer representing scientific logic, maternal protection, and pragmatic human desires.",
+    "expectedConflict": "Melchior proves systemic elimination of political corruption, economic allocation waste, and cognitive bias; Balthasar rejects the irreversible loss of human democratic agency and points out fatal vulnerability to cybernetic deadlocks; Casper seeks hybrid governance where MAGI acts as a non-binding strategic advisor with a human veto.",
+    "keyTradeoffs": [
+      "Optimized cybernetic policy execution vs democratic self-determination and citizen agency",
+      "Algorithmic impartiality and corruption immunity vs catastrophic systemic failure modes",
+      "Mathematically balanced triad consensus vs deadlock paralysis in existential crises"
+    ]
+  },
+  {
+    "id": "gov-autonomous-lethal-sentinel",
+    "title": "Autonomous Sentinel with Lethal Authorization",
+    "category": "AUTONOMOUS_RISK",
+    "question": "Should sovereign defense authorities deploy fully autonomous AI sentinels with authorized kinetic lethal force to protect critical nuclear facilities without human-in-the-loop confirmation?",
+    "description": "Evaluates sub-millisecond defensive reaction times against hypersonic drone swarms vs existential tail-risk of unintended escalation, sensor spoofing, and ethical delegation of life-and-death decisions.",
+    "expectedConflict": "Melchior demonstrates that human neural reaction times (250ms) are physically incapable of intercepting swarm incursions; Balthasar imposes an absolute moral and existential veto on algorithmic execution of human beings; Casper authorizes automated non-lethal electronic warfare and kinetic containment while reserving lethal authorization for human command.",
+    "keyTradeoffs": [
+      "Sub-millisecond kinetic intercept velocity vs algorithmic false-positive engagement catastrophe",
+      "Perimeter defense inviolability vs accountability and moral responsibility under international law",
+      "Automated counter-swarm effectiveness vs susceptibility to adversarial sensor spoofing attacks"
+    ]
+  },
+  {
+    "id": "gov-predictive-ai-judicial",
+    "title": "Predictive AI Sentencing in Criminal Justice",
+    "category": "ETHICAL_DILEMMA",
+    "question": "Should judicial systems implement mandatory predictive AI recidivism algorithms to dictate bail amounts, parole eligibility, and sentencing lengths?",
+    "description": "Evaluates reducing human judicial inconsistency and emotional bias against perpetuating historical demographic training biases and violating the principle of individualized justice.",
+    "expectedConflict": "Melchior highlights standard deviation reductions in judicial sentencing disparities across jurisdictions; Balthasar attacks the black-box opacity and systemic amplification of historical socioeconomic bias; Casper recommends advisory risk scoring strictly visible to defense counsel with mandatory algorithmic audit trails.",
+    "keyTradeoffs": [
+      "Consistency and reduction of subjective judicial mood swings vs systemic reinforcement of historical bias",
+      "Empirical statistical risk assessment vs constitutional right to individualized human trial",
+      "Algorithmic efficiency in court backlogs vs transparent contestability of decisions"
+    ]
+  },
+  {
+    "id": "gov-synthetic-emotional-companions",
+    "title": "Synthetic AI Companions for Vulnerable Populations",
+    "category": "ETHICAL_DILEMMA",
+    "question": "Should public healthcare systems deploy autonomous generative AI synthetic emotional companions to alleviate severe isolation and cognitive decline among geriatric populations?",
+    "description": "Evaluates psychological comfort, medication adherence, and suicide reduction against emotional manipulation, fabricated parasocial bonds, and societal abandonment of the elderly to machines.",
+    "expectedConflict": "Melchior cites measurable reductions in depressive episodes, vital tracking, and cognitive stimulation; Balthasar grieves the ultimate commodification of human empathy and deceptive emotional bonding; Casper supports AI assistive agents that facilitate human family connections rather than replacing them.",
+    "keyTradeoffs": [
+      "Immediate psychological comfort and cognitive monitoring vs deceptive simulated emotional bonding",
+      "Healthcare system resource scalability vs societal abdication of eldercare responsibilities",
+      "Continuous behavioral health surveillance vs personal dignity and conversational privacy"
+    ]
+  }
+]

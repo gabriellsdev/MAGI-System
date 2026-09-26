@@ -1,0 +1,132 @@
+[
+  {
+    "id": "plan-zero-downtime-db-migration",
+    "title": "Zero-Downtime Database Schema Migration on 500M Row Table",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "How should our engineering team plan and execute a non-blocking column split and index backfill on a 500-million row billing transactions table without downtime?",
+    "description": "Evaluates expand-and-contract (parallel writing), shadow tables with trigger replication (gh-ost/pt-online-schema-change), and direct background indexing.",
+    "expectedConflict": "Melchior models lock acquisition queues and replica lag during batch updates; Balthasar fears table-lock cascades locking out online payments; Casper outlines a 4-phase expand/contract release across two sprints.",
+    "keyTradeoffs": [
+      "Zero-downtime safety through dual-writing vs double write load on database CPU",
+      "Shadow table replication tooling complexity vs standard native DDL lock risks",
+      "Multi-week gradual rollout duration vs immediate schema consolidation"
+    ]
+  },
+  {
+    "id": "plan-multi-cloud-dr-strategy",
+    "title": "Disaster Recovery: Multi-Cloud (AWS + GCP) vs Multi-Region Single Cloud",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "Should our critical financial service build a multi-cloud active disaster recovery environment across AWS and GCP or invest in multi-region redundancy strictly within AWS?",
+    "description": "Evaluates protection against single-cloud provider catastrophic outages against massive cross-cloud egress costs, lowest-common-denominator tooling, and identity federation.",
+    "expectedConflict": "Melchior models independent failure probabilities across cloud providers; Balthasar emphasizes the catastrophic surface area of cross-cloud IAM and networking sync; Casper recommends multi-region within one cloud with cold configuration escrow.",
+    "keyTradeoffs": [
+      "Independence from single-cloud control plane outages vs cross-cloud network egress taxation",
+      "Unified multi-cloud Terraform abstractions vs leveraging deep native cloud provider integrations",
+      "Disaster recovery readiness parity vs maintaining two divergent production operational runbooks"
+    ]
+  },
+  {
+    "id": "plan-trunk-based-migration",
+    "title": "Continuous Delivery: Transitioning from GitFlow to Continuous Deployment",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "What is the optimal roadmap for migrating an 80-engineer team from 2-week batch release cycles to multiple automated daily deployments to production?",
+    "description": "Evaluates automated canary analysis, short-lived branch culture, automated integration tests, and executive risk appetite.",
+    "expectedConflict": "Melchior analyzes deployment frequency correlation with MTTR; Balthasar flags the lack of comprehensive automated regression test coverage as an unacceptable hazard; Casper phases the migration service-by-service starting with non-critical internal apps.",
+    "keyTradeoffs": [
+      "Fast customer feedback loops and small diff sizes vs high initial investment in automated test automation",
+      "Eliminating merge debt vs the psychological barrier of releasing without manual QA signoff",
+      "Automated canary rollback detection vs transient false-positive rollback noise"
+    ]
+  },
+  {
+    "id": "plan-soc2-compliance-overhaul",
+    "title": "Security Governance: Achieving SOC2 Type II Compliance with Minimal Feature Impact",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "How should our high-growth startup plan its SOC2 Type II compliance audit roadmap to satisfy enterprise buyers without stalling the product development roadmap?",
+    "description": "Evaluates automated compliance platforms (Vanta/Drata), strict laptop MDM enforcement, access request workflows, and ephemeral developer database access.",
+    "expectedConflict": "Melchior sets up automated evidence collectors and policy-as-code linting; Balthasar insists on zero developer access to production databases with cryptographically audited jump hosts; Casper implements automated compliance monitoring with self-service justification portals.",
+    "keyTradeoffs": [
+      "Enterprise sales unlock and regulatory assurance vs developer friction on local workflows",
+      "Automated continuous compliance tooling cost vs dedicated internal compliance management headcount",
+      "Strict least-privilege credential gating vs rapid incident response triage access"
+    ]
+  },
+  {
+    "id": "plan-legacy-monolith-strangler-fig",
+    "title": "Modernization: Strangler Fig Migration for Core 10-Year-Old Billing Engine",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "What is the most resilient execution plan to migrate a 10-year-old COBOL/Java billing engine using the Strangler Fig pattern?",
+    "description": "Evaluates reverse-proxy routing, shadow traffic execution (dark launching), automated discrepancy diffing, and incremental database extraction.",
+    "expectedConflict": "Melchior designs a shadow traffic proxy that executes requests on both engines and compares JSON responses; Balthasar stresses unhandled edge cases in 10-year-old business logic; Casper isolates the simplest 10% of invoices first to validate the pipeline.",
+    "keyTradeoffs": [
+      "Zero-risk dark-launch traffic comparison vs double compute and database write isolation overhead",
+      "Incremental domain carving velocity vs dual-system data synchronization maintenance",
+      "Refactoring business logic cleanly vs preserving historical undocumented legacy behavior"
+    ]
+  },
+  {
+    "id": "plan-data-warehouse-lakehouse",
+    "title": "Analytics Modernization: Snowflake vs Databricks Lakehouse Migration",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "Should our enterprise data platform migrate its on-premise Hadoop cluster to Snowflake or a Databricks Lakehouse (Delta Lake / Iceberg)?",
+    "description": "Evaluates SQL analyst ergonomics and compute separation against machine learning workloads, open table formats, and storage cost controls.",
+    "expectedConflict": "Melchior compares SQL query optimization benchmarks and storage pricing; Balthasar scrutinizes proprietary vendor formats vs open Apache Iceberg storage; Casper chooses Snowflake for BI teams with external Iceberg catalog hooks.",
+    "keyTradeoffs": [
+      "Turnkey SQL data warehouse simplicity vs unified data lakehouse ML/data science flexibility",
+      "Open table format vendor neutrality (Iceberg) vs proprietary engine speed optimizations",
+      "Automated compute warehouse scaling ergonomics vs fine-grained Spark cluster tuning"
+    ]
+  },
+  {
+    "id": "plan-ipv6-only-datacenter",
+    "title": "Networking Modernization: Transitioning Internal VPCs to IPv6-Only",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "Should our infrastructure organization execute a plan to migrate our internal Kubernetes and VPC networking from IPv4 NAT to IPv6-only with NAT64 gateways?",
+    "description": "Evaluates exhaustion of private RFC1918 IPv4 address spaces, VPC peering scalability, and legacy internal service compatibility.",
+    "expectedConflict": "Melchior proves mathematical exhaustion of 10.0.0.0/8 address spaces; Balthasar uncovers legacy vendor libraries and monitoring agents that crash on IPv6 addresses; Casper implements dual-stack edge proxies with IPv6-only node pools.",
+    "keyTradeoffs": [
+      "Vast address space and simplified routing vs legacy software lack of IPv6 support",
+      "Eliminating carrier-grade NAT gateway costs vs NAT64/DNS64 translation debugging complexity",
+      "Future-proof cloud infrastructure standard vs extensive cross-team networking retraining"
+    ]
+  },
+  {
+    "id": "plan-secrets-management-overhaul",
+    "title": "Security Architecture: Centralizing Distributed Secrets into HashiCorp Vault",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "What is the safest phased plan to eliminate plaintext and static API keys from environment files across 50 repositories in favor of dynamic HashiCorp Vault credentials?",
+    "description": "Evaluates agent-based sidecar injection, dynamic database credential rotation, and potential single points of failure when the central Vault cluster is down.",
+    "expectedConflict": "Melchior requires short-lived dynamic credentials (15-minute TTL); Balthasar identifies Vault as a critical single point of failure that can take down the entire company if unreachable; Casper implements local caching proxies with grace period leases.",
+    "keyTradeoffs": [
+      "Zero static credential leak exposure vs severe availability dependency on the central Vault cluster",
+      "Automated credential rotation compliance vs application reconnection retry handling bugs",
+      "Standardized security governance vs onboarding friction for engineering teams"
+    ]
+  },
+  {
+    "id": "plan-edge-cdn-vendor-cutover",
+    "title": "Edge Cutover: Global DNS and TLS Migration Between CDN Providers",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "How should our infrastructure team execute a zero-downtime cutover of 40M daily active users from Cloudflare to Fastly including DNS, WAF rules, and TLS certificates?",
+    "description": "Evaluates DNS TTL reduction, dual-certificate pre-warming, WAF rule translation parity, and weighted DNS routing (Route53/NS1).",
+    "expectedConflict": "Melchior designs a weighted DNS percentage split over 7 days; Balthasar worries about edge WAF behavioral discrepancies letting malicious traffic pass; Casper runs synthetic canary probes through both CDNs simultaneously.",
+    "keyTradeoffs": [
+      "Gradual percentage traffic cutover safety vs maintaining dual CDN configurations and costs",
+      "Deep customized edge rule portability vs native CDN platform optimizations",
+      "Instant DNS rollback capability vs long-tail ISP DNS caching violations"
+    ]
+  },
+  {
+    "id": "plan-chaos-engineering-in-prod",
+    "title": "Resilience Verification: Automated Fault Injection (Chaos Engineering) in Live Production",
+    "category": "INFRASTRUCTURE_PLANNING",
+    "question": "Should our engineering organization introduce automated random pod terminations, network latency injection, and AZ blackout drills in live production during business hours?",
+    "description": "Evaluates proving distributed system resilience and validating alerting runbooks against the tangible risk of triggering an actual customer outage.",
+    "expectedConflict": "Melchior argues that production is the only valid testing environment for emergent failures; Balthasar refuses to intentionally risk customer transactions and business revenue; Casper mandates chaos experiments in pre-production first with automated blast-radius circuit breakers.",
+    "keyTradeoffs": [
+      "Uncovering hidden resilience defects before real outages vs intentionally inducing customer disruption",
+      "Engineering culture of resilient defensive design vs on-call alarm fatigue",
+      "Automated kill-switch containment guarantees vs unpredictable emergent distributed failures"
+    ]
+  }
+]

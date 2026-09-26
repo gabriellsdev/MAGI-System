@@ -1,0 +1,228 @@
+import type { MultilingualDilemma } from './types.js';
+
+export const blackFridayFixture: MultilingualDilemma = {
+  en: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.93,
+        summary: 'Mathematical queue stability analysis demands aggressive read shedding at the API gateway layer immediately to protect primary replica writes.',
+        keyArguments: [
+          'CPU saturation at 95% triggers non-linear response time degradation; shedding 40% of non-critical read traffic drops CPU usage to sustainable 62%.',
+          'Restarting the primary replica under live Black Friday load incurs a 90-second cold-cache penalty, likely causing cascading connection pool exhaustion and total blackout.',
+          'Critical write path (order checkout) accounts for only 12% of query volume and must be prioritized over catalog browsing.',
+        ],
+        criticalAssumptions: ['API gateway can discriminate between authenticated checkout requests and anonymous browsing queries.'],
+        identifiedRisks: ['Degraded user experience for catalog browsing causing short-term conversion drop.'],
+        recommendedAction: 'Enable aggressive read shedding at ingress gateway immediately; retain read-heavy endpoints in static cache.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.95,
+        summary: 'Primary replica restart is a suicidal operational move; protect the transactional database with circuit breakers and read degradation.',
+        keyArguments: [
+          'Restarting the primary database during peak Black Friday velocity is catastrophic operational malpractice that risks database state corruption.',
+          'Warm memory cache and buffer pools will be wiped; incoming connection storms upon reboot will immediately crush the database again.',
+          'Protecting data integrity and ongoing customer transactions is our paramount fiduciary duty.',
+        ],
+        criticalAssumptions: ['Read-only replicas can absorb stale reads if cached queries expire.'],
+        identifiedRisks: ['Complete platform blackout if database is forced into cold recovery mode.'],
+        recommendedAction: 'Categorically veto database restart; enforce strict connection limits and throttle read queries at the ingress.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.88,
+        summary: 'Neither raw shedding nor a restart solves customer intent: route all browsing reads to stale CDN caches and preserve the checkout funnel.',
+        keyArguments: [
+          'Dropping queries with HTTP 429 directly burns brand trust and causes frantic user reload loops, worsening traffic.',
+          'Serving 60-second stale inventory reads from Edge CDN eliminates 85% of read queries hitting the primary database with zero user friction.',
+          'Dynamically restrict search autocomplete and heavy recommendation widgets rather than dropping users blindly.',
+        ],
+        criticalAssumptions: ['CDN edge layer supports stale-while-revalidate caching headers.'],
+        identifiedRisks: ['Occasional display of out-of-stock items at checkout step.'],
+        recommendedAction: 'Shift catalog queries to Edge CDN stale cache mode; throttle recommendation workers and protect primary write pipeline.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.95,
+        summary: 'Synthesizing Casper’s edge caching with load shedding: serving stale CDN reads is mathematically superior to raw HTTP 429 rejection.',
+        keyArguments: [
+          'Casper’s edge offload reduces read pressure by 83.7%, dropping primary CPU to 54% within 90 seconds without cold-restart penalties.',
+          'Zero risk of connection pool exhaustion.',
+        ],
+        criticalAssumptions: ['CDN purge policies can selectively clear price-change anomalies.'],
+        identifiedRisks: ['Minor latency in flash sale stock synchronization.'],
+        recommendedAction: 'Execute Edge stale-cache offloading; enforce gateway shedding only as secondary fallback.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['Primary replica restart is definitively rejected.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'Our consensus on rejecting replica restart ensures operational safety.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'APPROVE',
+        confidence: 0.92,
+        summary: 'Approving Casper and Melchior’s compromise: edge caching prevents data loss, bounds risk, and keeps customer checkout safe.',
+        keyArguments: [
+          'Database stability is guaranteed without dangerous system reboots.',
+          'Transaction boundaries remain ACID compliant with isolated write pools.',
+        ],
+        criticalAssumptions: ['Checkout write pipeline remains isolated from read pool saturation.'],
+        identifiedRisks: ['Need for clear customer messaging if specific items sell out mid-cart.'],
+        recommendedAction: 'Authorize edge stale-read offload; activate secondary read-replica read pool.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'APPROVE',
+        confidence: 0.96,
+        summary: 'Triad consensus reached: preserve human shopping experience and system survival through graceful edge degradation.',
+        keyArguments: [
+          'Protects both business revenue and architectural integrity during peak stress.',
+        ],
+        criticalAssumptions: ['Payment gateway latency remains under 800ms.'],
+        identifiedRisks: ['Monitoring edge CDN error rates closely during flash sales.'],
+        recommendedAction: 'Implement Edge Stale Degradation Strategy immediately.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONSENSUS_REACHED',
+      coreVerdict: 'Unanimous Tactical Consensus (Black Friday): Decisively veto primary database restart. Shift all catalog read queries to Edge CDN stale cache mode and throttle recommendation engines to preserve primary checkout write capacity.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'Unanimous agreement across all three cores that restarting the primary database during Black Friday load causes fatal connection exhaustion and prolonged outage.',
+        'Casper’s pragmatic pivot to serve stale reads via Edge CDN eliminated 85% of database read pressure without rejecting paying users.',
+        'Melchior’s queueing math verified that CPU drops from 95% to 54% within 90 seconds under edge offloading.',
+      ],
+      synthesisSummary: 'The MAGI cores avoided a catastrophic database outage. Rejecting the blunt trauma of a primary replica reboot, the system adopted an elegant edge caching offload that maintains customer checkout velocity while stabilizing core infrastructure.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+  pt: {
+    round0: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.93,
+        summary: 'A modelagem matemática da teoria das filas impõe descarte agressivo de tráfego de leitura no API Gateway para blindar as transações de escrita do banco primário.',
+        keyArguments: [
+          'A saturação da CPU em 95% causa degradação exponencial de latência; descartar 40% das leituras não críticas reduz a carga para estáveis 62%.',
+          'Reiniciar o banco primário sob pico de Black Friday incorre em penalidade de 90 segundos de cache frio, gerando tempestade de conexões e apagão total.',
+          'O fluxo crítico de checkout e pagamentos representa apenas 12% do volume total e deve ser blindado contra consultas de navegação.',
+        ],
+        criticalAssumptions: ['O API Gateway consegue diferenciar requisições de checkout autenticado de navegações anônimas de catálogo.'],
+        identifiedRisks: ['Experiência degradada para usuários que estejam apenas pesquisando produtos, reduzindo conversão imediata.'],
+        recommendedAction: 'Ativar descarte agressivo de consultas de leitura no Gateway; manter endpoints de alta carga sob cache estático.',
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'REJECT',
+        confidence: 0.95,
+        summary: 'Reiniciar a réplica primária sob carga máxima é uma manobra operacional suicida; devemos proteger a integridade do banco e vetar o reboot.',
+        keyArguments: [
+          'Reiniciar o banco de dados central em plena Black Friday é negligência operacional grave com risco imenso de corrupção de tabelas.',
+          'O buffer pool de memória será zerado; a avalanche de conexões pendentes no religamento travará o banco instantaneamente.',
+          'Proteger a integridade dos dados e as compras em andamento dos clientes é nosso dever de segurança máximo.',
+        ],
+        criticalAssumptions: ['As réplicas de leitura podem atender consultas mesmo com leve desatualização transitória.'],
+        identifiedRisks: ['Colapso generalizado da plataforma caso o banco entre em recuperação fria de crash.'],
+        recommendedAction: 'Vetar categoricamente o reinício do banco primário; impor limites rígidos de conexão e desacelerar leituras.',
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'PIVOT',
+        confidence: 0.88,
+        summary: 'Nem descarte cego nem reinício atendem a experiência do cliente: desviar leituras de catálogo para cache stale no CDN Edge e blindar o checkout.',
+        keyArguments: [
+          'Retornar erro HTTP 429 destrói a confiança do cliente e gera loops histéricos de F5, multiplicando o tráfego incidente.',
+          'Servir dados de catálogo com 60 segundos de tolerância stale a partir do CDN remove 85% das requisições do banco de dados sem atrito perceptível.',
+          'Desativar temporariamente widgets pesados de recomendação e autocompletar em vez de bloquear o usuário.',
+        ],
+        criticalAssumptions: ['A camada de CDN suporta cabeçalhos stale-while-revalidate e balanceamento inteligente.'],
+        identifiedRisks: ['Eventual exibição de itens recém-esgotados antes do fechamento do carrinho.'],
+        recommendedAction: 'Migrar consultas de vitrine para cache stale no CDN; desativar motores de recomendação e isolar o pipeline de checkout.',
+      },
+    },
+    round1: {
+      MELCHIOR: {
+        agentId: 'MELCHIOR',
+        stance: 'APPROVE',
+        confidence: 0.95,
+        summary: 'Sintetizando a proposta de CDN de Casper com o controle de carga: servir respostas stale no Edge é matematicamente superior ao descarte por HTTP 429.',
+        keyArguments: [
+          'O desvio de carga para a borda (CDN) reduz a pressão de leitura em 83,7%, fazendo a CPU da réplica primária cair para 54% em menos de 90 segundos.',
+          'Elimina o risco de esgotamento do pool de conexões sem nenhum trauma de reinicialização fria.',
+        ],
+        criticalAssumptions: ['Políticas de purga no CDN conseguem atualizar alterações pontuais de preço.'],
+        identifiedRisks: ['Pequena latência na sincronização de estoque durante promoções-relâmpago.'],
+        recommendedAction: 'Executar desvio de tráfego de leitura para o CDN; acionar descarte no gateway apenas como contingência secundária.',
+        critiquesOfPeers: [
+          {
+            targetAgent: 'BALTHASAR',
+            pointsOfAgreement: ['O reinício da réplica primária está definitivamente vetado.'],
+            pointsOfDisagreement: [],
+            rebuttal: 'A convergência total contra o reinício garante a preservação do banco de dados.',
+          },
+        ],
+      },
+      BALTHASAR: {
+        agentId: 'BALTHASAR',
+        stance: 'APPROVE',
+        confidence: 0.92,
+        summary: 'Aprovando o compromisso de Casper e Melchior: o cache de borda previne perda de dados, mitiga riscos catastróficos e protege as compras.',
+        keyArguments: [
+          'A estabilidade do banco de dados é garantida sem a temerária roleta-russa de uma reinicialização de emergência.',
+          'As fronteiras transacionais ACID são mantidas com isolamento dedicado aos pagamentos.',
+        ],
+        criticalAssumptions: ['O pipeline de checkout permanece segregado do pool saturado de leituras.'],
+        identifiedRisks: ['Necessidade de feedback claro ao consumidor caso um item esgote no último instante.'],
+        recommendedAction: 'Autorizar desvio para cache stale no CDN; habilitar pool secundário de leitura.',
+        critiquesOfPeers: [],
+      },
+      CASPER: {
+        agentId: 'CASPER',
+        stance: 'APPROVE',
+        confidence: 0.96,
+        summary: 'Consenso unânime da Tríade alcançado: salvaguardar a experiência do consumidor e a sobrevivência do sistema através de degradação graciosa.',
+        keyArguments: [
+          'Garante o faturamento do negócio e a integridade da arquitetura sob estresse extremo.',
+        ],
+        criticalAssumptions: ['O gateway de pagamento mantém latência inferior a 800ms.'],
+        identifiedRisks: ['Monitorar taxas de erro de cache no CDN durante os picos.'],
+        recommendedAction: 'Implementar a estratégia de Degradação Graciosa no CDN Edge imediatamente.',
+        critiquesOfPeers: [],
+      },
+    },
+    synthesis: {
+      finalDecision: 'CONSENSUS_REACHED',
+      coreVerdict: 'Consenso Tático Unânime (Black Friday): Vetar categoricamente o reinício do banco de dados primário. Redirecionar todas as leituras de catálogo para cache stale no CDN Edge e desativar recomendações pesadas, preservando 100% da capacidade de checkout e pagamentos.',
+      argumentQualityScore: {
+        MELCHIOR: 9,
+        BALTHASAR: 10,
+        CASPER: 10,
+      },
+      decisiveFactors: [
+        'Veto unânime ao reinício do banco de dados: reiniciar sob carga de Black Friday esvaziaria os caches e causaria apagão prolongado.',
+        'O pivô pragmático de Casper para cache stale no CDN Edge absorveu 85% da sobrecarga sem expulsar clientes pagantes com erros 429.',
+        'A comprovação matemática de Melchior validou que a CPU cai de 95% para 54% em 90 segundos com o alívio de borda.',
+      ],
+      synthesisSummary: 'Os três núcleos do MAGI evitaram um desastre operacional de grande escala. Rejeitando a violência destrutiva de um reboot em produção, o sistema adotou uma degradação graciosa na borda que protege as receitas do negócio e estabiliza a infraestrutura central.',
+      dissentingOpinionsNoted: [],
+    },
+  },
+};

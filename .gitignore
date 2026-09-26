@@ -1,0 +1,40 @@
+# Folder config
+desktop.ini
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+
+# Test coverage
+coverage/
+
+# Local outputs
+report.json
+*.local
+CliOutput.txt
+GeminiResponse.txt
+.cache/
+results/
+
+# Environment variables
+.env
+.env.local
+*.env
+
+# Local / partial evaluation data
+data/user-human-rankings.json
+data/sample-human-scores.json
+
+# System metadata
+.magi/
+
+# Private technical documentation / Planning (Internal / User-only)
+docs/INTERNAL_TECHNICAL_DEEP_DIVE.md
+docs/requirement.md
+docs/validation_implementation_plan.md
+MAGI_PROPOSE.md
+MAGI_IMP.md
+answers.txt
+magi-v3-architecture.md

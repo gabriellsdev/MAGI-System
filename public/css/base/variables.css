@@ -1,0 +1,52 @@
+:root {
+  --bg-primary: #07080b;
+  --bg-surface: #0f1218;
+  --bg-card: #141822;
+  --border-color: #242c3d;
+  --text-primary: #e0e6ed;
+  --text-dim: #79869c;
+  --text-highlight: #ffffff;
+
+  /* Evangelion / NERV Triad Agents */
+  --melchior-color: #ff9d00;
+  --melchior-glow: rgba(255, 157, 0, 0.25);
+
+  --balthasar-color: #ff0055;
+  --balthasar-glow: rgba(255, 0, 85, 0.25);
+
+  --casper-color: #00ff9d;
+  --casper-glow: rgba(0, 255, 157, 0.25);
+
+  --core-color: #00e5ff;
+  --core-glow: rgba(0, 229, 255, 0.3);
+
+  /* Functional Color Semantics (MAGI_IMP Section 9) */
+  --color-sys: #00e5ff;       /* Cyan: system status and information */
+  --color-action: #ff9d00;    /* Amber/Orange: action and execution */
+  --color-danger: #ff0055;    /* Magenta/Red: risk, conflict, dissent */
+  --color-success: #00ff9d;   /* Green: consensus, success, online */
+
+  /* Standardized Borders & Radii */
+  --border-subtle: #161c28;
+  --border-default: #242c3d;
+  --border-focus: #00e5ff;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Standardized Glow Presets */
+  --glow-sm: 0 0 6px;
+  --glow-md: 0 0 12px;
+  --glow-lg: 0 0 20px;
+  --glow-core: 0 0 12px rgba(0, 229, 255, 0.25);
+  --glow-melchior: 0 0 12px rgba(255, 157, 0, 0.22);
+  --glow-balthasar: 0 0 12px rgba(255, 0, 85, 0.22);
+  --glow-casper: 0 0 12px rgba(0, 255, 157, 0.22);
+
+  /* Standardized Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-display: 'Teko', sans-serif;
+}
+

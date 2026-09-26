@@ -1,0 +1,43 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // HUD CONTAINER & MAIN LAYOUT             */
+/* Frame constraints, main header bar, and layout wrappers       */
+/* ============================================================= */
+
+/* Main Viewport Container */
+.hud-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Top Header Bar */
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hud-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* Global Utility Classes */
+.hidden {
+  display: none !important;
+}

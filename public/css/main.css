@@ -1,0 +1,33 @@
+/* ============================================================= */
+/* MAGI SUPERCOMPUTER // CONSOLIDATED MODULAR STYLESHEET          */
+/* ============================================================= */
+
+/* Base & Design Tokens */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* Core Layout */
+@import url('./layout/hud.css');
+
+/* Modular Components */
+@import url('./components/buttons.css');
+@import url('./components/forms.css');
+@import url('./components/panels.css');
+@import url('./components/status.css');
+@import url('./components/timeline.css');
+@import url('./components/modals.css');
+
+/* Dedicated Engine Views */
+@import url('./views/tactical.css');
+@import url('./views/anime.css');
+@import url('./views/diagnostic.css');
+
+/* Responsive Viewports */
+@import url('./responsive.css');
+
+.diagnostic-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
