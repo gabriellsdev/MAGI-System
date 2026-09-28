@@ -1063,6 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function unlockOperatorUI() {
+    const t = typeof I18N !== 'undefined' ? (I18N[currentLang] || I18N.en) : {};
     if (operatorUnlockBtn) {
       operatorUnlockBtn.textContent = (t.op_console || 'OPERATOR CONSOLE') + ' [AUTHORIZED]';
       operatorUnlockBtn.classList.add('active');
@@ -1074,6 +1075,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function lockOperatorUI() {
+    const t = typeof I18N !== 'undefined' ? (I18N[currentLang] || I18N.en) : {};
     if (operatorUnlockBtn) {
       operatorUnlockBtn.textContent = (t.op_console || 'OPERATOR CONSOLE') + ' [LOCKED]';
       operatorUnlockBtn.classList.remove('active');
@@ -1319,6 +1321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fast Mode Management
   function updateFastModeUI() {
+    const t = typeof I18N !== 'undefined' ? (I18N[currentLang] || I18N.en) : {};
     const fast = state.engine.fastMode;
     const fastModeLabel = document.getElementById('fast-mode-label');
     const fastModeSub = document.getElementById('fast-mode-sub');
